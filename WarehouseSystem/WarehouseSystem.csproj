@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectDB.cs" />
+    <Compile Include="DBqueries.cs" />
     <Compile Include="WarehouseSystem.cs">
       <SubType>Form</SubType>
     </Compile>
