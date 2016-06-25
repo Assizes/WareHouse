@@ -80,7 +80,6 @@ namespace WarehouseSystem
                 //     contBox.DisplayMember = "Continent";
                 mcmd.Dispose();
             }
-
             else
             {
                 MessageBox.Show("Connection Failed");
