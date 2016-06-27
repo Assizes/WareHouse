@@ -8,5 +8,8 @@ namespace WarehouseSystem
 {
     class DBqueries
     {
+       
+       public string q1 = "SELECT DISTINCT Continent FROM sampdb.Country";
+
     }
 }

@@ -67,7 +67,7 @@ namespace WarehouseSystem
             if (connection != null)
             {
                 MessageBox.Show("Data Base Connected!");
-                query = "SELECT DISTINCT Continent FROM sampdb.Country";
+                query = queries.q1;
                 MySqlDataAdapter mcmd = new MySqlDataAdapter();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
