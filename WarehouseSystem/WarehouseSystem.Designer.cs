@@ -45,7 +45,7 @@
             this.loginScreen.Controls.Add(this.passwordLabel);
             this.loginScreen.Controls.Add(this.signBtn);
             this.loginScreen.Controls.Add(this.loginLabel);
-            this.loginScreen.Location = new System.Drawing.Point(217, 137);
+            this.loginScreen.Location = new System.Drawing.Point(237, 154);
             this.loginScreen.Name = "loginScreen";
             this.loginScreen.Size = new System.Drawing.Size(361, 255);
             this.loginScreen.TabIndex = 7;
@@ -102,12 +102,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 529);
+            this.ClientSize = new System.Drawing.Size(834, 562);
             this.Controls.Add(this.loginScreen);
             this.IsMdiContainer = true;
+            this.MinimumSize = new System.Drawing.Size(850, 600);
             this.Name = "WarehouseSystem";
             this.Text = "WarehouseSystem";
             this.Load += new System.EventHandler(this.WarehouseSystem_Load);
+            this.SizeChanged += new System.EventHandler(this.WarehouseSystem_SizeChanged);
             this.loginScreen.ResumeLayout(false);
             this.loginScreen.PerformLayout();
             this.ResumeLayout(false);

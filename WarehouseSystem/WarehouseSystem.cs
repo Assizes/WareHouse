@@ -14,14 +14,13 @@ namespace WarehouseSystem
 {
     public partial class WarehouseSystem : Form
     {
+        private Form welcome = null;
         MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
         DBqueries queries = new DBqueries();
         string query;
         private string login = "";
-        //        private string pass = "c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec";
-        private string pass = "";
 
         public WarehouseSystem()
         {
@@ -120,7 +119,7 @@ namespace WarehouseSystem
                     //           tennantsToolStripMenuItem.Enabled = true;
                     //            employeeToolStripMenuItem.Enabled = true;
                     //            usersToolStripMenuItem1.Enabled = true;
-                    //            openWelcomeScreen();
+                    openWelcomeScreen();
                 }
                 else
                 {
@@ -139,6 +138,30 @@ namespace WarehouseSystem
             else
             {
                 MessageBox.Show("Connection to DataBase Have Been Lost");
+            }
+        }
+
+        private void openWelcomeScreen()
+        {
+            if (((Form)Application.OpenForms["Menu"]) == null)
+            {
+                welcome = new menuForm();
+                welcome.MdiParent = this;
+                welcome.Show();
+            }
+            else
+            {
+                welcome.Focus();
+            }
+        }
+
+        //change location of MenuMDI child screen when Parent screen resized
+        private void WarehouseSystem_SizeChanged(object sender, EventArgs e)
+        {
+            if (welcome != null)
+            {
+                Point p = new Point(Location.X - this.Location.X - 10 + (this.Width - welcome.Width) / 2, Location.Y - this.Location.Y - 10 + (this.Height - Convert.ToInt32(welcome.Height)) / 2);
+                welcome.Location = p;
             }
         }
     }
