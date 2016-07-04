@@ -29,71 +29,69 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnAddInventory = new System.Windows.Forms.Button();
-            this.btnClient = new System.Windows.Forms.Button();
+            this.btnEditInventory = new System.Windows.Forms.Button();
+            this.btnDeleteInventory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 26);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 14);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(533, 305);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Inventory";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // btnAddInventory
             // 
-            this.btnAddInventory.Location = new System.Drawing.Point(568, 101);
+            this.btnAddInventory.Location = new System.Drawing.Point(574, 113);
             this.btnAddInventory.Name = "btnAddInventory";
-            this.btnAddInventory.Size = new System.Drawing.Size(87, 23);
+            this.btnAddInventory.Size = new System.Drawing.Size(104, 23);
             this.btnAddInventory.TabIndex = 2;
             this.btnAddInventory.Text = "Add Inventory";
             this.btnAddInventory.UseVisualStyleBackColor = true;
             // 
-            // btnClient
+            // btnEditInventory
             // 
-            this.btnClient.Location = new System.Drawing.Point(581, 230);
-            this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(87, 23);
-            this.btnClient.TabIndex = 3;
-            this.btnClient.Text = "Clients";
-            this.btnClient.UseVisualStyleBackColor = true;
+            this.btnEditInventory.Location = new System.Drawing.Point(574, 157);
+            this.btnEditInventory.Name = "btnEditInventory";
+            this.btnEditInventory.Size = new System.Drawing.Size(104, 23);
+            this.btnEditInventory.TabIndex = 3;
+            this.btnEditInventory.Text = "Edit Inventory";
+            this.btnEditInventory.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteInventory
+            // 
+            this.btnDeleteInventory.Location = new System.Drawing.Point(574, 205);
+            this.btnDeleteInventory.Name = "btnDeleteInventory";
+            this.btnDeleteInventory.Size = new System.Drawing.Size(104, 23);
+            this.btnDeleteInventory.TabIndex = 4;
+            this.btnDeleteInventory.Text = "Delete Inventory";
+            this.btnDeleteInventory.UseVisualStyleBackColor = true;
             // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 352);
-            this.Controls.Add(this.btnClient);
+            this.ClientSize = new System.Drawing.Size(707, 329);
+            this.Controls.Add(this.btnDeleteInventory);
+            this.Controls.Add(this.btnEditInventory);
             this.Controls.Add(this.btnAddInventory);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Inventory";
             this.Text = "Inventory";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddInventory;
-        private System.Windows.Forms.Button btnClient;
+        private System.Windows.Forms.Button btnEditInventory;
+        private System.Windows.Forms.Button btnDeleteInventory;
     }
 }

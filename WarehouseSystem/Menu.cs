@@ -15,6 +15,7 @@ namespace WarehouseSystem
         private Form inventory = null;
         private Form tenants = null;
         private Form underConst = null;
+
         Form parent = (Form)Application.OpenForms["WarehouseSystem"];
 
         public menuForm()
