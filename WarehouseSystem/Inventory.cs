@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WarehouseSystem
 {
-    public partial class OpeningScreen2 : Form
+    public partial class Inventory : Form
     {
-        public OpeningScreen2()
+        public Inventory()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

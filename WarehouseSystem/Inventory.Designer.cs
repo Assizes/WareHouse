@@ -1,6 +1,6 @@
 ﻿namespace WarehouseSystem
 {
-    partial class OpeningScreen2
+    partial class Inventory
     {
         /// <summary>
         /// Required designer variable.
@@ -52,6 +52,7 @@
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Inventory";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnAddInventory
             // 
@@ -90,8 +91,9 @@
             this.Controls.Add(this.btnAddInventory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "OpeningScreen2";
-            this.Text = "OpeningScreen2";
+            this.Text = "Inventory";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
