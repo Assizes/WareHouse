@@ -37,6 +37,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripUsersMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.warehouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginScreen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +107,9 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientsToolStripMenuItem,
             this.inventoryToolStripMenuItem,
+            this.warehouseToolStripMenuItem,
             this.toolStripUsersMenu});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -129,6 +133,19 @@
             this.toolStripUsersMenu.Size = new System.Drawing.Size(47, 20);
             this.toolStripUsersMenu.Text = "Users";
             this.toolStripUsersMenu.Click += new System.EventHandler(this.toolStripUsersMenu_Click);
+            // 
+            // warehouseToolStripMenuItem
+            // 
+            this.warehouseToolStripMenuItem.Enabled = false;
+            this.warehouseToolStripMenuItem.Name = "warehouseToolStripMenuItem";
+            this.warehouseToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.warehouseToolStripMenuItem.Text = "Warehouse";
+            // 
+            // clientsToolStripMenuItem
+            // 
+            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.clientsToolStripMenuItem.Text = "Clients";
             // 
             // WarehouseSystem
             // 
@@ -164,6 +181,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripUsersMenu;
         private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem warehouseToolStripMenuItem;
     }
 }
 
