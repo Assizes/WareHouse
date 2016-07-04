@@ -9,7 +9,7 @@ namespace WarehouseSystem
     class DBqueries
     {
        
-       public string q1 = "SELECT DISTINCT Continent FROM sampdb.Country";
+       public string checkUserCredentials = "SELECT DISTINCT User_Login, User_Password, userRoleID FROM s2016_user1.users WHERE User_Login = @Login";
 
     }
 }
