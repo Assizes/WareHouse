@@ -16,6 +16,7 @@ namespace WarehouseSystem
     {
         private Form welcome = null;
         private Form users = null;
+        private Form inventory = null;
         MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
@@ -182,6 +183,20 @@ namespace WarehouseSystem
             else
             {
                 users.Focus();
+            }
+        }
+
+        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (((Form)Application.OpenForms["Inventory"]) == null)
+            {
+                inventory = new Inventory();
+                inventory.MdiParent = this;
+                inventory.Show();
+            }
+            else
+            {
+                inventory.Focus();
             }
         }
     }

@@ -35,6 +35,7 @@
             this.signBtn = new System.Windows.Forms.Button();
             this.loginLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripUsersMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.loginScreen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -104,6 +105,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inventoryToolStripMenuItem,
             this.toolStripUsersMenu});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -112,6 +114,13 @@
             this.menuStrip1.Size = new System.Drawing.Size(834, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // inventoryToolStripMenuItem
+            // 
+            this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
+            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.inventoryToolStripMenuItem.Text = "Inventory";
+            this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             // 
             // toolStripUsersMenu
             // 
@@ -154,6 +163,7 @@
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripUsersMenu;
+        private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
     }
 }
 

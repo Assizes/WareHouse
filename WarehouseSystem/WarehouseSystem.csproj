@@ -85,11 +85,11 @@
     <Compile Include="OpeningScreen.Designer.cs">
       <DependentUpon>OpeningScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="OpeningScreen2.cs">
+    <Compile Include="Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OpeningScreen2.Designer.cs">
-      <DependentUpon>OpeningScreen2.cs</DependentUpon>
+    <Compile Include="Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="WarehouseSystem.cs">
       <SubType>Form</SubType>
@@ -108,8 +108,8 @@
     <EmbeddedResource Include="OpeningScreen.resx">
       <DependentUpon>OpeningScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OpeningScreen2.resx">
-      <DependentUpon>OpeningScreen2.cs</DependentUpon>
+    <EmbeddedResource Include="Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarehouseSystem.resx">
       <DependentUpon>WarehouseSystem.cs</DependentUpon>
