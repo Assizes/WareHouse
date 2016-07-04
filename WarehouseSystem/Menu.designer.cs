@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnInventory = new System.Windows.Forms.Button();
+            this.btnClients = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -60,27 +60,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Warehouse System";
             // 
-            // button1
+            // btnInventory
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(14, 196);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Buildings";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnInventory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInventory.Location = new System.Drawing.Point(14, 196);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(106, 23);
+            this.btnInventory.TabIndex = 7;
+            this.btnInventory.Text = "Inventory";
+            this.btnInventory.UseVisualStyleBackColor = true;
+            this.btnInventory.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnClients
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(147, 196);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Tenants";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnClients.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClients.Location = new System.Drawing.Point(147, 196);
+            this.btnClients.Name = "btnClients";
+            this.btnClients.Size = new System.Drawing.Size(106, 23);
+            this.btnClients.TabIndex = 8;
+            this.btnClients.Text = "Tenants";
+            this.btnClients.UseVisualStyleBackColor = true;
+            this.btnClients.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -202,8 +202,8 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClients);
+            this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.imgChanges);
             this.Controls.Add(this.imgWaiting);
             this.Controls.Add(this.imgParking);
@@ -239,8 +239,8 @@
         private System.Windows.Forms.PictureBox imgParking;
         private System.Windows.Forms.PictureBox imgWaiting;
         private System.Windows.Forms.PictureBox imgChanges;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnInventory;
+        private System.Windows.Forms.Button btnClients;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
