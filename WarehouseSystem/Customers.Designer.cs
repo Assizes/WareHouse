@@ -79,6 +79,7 @@
             this.Controls.Add(this.btnEditCustomers);
             this.Controls.Add(this.btnAddCustomers);
             this.Controls.Add(this.dgvCustomers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Customers";
             this.Text = "Customers";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
