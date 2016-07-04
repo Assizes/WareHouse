@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.btnAddInventory = new System.Windows.Forms.Button();
             this.btnEditInventory = new System.Windows.Forms.Button();
             this.btnDeleteInventory = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvInventory
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 14);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(533, 305);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventory.Location = new System.Drawing.Point(12, 14);
+            this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.Size = new System.Drawing.Size(533, 305);
+            this.dgvInventory.TabIndex = 0;
             // 
             // btnAddInventory
             // 
@@ -78,18 +78,18 @@
             this.Controls.Add(this.btnDeleteInventory);
             this.Controls.Add(this.btnEditInventory);
             this.Controls.Add(this.btnAddInventory);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Inventory";
             this.Text = "Inventory";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvInventory;
         private System.Windows.Forms.Button btnAddInventory;
         private System.Windows.Forms.Button btnEditInventory;
         private System.Windows.Forms.Button btnDeleteInventory;

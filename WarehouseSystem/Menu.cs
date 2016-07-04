@@ -13,7 +13,7 @@ namespace WarehouseSystem
     public partial class menuForm : Form
     {
         private Form inventory = null;
-        private Form tenants = null;
+        private Form customers = null;
         private Form underConst = null;
 
         Form parent = (Form)Application.OpenForms["WarehouseSystem"];
@@ -59,9 +59,10 @@ namespace WarehouseSystem
             openTenats();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCustomers_Click(object sender, EventArgs e)
         {
-            openTenats();
+            customers = new Customers();
+            openWindow("Customers", customers);
         }
         private void openTenats()
         {
