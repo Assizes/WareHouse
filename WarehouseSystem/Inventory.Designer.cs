@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddInventory = new System.Windows.Forms.Button();
             this.btnClient = new System.Windows.Forms.Button();
-            this.btnUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +55,7 @@
             // 
             // btnAddInventory
             // 
-            this.btnAddInventory.Location = new System.Drawing.Point(581, 123);
+            this.btnAddInventory.Location = new System.Drawing.Point(568, 101);
             this.btnAddInventory.Name = "btnAddInventory";
             this.btnAddInventory.Size = new System.Drawing.Size(87, 23);
             this.btnAddInventory.TabIndex = 2;
@@ -65,34 +64,24 @@
             // 
             // btnClient
             // 
-            this.btnClient.Location = new System.Drawing.Point(581, 172);
+            this.btnClient.Location = new System.Drawing.Point(581, 230);
             this.btnClient.Name = "btnClient";
             this.btnClient.Size = new System.Drawing.Size(87, 23);
             this.btnClient.TabIndex = 3;
             this.btnClient.Text = "Clients";
             this.btnClient.UseVisualStyleBackColor = true;
             // 
-            // btnUser
-            // 
-            this.btnUser.Location = new System.Drawing.Point(581, 219);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(87, 23);
-            this.btnUser.TabIndex = 4;
-            this.btnUser.Text = "Users????";
-            this.btnUser.UseVisualStyleBackColor = true;
-            // 
-            // OpeningScreen2
+            // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 352);
-            this.Controls.Add(this.btnUser);
             this.Controls.Add(this.btnClient);
             this.Controls.Add(this.btnAddInventory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "OpeningScreen2";
+            this.Name = "Inventory";
             this.Text = "Inventory";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -106,6 +95,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddInventory;
         private System.Windows.Forms.Button btnClient;
-        private System.Windows.Forms.Button btnUser;
     }
 }

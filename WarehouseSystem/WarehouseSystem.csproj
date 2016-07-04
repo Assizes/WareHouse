@@ -79,12 +79,6 @@
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
-    <Compile Include="OpeningScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OpeningScreen.Designer.cs">
-      <DependentUpon>OpeningScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,9 +98,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OpeningScreen.resx">
-      <DependentUpon>OpeningScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>

@@ -12,10 +12,10 @@ namespace WarehouseSystem
 {
     public partial class menuForm : Form
     {
-        private Form buildings = null;
+        private Form inventory = null;
         private Form tenants = null;
         private Form underConst = null;
-        Form parent = (Form)Application.OpenForms["MainScreen"];
+        Form parent = (Form)Application.OpenForms["WarehouseSystem"];
 
         public menuForm()
         {
@@ -27,9 +27,10 @@ namespace WarehouseSystem
             this.SendToBack();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnInventory_Click(object sender, EventArgs e)
         {
-            openBuildings();
+            inventory = new Inventory();
+            openWindow("Inventory", inventory);
         }
 
         private void imgBuildings_Click(object sender, EventArgs e)
@@ -47,8 +48,8 @@ namespace WarehouseSystem
             }
             else
             {
-                buildings = (Form)Application.OpenForms["buildingsForm"];
-                buildings.Focus();
+    //            buildings = (Form)Application.OpenForms["buildingsForm"];
+    //            buildings.Focus();
             }
         }
 
@@ -71,23 +72,13 @@ namespace WarehouseSystem
             }
             else
             {
-                tenants = (Form)Application.OpenForms["tenantsForm"];
-                tenants.Focus();
+  //              tenants = (Form)Application.OpenForms["tenantsForm"];
+  //              tenants.Focus();
             }
         }
         private void openUnderConst()
         {
-            if (((Form)Application.OpenForms["UnderConstruction"]) == null)
-            {
- //               underConst = new UnderConstruction();
- //               underConst.MdiParent = parent;
- //               underConst.Show();
-            }
-            else
-            {
-                underConst = (Form)Application.OpenForms["UnderConstruction"];
-                underConst.Focus();
-            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -128,6 +119,21 @@ namespace WarehouseSystem
         private void button6_Click(object sender, EventArgs e)
         {
             openUnderConst();
+        }
+
+        private void openWindow(string formName, Form form)
+        {
+            if (((Form)Application.OpenForms[formName]) == null)
+            {
+                
+                form.MdiParent = parent;
+                form.Show();
+            }
+            else
+            {
+                form = (Form)Application.OpenForms[formName];
+                form.Focus();
+            }
         }
 
     }
