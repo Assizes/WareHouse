@@ -18,10 +18,11 @@ namespace WarehouseSystem
         ConnectDB dbinfo;
         MySqlCommand cmd;
         DBqueries queries = new DBqueries();
+        
         string query;
         private string login = "admin";
         private string pass = "c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec";
-
+        
         public WarehouseSystem()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace WarehouseSystem
         
         private void WarehouseSystem_Load(object sender, EventArgs e)
         {
-            //Change the background color of Parant MDI panel
+            //Change the background color of Parent MDI panel
             MdiClient ctlMDI;
 
             // Loop through all of the form's controls looking
@@ -41,14 +42,18 @@ namespace WarehouseSystem
                 {
                     // Attempt to cast the control to type MdiClient.
                     ctlMDI = (MdiClient)ctl;
-
+                   
                     // Set the BackColor of the MdiClient control.
                     ctlMDI.BackColor = this.BackColor;
+
+                    
                 }
                 catch (InvalidCastException exc)
                 {
                     // Catch and ignore the error if casting failed.
                 }
+
+               
             }
 
             dbinfo = new ConnectDB();
@@ -66,7 +71,7 @@ namespace WarehouseSystem
 
             if (connection != null)
             {
-                MessageBox.Show("Data Base Connected!");
+                MessageBox.Show("Database Connected!");
                 query = queries.q1;
                 MySqlDataAdapter mcmd = new MySqlDataAdapter();
                 cmd.CommandText = query;
@@ -111,12 +116,15 @@ namespace WarehouseSystem
                 loginScreen.Visible = false;
                 loginScreen.Enabled = false;
                 // Enable menu tabs
-     //           toolsMenu.Enabled = true;
-     //           buildingsToolStripMenuItem.Enabled = true;
-     //           tennantsToolStripMenuItem.Enabled = true;
-    //            employeeToolStripMenuItem.Enabled = true;
-    //            usersToolStripMenuItem1.Enabled = true;
-    //            openWelcomeScreen();
+                //           toolsMenu.Enabled = true;
+                //           buildingsToolStripMenuItem.Enabled = true;
+                //           tennantsToolStripMenuItem.Enabled = true;
+                //            employeeToolStripMenuItem.Enabled = true;
+                //            usersToolStripMenuItem1.Enabled = true;
+                //            openWelcomeScreen();
+              
+
+
             }
             else
             {

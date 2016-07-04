@@ -67,6 +67,18 @@
   <ItemGroup>
     <Compile Include="ConnectDB.cs" />
     <Compile Include="DBqueries.cs" />
+    <Compile Include="OpeningScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpeningScreen.Designer.cs">
+      <DependentUpon>OpeningScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpeningScreen2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpeningScreen2.Designer.cs">
+      <DependentUpon>OpeningScreen2.cs</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +87,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="OpeningScreen.resx">
+      <DependentUpon>OpeningScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpeningScreen2.resx">
+      <DependentUpon>OpeningScreen2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WarehouseSystem.resx">
       <DependentUpon>WarehouseSystem.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +104,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,6 +130,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warehousePhoto.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
