@@ -34,7 +34,10 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.signBtn = new System.Windows.Forms.Button();
             this.loginLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripUsersMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.loginScreen.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginScreen
@@ -98,13 +101,35 @@
             this.loginLabel.TabIndex = 5;
             this.loginLabel.Text = "Login:";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripUsersMenu});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripUsersMenu
+            // 
+            this.toolStripUsersMenu.Enabled = false;
+            this.toolStripUsersMenu.Name = "toolStripUsersMenu";
+            this.toolStripUsersMenu.Size = new System.Drawing.Size(47, 20);
+            this.toolStripUsersMenu.Text = "Users";
+            this.toolStripUsersMenu.Click += new System.EventHandler(this.toolStripUsersMenu_Click);
+            // 
             // WarehouseSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 562);
             this.Controls.Add(this.loginScreen);
+            this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(850, 600);
             this.Name = "WarehouseSystem";
             this.Text = "WarehouseSystem";
@@ -112,7 +137,10 @@
             this.SizeChanged += new System.EventHandler(this.WarehouseSystem_SizeChanged);
             this.loginScreen.ResumeLayout(false);
             this.loginScreen.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,6 +152,8 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button signBtn;
         private System.Windows.Forms.Label loginLabel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripUsersMenu;
     }
 }
 

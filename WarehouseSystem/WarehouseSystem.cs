@@ -15,6 +15,7 @@ namespace WarehouseSystem
     public partial class WarehouseSystem : Form
     {
         private Form welcome = null;
+        private Form users = null;
         MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
@@ -95,7 +96,7 @@ namespace WarehouseSystem
             string input = sBuilder.ToString();
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 
-            //Check user in database and retrive his hashed password
+            //Check a user in a database and retrive his hashed password
             if (connection != null)
             {
                 query = queries.checkUserCredentials;
@@ -113,13 +114,13 @@ namespace WarehouseSystem
                     // Hide and disable login screen
                     loginScreen.Visible = false;
                     loginScreen.Enabled = false;
-                    // Enable menu tabs
-                    //           toolsMenu.Enabled = true;
-                    //           buildingsToolStripMenuItem.Enabled = true;
-                    //           tennantsToolStripMenuItem.Enabled = true;
-                    //            employeeToolStripMenuItem.Enabled = true;
-                    //            usersToolStripMenuItem1.Enabled = true;
+               
                     openWelcomeScreen();
+                    int tmp;
+                    int.TryParse(dt.Rows[0]["userRoleID"].ToString(), out tmp);
+                    // Enable menu tabs
+                    if (tmp == 1) //if user is admin enable menu for users
+                        toolStripUsersMenu.Enabled = true;
                 }
                 else
                 {
@@ -162,6 +163,20 @@ namespace WarehouseSystem
             {
                 Point p = new Point(Location.X - this.Location.X - 10 + (this.Width - welcome.Width) / 2, Location.Y - this.Location.Y - 10 + (this.Height - Convert.ToInt32(welcome.Height)) / 2);
                 welcome.Location = p;
+            }
+        }
+
+        private void toolStripUsersMenu_Click(object sender, EventArgs e)
+        {
+            if (((Form)Application.OpenForms["Users"]) == null)
+            {
+                users = new Users();
+                users.MdiParent = this;
+                users.Show();
+            }
+            else
+            {
+                users.Focus();
             }
         }
     }
