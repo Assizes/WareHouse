@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace WarehouseSystem
 {
-    public partial class Customers : Form
+    public partial class AddCustomers : Form
     {
-        
-
-        public Customers()
+        public AddCustomers()
         {
             InitializeComponent();
-        }
-
-        private void btnAddCustomers_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
