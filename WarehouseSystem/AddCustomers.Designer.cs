@@ -92,7 +92,7 @@
             // lblCustomerPhone
             // 
             this.lblCustomerPhone.AutoSize = true;
-            this.lblCustomerPhone.Location = new System.Drawing.Point(447, 32);
+            this.lblCustomerPhone.Location = new System.Drawing.Point(409, 32);
             this.lblCustomerPhone.Name = "lblCustomerPhone";
             this.lblCustomerPhone.Size = new System.Drawing.Size(78, 13);
             this.lblCustomerPhone.TabIndex = 2;
@@ -123,7 +123,7 @@
             // 
             // txtCustomerPhone
             // 
-            this.txtCustomerPhone.Location = new System.Drawing.Point(531, 29);
+            this.txtCustomerPhone.Location = new System.Drawing.Point(493, 29);
             this.txtCustomerPhone.Name = "txtCustomerPhone";
             this.txtCustomerPhone.Size = new System.Drawing.Size(112, 20);
             this.txtCustomerPhone.TabIndex = 6;
@@ -132,13 +132,13 @@
             // 
             this.txtCustomerAddress.Location = new System.Drawing.Point(90, 87);
             this.txtCustomerAddress.Name = "txtCustomerAddress";
-            this.txtCustomerAddress.Size = new System.Drawing.Size(112, 20);
+            this.txtCustomerAddress.Size = new System.Drawing.Size(308, 20);
             this.txtCustomerAddress.TabIndex = 7;
             // 
             // lblCustomerCity
             // 
             this.lblCustomerCity.AutoSize = true;
-            this.lblCustomerCity.Location = new System.Drawing.Point(256, 155);
+            this.lblCustomerCity.Location = new System.Drawing.Point(60, 158);
             this.lblCustomerCity.Name = "lblCustomerCity";
             this.lblCustomerCity.Size = new System.Drawing.Size(24, 13);
             this.lblCustomerCity.TabIndex = 8;
@@ -146,7 +146,7 @@
             // 
             // txtCustomerCity
             // 
-            this.txtCustomerCity.Location = new System.Drawing.Point(286, 152);
+            this.txtCustomerCity.Location = new System.Drawing.Point(90, 155);
             this.txtCustomerCity.Name = "txtCustomerCity";
             this.txtCustomerCity.Size = new System.Drawing.Size(112, 20);
             this.txtCustomerCity.TabIndex = 9;
@@ -154,7 +154,7 @@
             // lblCustomerProvince
             // 
             this.lblCustomerProvince.AutoSize = true;
-            this.lblCustomerProvince.Location = new System.Drawing.Point(27, 155);
+            this.lblCustomerProvince.Location = new System.Drawing.Point(223, 158);
             this.lblCustomerProvince.Name = "lblCustomerProvince";
             this.lblCustomerProvince.Size = new System.Drawing.Size(49, 13);
             this.lblCustomerProvince.TabIndex = 10;
@@ -162,14 +162,14 @@
             // 
             // txtCustomerProvince
             // 
-            this.txtCustomerProvince.Location = new System.Drawing.Point(90, 152);
+            this.txtCustomerProvince.Location = new System.Drawing.Point(286, 155);
             this.txtCustomerProvince.Name = "txtCustomerProvince";
             this.txtCustomerProvince.Size = new System.Drawing.Size(112, 20);
             this.txtCustomerProvince.TabIndex = 11;
             // 
             // txtCustomerPostalCode
             // 
-            this.txtCustomerPostalCode.Location = new System.Drawing.Point(531, 152);
+            this.txtCustomerPostalCode.Location = new System.Drawing.Point(493, 155);
             this.txtCustomerPostalCode.Name = "txtCustomerPostalCode";
             this.txtCustomerPostalCode.Size = new System.Drawing.Size(112, 20);
             this.txtCustomerPostalCode.TabIndex = 13;
@@ -177,7 +177,7 @@
             // lblCustomerPostalCode
             // 
             this.lblCustomerPostalCode.AutoSize = true;
-            this.lblCustomerPostalCode.Location = new System.Drawing.Point(461, 155);
+            this.lblCustomerPostalCode.Location = new System.Drawing.Point(423, 158);
             this.lblCustomerPostalCode.Name = "lblCustomerPostalCode";
             this.lblCustomerPostalCode.Size = new System.Drawing.Size(64, 13);
             this.lblCustomerPostalCode.TabIndex = 14;
