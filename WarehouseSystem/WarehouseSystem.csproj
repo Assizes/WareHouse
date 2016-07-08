@@ -79,6 +79,12 @@
       <DependentUpon>Customers.cs</DependentUpon>
     </Compile>
     <Compile Include="DBqueries.cs" />
+    <Compile Include="EditCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCustomers.Designer.cs">
+      <DependentUpon>EditCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCustomers.resx">
+      <DependentUpon>EditCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

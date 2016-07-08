@@ -41,7 +41,7 @@
             this.btnDeleteCustomers.Name = "btnDeleteCustomers";
             this.btnDeleteCustomers.Size = new System.Drawing.Size(104, 23);
             this.btnDeleteCustomers.TabIndex = 8;
-            this.btnDeleteCustomers.Text = "Delete Customers";
+            this.btnDeleteCustomers.Text = "Delete Customer";
             this.btnDeleteCustomers.UseVisualStyleBackColor = true;
             // 
             // btnEditCustomers
@@ -50,8 +50,9 @@
             this.btnEditCustomers.Name = "btnEditCustomers";
             this.btnEditCustomers.Size = new System.Drawing.Size(104, 23);
             this.btnEditCustomers.TabIndex = 7;
-            this.btnEditCustomers.Text = "Edit Customers";
+            this.btnEditCustomers.Text = "Edit Customer";
             this.btnEditCustomers.UseVisualStyleBackColor = true;
+            this.btnEditCustomers.Click += new System.EventHandler(this.btnEditCustomers_Click);
             // 
             // btnAddCustomers
             // 
@@ -59,7 +60,7 @@
             this.btnAddCustomers.Name = "btnAddCustomers";
             this.btnAddCustomers.Size = new System.Drawing.Size(104, 23);
             this.btnAddCustomers.TabIndex = 6;
-            this.btnAddCustomers.Text = "Add Customers";
+            this.btnAddCustomers.Text = "Add Customer";
             this.btnAddCustomers.UseVisualStyleBackColor = true;
             this.btnAddCustomers.Click += new System.EventHandler(this.btnAddCustomers_Click);
             // 

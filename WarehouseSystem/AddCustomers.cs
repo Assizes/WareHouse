@@ -16,5 +16,16 @@ namespace WarehouseSystem
         {
             InitializeComponent();
         }
+
+        private void btnAddCustomerReset_Click(object sender, EventArgs e)
+        {
+            txtAddCustomerFName.Text = "";
+            txtAddCustomerLName.Text = "";
+            txtAddCustomerAddress.Text = "";
+            txtAddCustomerPhone.Text = "";
+            txtAddCustomerCity.Text = "";
+            txtAddCustomerProvince.Text = "";
+            txtAddCustomerPostalCode.Text = "";
+        }
     }
 }
