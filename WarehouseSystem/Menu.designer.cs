@@ -81,7 +81,7 @@
             this.btnUsers.TabIndex = 9;
             this.btnUsers.Text = "Users";
             this.btnUsers.UseVisualStyleBackColor = true;
-            this.btnUsers.Click += new System.EventHandler(this.button3_Click);
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnWarehouse
             // 
@@ -92,7 +92,7 @@
             this.btnWarehouse.TabIndex = 10;
             this.btnWarehouse.Text = "Warehouse";
             this.btnWarehouse.UseVisualStyleBackColor = true;
-            this.btnWarehouse.Click += new System.EventHandler(this.button4_Click);
+            this.btnWarehouse.Click += new System.EventHandler(this.btnWarehouse_Click);
             // 
             // btnExit
             // 
@@ -103,7 +103,6 @@
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.button5_Click);
             // 
             // imgWarehouseBanner
             // 
@@ -117,7 +116,6 @@
             this.imgWarehouseBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgWarehouseBanner.TabIndex = 1;
             this.imgWarehouseBanner.TabStop = false;
-            this.imgWarehouseBanner.Click += new System.EventHandler(this.imgBuildings_Click);
             // 
             // menuForm
             // 

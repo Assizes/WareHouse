@@ -17,7 +17,8 @@ namespace WarehouseSystem
         private Form welcome = null;
         private Form users = null;
         private Form inventory = null;
-        MySqlConnection connection = null;
+        private Form customers = null;
+        private static MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
         DBqueries queries = new DBqueries();
@@ -25,12 +26,22 @@ namespace WarehouseSystem
         string query;
         private string login = "";
 
+        public MySqlConnection Connection
+        {
+            get { return connection; }
+            set { connection = value; }
+        }
+
         public WarehouseSystem()
         {
             InitializeComponent();
         }
 
-        
+        public MySqlConnection getConnection()
+        {
+            return connection;
+        }
+
         private void WarehouseSystem_Load(object sender, EventArgs e)
         {
             //Change the background color of Parent MDI panel
@@ -127,21 +138,21 @@ namespace WarehouseSystem
                 // Enable menu tabs
                     if (tmp == 1) //if user is admin enable menu for users
                         toolStripUsersMenu.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("Please enter valid user name and password");
-            }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter valid user name and password");
+                }
 
-                /*
-                DataSet ds = new DataSet();
-                mcmd.Fill(ds);
-                     contBox.DataSource = ds.Tables[0];
-                     contBox.ValueMember = "Continent";
-                     contBox.DisplayMember = "Continent";
-                mcmd.Dispose();
-                */
-            }
+                    /*
+                    DataSet ds = new DataSet();
+                    mcmd.Fill(ds);
+                        contBox.DataSource = ds.Tables[0];
+                        contBox.ValueMember = "Continent";
+                        contBox.DisplayMember = "Continent";
+                    mcmd.Dispose();
+                    */
+                }
             else
             {
                 MessageBox.Show("Connection to DataBase Have Been Lost");
@@ -174,30 +185,34 @@ namespace WarehouseSystem
 
         private void toolStripUsersMenu_Click(object sender, EventArgs e)
         {
-            if (((Form)Application.OpenForms["Users"]) == null)
-            {
-                users = new Users();
-                users.MdiParent = this;
-                users.Show();
-            }
-            else
-            {
-                users.Focus();
-            }
+            users = new Users();
+            openWindow("Users",users);
         }
-        //
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (((Form)Application.OpenForms["Inventory"]) == null)
+            inventory = new Inventory();
+            openWindow("Inventory", inventory);
+        }
+
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            customers = new Customers();
+            openWindow("Customers",customers);    
+        }
+
+        private void openWindow(string formName, Form form)
+        {
+            if (((Form)Application.OpenForms[formName]) == null)
             {
-                inventory = new Inventory();
-                inventory.MdiParent = this;
-                inventory.Show();
+
+                form.MdiParent = this;
+                form.Show();
             }
             else
             {
-                inventory.Focus();
+                form = (Form)Application.OpenForms[formName];
+                form.Focus();
             }
         }
     }

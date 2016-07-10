@@ -35,10 +35,10 @@
             this.signBtn = new System.Windows.Forms.Button();
             this.loginLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripUsersMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.warehouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.warehouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripUsersMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.loginScreen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -119,20 +119,19 @@
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // clientsToolStripMenuItem
+            // 
+            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.clientsToolStripMenuItem.Text = "Customers";
+            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
+            // 
             // inventoryToolStripMenuItem
             // 
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
             this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.inventoryToolStripMenuItem.Text = "Inventory";
             this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
-            // 
-            // toolStripUsersMenu
-            // 
-            this.toolStripUsersMenu.Enabled = false;
-            this.toolStripUsersMenu.Name = "toolStripUsersMenu";
-            this.toolStripUsersMenu.Size = new System.Drawing.Size(47, 20);
-            this.toolStripUsersMenu.Text = "Users";
-            this.toolStripUsersMenu.Click += new System.EventHandler(this.toolStripUsersMenu_Click);
             // 
             // warehouseToolStripMenuItem
             // 
@@ -141,11 +140,13 @@
             this.warehouseToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.warehouseToolStripMenuItem.Text = "Warehouse";
             // 
-            // clientsToolStripMenuItem
+            // toolStripUsersMenu
             // 
-            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.clientsToolStripMenuItem.Text = "Clients";
+            this.toolStripUsersMenu.Enabled = false;
+            this.toolStripUsersMenu.Name = "toolStripUsersMenu";
+            this.toolStripUsersMenu.Size = new System.Drawing.Size(47, 20);
+            this.toolStripUsersMenu.Text = "Users";
+            this.toolStripUsersMenu.Click += new System.EventHandler(this.toolStripUsersMenu_Click);
             // 
             // WarehouseSystem
             // 
