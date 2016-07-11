@@ -16,5 +16,10 @@ namespace WarehouseSystem
         {
             InitializeComponent();
         }
+
+        private void btnItemReset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
