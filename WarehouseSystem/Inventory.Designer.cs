@@ -51,6 +51,7 @@
             this.btnAddInventory.TabIndex = 2;
             this.btnAddInventory.Text = "Add Inventory";
             this.btnAddInventory.UseVisualStyleBackColor = true;
+            this.btnAddInventory.Click += new System.EventHandler(this.btnAddInventory_Click);
             // 
             // btnEditInventory
             // 

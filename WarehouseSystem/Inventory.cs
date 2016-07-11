@@ -21,5 +21,10 @@ namespace WarehouseSystem
         {
            
         }
+
+        private void btnAddInventory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
