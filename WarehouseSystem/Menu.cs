@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace WarehouseSystem
 {
     public partial class menuForm : Form
     {
+        private WarehouseSystem warehouse = (WarehouseSystem)Application.OpenForms["WarehouseSystem"];
         private Form inventory = null;
         private Form customers = null;
         private Form users = null;
@@ -72,5 +74,9 @@ namespace WarehouseSystem
             }
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            warehouse.Close();
+        }
     }
 }

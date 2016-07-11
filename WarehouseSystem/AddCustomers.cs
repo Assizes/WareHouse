@@ -68,7 +68,7 @@ namespace WarehouseSystem
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            connection = warehouse.getConnection();
+            connection = warehouse.Connection;
             if (txtAddCustomerFName.Text != "" && txtAddCustomerLName.Text !="" && txtAddCustomerAddress.Text != "" && txtAddCustomerPhone.Text != "")
             {
                 cmd.Parameters["@fName"].Value = txtAddCustomerFName.Text;

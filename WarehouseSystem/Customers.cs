@@ -59,7 +59,7 @@ namespace WarehouseSystem
 
         private void Customers_Load(object sender, EventArgs e)
         {
-            connection = warehouse.getConnection();
+            connection = warehouse.Connection;
             fillData();   
         }
 

@@ -26,6 +26,7 @@ namespace WarehouseSystem
         string query;
         private string login = "";
 
+
         public MySqlConnection Connection
         {
             get { return connection; }
@@ -36,12 +37,7 @@ namespace WarehouseSystem
         {
             InitializeComponent();
         }
-
-        public MySqlConnection getConnection()
-        {
-            return connection;
-        }
-
+        
         private void WarehouseSystem_Load(object sender, EventArgs e)
         {
             //Change the background color of Parent MDI panel
