@@ -54,7 +54,7 @@
             this.loginScreen.Location = new System.Drawing.Point(237, 154);
             this.loginScreen.Name = "loginScreen";
             this.loginScreen.Size = new System.Drawing.Size(361, 255);
-            this.loginScreen.TabIndex = 7;
+            this.loginScreen.TabIndex = 1;
             // 
             // passInput
             // 
@@ -63,7 +63,7 @@
             this.passInput.Name = "passInput";
             this.passInput.PasswordChar = '*';
             this.passInput.Size = new System.Drawing.Size(144, 23);
-            this.passInput.TabIndex = 8;
+            this.passInput.TabIndex = 2;
             // 
             // loginInput
             // 
@@ -71,7 +71,7 @@
             this.loginInput.Location = new System.Drawing.Point(114, 58);
             this.loginInput.Name = "loginInput";
             this.loginInput.Size = new System.Drawing.Size(144, 23);
-            this.loginInput.TabIndex = 7;
+            this.loginInput.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -89,7 +89,7 @@
             this.signBtn.Location = new System.Drawing.Point(92, 182);
             this.signBtn.Name = "signBtn";
             this.signBtn.Size = new System.Drawing.Size(166, 39);
-            this.signBtn.TabIndex = 4;
+            this.signBtn.TabIndex = 3;
             this.signBtn.Text = "Sign in";
             this.signBtn.UseVisualStyleBackColor = true;
             this.signBtn.Click += new System.EventHandler(this.signBtn_Click);
@@ -116,7 +116,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(834, 24);
-            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // clientsToolStripMenuItem

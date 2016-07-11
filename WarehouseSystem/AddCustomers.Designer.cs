@@ -191,6 +191,7 @@
             this.btnAddCustomer.TabIndex = 15;
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // btnAddCustomerReset
             // 
@@ -210,6 +211,7 @@
             this.Controls.Add(this.btnAddCustomerReset);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.grpbxNewCustomer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddCustomers";
             this.Text = "Add Customer";
             this.grpbxNewCustomer.ResumeLayout(false);

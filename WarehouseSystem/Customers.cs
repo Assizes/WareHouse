@@ -14,9 +14,11 @@ namespace WarehouseSystem
     public partial class Customers : Form
     {
         private WarehouseSystem warehouse = (WarehouseSystem)Application.OpenForms["WarehouseSystem"];
+        private AddCustomers addCustomer = null;
         MySqlConnection connection;
         MySqlCommand cmd = new MySqlCommand();
         DBqueries queries = new DBqueries();
+
 
         string query;
 
@@ -27,18 +29,42 @@ namespace WarehouseSystem
 
         private void btnAddCustomers_Click(object sender, EventArgs e)
         {
-
+            addCustomer = new AddCustomers();
+            openWindow("AddCustomers", addCustomer, "Add");
         }
 
         private void btnEditCustomers_Click(object sender, EventArgs e)
         {
+            addCustomer = new AddCustomers();
+            openWindow("AddCustomers", addCustomer, "Edit");
+        }
 
+        private void openWindow(string formName, AddCustomers form, string type)
+        {
+            if (((Form)Application.OpenForms[formName]) == null)
+            {
+                form.MdiParent = (Form)Application.OpenForms["WarehouseSystem"];
+                if (type == "Add") form.setType("Add");
+                else form.setType("Edit");
+                form.Show();
+            }
+            else
+            {
+                form = (AddCustomers)Application.OpenForms[formName];
+                if (type == "Add") form.setType("Add");
+                else form.setType("Edit");
+                form.Focus();
+            }
         }
 
         private void Customers_Load(object sender, EventArgs e)
         {
             connection = warehouse.getConnection();
+            fillData();   
+        }
 
+        public void fillData()
+        {
             try
             {
                 if (connection != null)
@@ -61,14 +87,19 @@ namespace WarehouseSystem
                 }
                 else
                 {
-                    MessageBox.Show("Connection Failed");
+                    MessageBox.Show("Connection Lost");
                     this.Close();
                 }
             }
-            catch(MySqlException ex)
+            catch (MySqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnDeleteCustomers_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
