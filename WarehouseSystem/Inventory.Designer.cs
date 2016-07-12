@@ -61,6 +61,7 @@
             this.btnEditInventory.TabIndex = 3;
             this.btnEditInventory.Text = "Edit Inventory";
             this.btnEditInventory.UseVisualStyleBackColor = true;
+            this.btnEditInventory.Click += new System.EventHandler(this.btnEditInventory_Click);
             // 
             // btnDeleteInventory
             // 
