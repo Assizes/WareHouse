@@ -213,7 +213,7 @@
             this.Controls.Add(this.grpbxNewCustomer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddCustomers";
-            this.Text = "Add Customer";
+            this.Text = "Customer";
             this.grpbxNewCustomer.ResumeLayout(false);
             this.grpbxNewCustomer.PerformLayout();
             this.ResumeLayout(false);

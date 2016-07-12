@@ -19,15 +19,53 @@ namespace WarehouseSystem
         MySqlCommand cmd = new MySqlCommand();
         DBqueries queries = new DBqueries();
         string fType = "Add";
-        string query;
+        private int _id;
+
 
         public AddCustomers()
         {
             InitializeComponent();
+            connection = warehouse.Connection;
             cmd.Parameters.Add("@fName", MySqlDbType.String);
             cmd.Parameters.Add("@lName", MySqlDbType.String);
             cmd.Parameters.Add("@address", MySqlDbType.String);
             cmd.Parameters.Add("@phNumber", MySqlDbType.String);
+            cmd.Parameters.Add("@customerID", MySqlDbType.String);
+        }
+
+        public void setID(int id)
+        {
+            _id = id;
+            if (_id != -1)
+            {
+                cmd.Parameters["@customerID"].Value = _id;
+                try
+                {
+                    if (connection != null)
+                    {
+                        cmd.CommandText = queries.getCustomerInfo;
+                        cmd.Connection = connection;
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            txtAddCustomerFName.Text = dr[0].ToString();
+                            txtAddCustomerLName.Text = dr[1].ToString();
+                            txtAddCustomerAddress.Text = dr[2].ToString();
+                            txtAddCustomerPhone.Text = dr[3].ToString();
+                        }
+                        dr.Close();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection Lost");
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
         private void btnAddCustomerReset_Click(object sender, EventArgs e)
@@ -68,7 +106,6 @@ namespace WarehouseSystem
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            connection = warehouse.Connection;
             if (txtAddCustomerFName.Text != "" && txtAddCustomerLName.Text !="" && txtAddCustomerAddress.Text != "" && txtAddCustomerPhone.Text != "")
             {
                 cmd.Parameters["@fName"].Value = txtAddCustomerFName.Text;
@@ -82,35 +119,43 @@ namespace WarehouseSystem
                 return;
             }
 
-            if (fType == "Add")
+            if (connection != null)
             {
-                try
+                if (fType == "Add")
                 {
-                    if (connection != null)
+                    try
                     {
-                        query = queries.addCustomer;
-                        MySqlDataAdapter sqladapter = new MySqlDataAdapter();
-                        cmd.CommandText = query;
+                        cmd.CommandText = queries.addCustomer;
                         cmd.Connection = connection;
                         cmd.ExecuteNonQuery();
                         customers.fillData();
-
                         Close();
                     }
-                    else
+                    catch (MySqlException ex)
                     {
-                        MessageBox.Show("Connection Lost");
-                        this.Close();
+                        MessageBox.Show(ex.ToString());
                     }
                 }
-                catch (MySqlException ex)
+                else
                 {
-                    MessageBox.Show(ex.ToString());
+                    try
+                    {
+                        cmd.CommandText = queries.updateCustomerInfo;
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        customers.fillData();
+                        Close();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
             }
             else
             {
-
+                MessageBox.Show("Connection Lost");
+                this.Close();
             }
         }
     }
