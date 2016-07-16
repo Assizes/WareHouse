@@ -71,6 +71,11 @@ namespace WarehouseSystem
 
         private void btnAddCustomerReset_Click(object sender, EventArgs e)
         {
+            reset();
+        }
+
+        private void reset()
+        {
             if (fType == "Add")
             {
                 txtAddCustomerFName.Text = "";
@@ -84,13 +89,14 @@ namespace WarehouseSystem
             else
             {
                 Close();
-            }
+}
         }
 
         public void setType(string type)
         {
             if (type == "Edit")
             {
+                this.Text = "Edit Customer";
                 grpbxNewCustomer.Text = "Edit Customer";
                 btnAddCustomer.Text = "Save";
                 btnAddCustomerReset.Text = "Cancel";
@@ -98,11 +104,13 @@ namespace WarehouseSystem
             }
             else
             {
+                this.Text = "Add Customer";
                 grpbxNewCustomer.Text = "Add Customer";
                 btnAddCustomer.Text = "Add Customer";
                 btnAddCustomerReset.Text = "Reset";
                 fType = type;
-            }
+                reset();
+             }
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)

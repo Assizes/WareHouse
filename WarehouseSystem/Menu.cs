@@ -76,6 +76,14 @@ namespace WarehouseSystem
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                warehouse.Connection.Close();
+            }
+            catch(MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
             warehouse.Close();
         }
     }
