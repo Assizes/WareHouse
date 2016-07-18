@@ -20,6 +20,8 @@ namespace WarehouseSystem
         DBqueries queries = new DBqueries();
         string fType = "Add";
         string query;
+        //addedstuff
+        MySqlDataReader dr;
 
         public AddEditInventory()
         {
@@ -32,6 +34,33 @@ namespace WarehouseSystem
             cmd.Parameters.Add("@quantity", MySqlDbType.String);
             cmd.Parameters.Add("@itemDescription", MySqlDbType.String);
             cmd.Parameters.Add("@expirationDate", MySqlDbType.String);
+
+            //added stuff
+            connection = warehouse.Connection;
+          
+            cmd.Parameters.Add("@custID", MySqlDbType.String);
+
+            cmd.CommandText = queries.getCustomer;
+            cmd.Connection = connection;
+
+          
+            dr = cmd.ExecuteReader();
+
+           // Array temp= new Array[5];
+
+           // List<String> tempList = new List<String>();
+            DataSet ds = new DataSet();
+            
+            while (dr.Read())
+            {
+              //  tempList.Add(dr[0].ToString());
+                cmbItemCustomer.Items.Add(dr[0].ToString());
+                
+            }
+
+           
+            
+            dr.Close();
         }
 
         private void btnItemReset_Click(object sender, EventArgs e)
@@ -112,21 +141,34 @@ namespace WarehouseSystem
                 MessageBox.Show("Please, fill up required fields!");
                 return;
             }
-
-            /*if (fType == "Add")
+//finsih this
+         /*  if (fType == "Add")
             {
                 try
                 {
                     if (connection != null)
                     {
-                        query = queries.addCustomer;
+                       /* query = queries.addCustomer;
                         MySqlDataAdapter sqladapter = new MySqlDataAdapter();
                         cmd.CommandText = query;
                         cmd.Connection = connection;
                         cmd.ExecuteNonQuery();
                         customers.fillData();
 
-                        Close();
+                        Close();*/
+
+                     /*   cmd.CommandText = queries.getUserInfo;
+                        dr = cmd.ExecuteReader();
+                        
+                        while (dr.Read())
+                        {
+                            txtLogin.Text = dr[0].ToString();
+                            txtFName.Text = dr[1].ToString();
+                            txtLName.Text = dr[2].ToString();
+                            cmbGroup.SelectedItem = dr[3].ToString();
+                        }
+                        dr.Close();
+                        
                     }
                     else
                     {
@@ -142,7 +184,7 @@ namespace WarehouseSystem
             else
             {
 
-            }*/
-        }
+            } */
+        } 
     }
 }
