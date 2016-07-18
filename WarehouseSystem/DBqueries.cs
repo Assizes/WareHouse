@@ -16,5 +16,8 @@ namespace WarehouseSystem
         public string updateCustomerInfo = "UPDATE s2016_user1.customers SET firstName=@fName, lastName=@lName, address=@address, phoneNumber=@phNumber WHERE customer_ID=@customerID";
         public string deleteCustomer = "DELETE FROM s2016_user1.customers WHERE customer_ID=@customerID";
         public string getAllUsers = "SELECT UserID AS `User ID`, User_Login AS `Login`, User_FName AS `First Name`, User_LName AS `Last Name`, roleName AS `Group` FROM s2016_user1.users AS US INNER JOIN s2016_user1.userRole AS UR ON US.userRoleID = UR.userRoleID";
+        public string getUserInfo = "SELECT User_Login, User_FName, User_LName, roleName FROM s2016_user1.users AS US INNER JOIN s2016_user1.userRole AS UR ON US.userRoleID = UR.userRoleID WHERE UserID = @userID";
+        public string getUserGroups = "SELECT roleName FROM s2016_user1.userRole";
+
     }
 }

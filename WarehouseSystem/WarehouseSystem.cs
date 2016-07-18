@@ -93,20 +93,9 @@ namespace WarehouseSystem
         {
             login = loginInput.Text;
 
-            //Build hash strin from entered password
-            byte[] hash;
-            HashAlgorithm sha = new SHA512CryptoServiceProvider();
-            hash = sha.ComputeHash(Encoding.Default.GetBytes(passInput.Text));
+            PasswordEncription ps = new PasswordEncription(passInput.Text);
 
-            StringBuilder sBuilder = new StringBuilder();
-            // Loop through each byte of the hashed data 
-            // and format each one as a hexadecimal string.
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sBuilder.Append(hash[i].ToString("x2"));
-            }
-
-            string input = sBuilder.ToString();
+            string input = ps.getHash();
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 
             //Check a user in a database and retrive his hashed password
@@ -140,15 +129,7 @@ namespace WarehouseSystem
                     MessageBox.Show("Please enter valid user name and password");
                 }
 
-                    /*
-                    DataSet ds = new DataSet();
-                    mcmd.Fill(ds);
-                        contBox.DataSource = ds.Tables[0];
-                        contBox.ValueMember = "Continent";
-                        contBox.DisplayMember = "Continent";
-                    mcmd.Dispose();
-                    */
-                }
+            }
             else
             {
                 MessageBox.Show("Connection to DataBase Have Been Lost");
@@ -174,7 +155,7 @@ namespace WarehouseSystem
         {
             if (welcome != null)
             {
-                Point p = new Point(Location.X - this.Location.X - 10 + (this.Width - welcome.Width) / 2, Location.Y - this.Location.Y - 10 + (this.Height - Convert.ToInt32(welcome.Height)) / 2);
+                Point p = new Point(Location.X - this.Location.X - 10 + (this.Width - welcome.Width) / 2, Location.Y - this.Location.Y - 38 + (this.Height - Convert.ToInt32(welcome.Height)) / 2);
                 welcome.Location = p;
             }
         }

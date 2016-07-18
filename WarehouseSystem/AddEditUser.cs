@@ -18,6 +18,7 @@ namespace WarehouseSystem
         MySqlConnection connection;
         MySqlCommand cmd = new MySqlCommand();
         DBqueries queries = new DBqueries();
+        MySqlDataReader dr;
         string fType = "Add";
         private int _id;
 
@@ -26,6 +27,15 @@ namespace WarehouseSystem
             InitializeComponent();
             connection = warehouse.Connection;
             cmd.Parameters.Add("@userID", MySqlDbType.String);
+
+            cmd.CommandText = queries.getUserGroups;
+            cmd.Connection = connection;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                cmbGroup.Items.Add(dr[0].ToString());
+            }
+            dr.Close();
         }
 
         public void setID(int id)
@@ -38,14 +48,14 @@ namespace WarehouseSystem
                 {
                     if (connection != null)
                     {
-        //                cmd.CommandText = queries.getCustomerInfo;
-                        cmd.Connection = connection;
-                        MySqlDataReader dr = cmd.ExecuteReader();
+                        cmd.CommandText = queries.getUserInfo;
+                        dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {
                             txtLogin.Text = dr[0].ToString();
                             txtFName.Text = dr[1].ToString();
                             txtLName.Text = dr[2].ToString();
+                            cmbGroup.SelectedItem = dr[3].ToString();
                         }
                         dr.Close();
 
@@ -66,16 +76,20 @@ namespace WarehouseSystem
         {
             if (fType == "Add")
             {
-                txtLogin.Text = "";
-                txtFName.Text = "";
-                txtLName.Text = "";
-                txtPassword.Text = "";
-                cmbGroup.Items.Clear();
+                reset();
             }
             else
             {
                 Close();
             }
+        }
+
+        private void reset()
+        {
+            txtLogin.Text = "";
+            txtFName.Text = "";
+            txtLName.Text = "";
+            txtPassword.Text = "";
         }
 
         public void setType(string type)
@@ -90,11 +104,25 @@ namespace WarehouseSystem
             }
             else
             {
+                reset();
                 this.Text = "Add User";
                 groupBox1.Text = "Add User";
-                btnAddUser.Text = "Add Customer";
+                btnAddUser.Text = "Add User";
                 btnReset.Text = "Reset";
                 fType = type;
+            }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            //TODO
+            if (fType == "Edit")
+            {
+                
+            }
+            else
+            {
+                
             }
         }
     }
