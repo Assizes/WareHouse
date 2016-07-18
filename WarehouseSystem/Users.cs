@@ -31,6 +31,7 @@ namespace WarehouseSystem
         private void Users_Load(object sender, EventArgs e)
         {
             connection = warehouse.Connection;
+            cmd.Parameters.Add("@userID", MySqlDbType.String);
             fillData();
         }
         public void fillData()
@@ -110,6 +111,34 @@ namespace WarehouseSystem
         private void deleteUser_Click(object sender, EventArgs e)
         {
             //TODO
+            int id;
+            int.TryParse(dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString(), out id);
+            cmd.Parameters["@userID"].Value = id;
+            if (id == 1)
+            {
+                MessageBox.Show("You cannot delete Default Admin account");
+            }
+            else
+            {
+                try
+                {
+                    if (connection != null)
+                    {
+                        cmd.CommandText = queries.deleteUser;
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        fillData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection Lost");
+                    }
+                }
+                catch(MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

@@ -49,6 +49,8 @@ namespace WarehouseSystem
             if (_id != -1)
             {
                 cmd.Parameters["@userID"].Value = _id;
+                if (_id == 1)
+                    cmbGroup.Enabled = false;
                 try
                 {
                     if (connection != null)
@@ -63,7 +65,6 @@ namespace WarehouseSystem
                             cmbGroup.SelectedItem = dr[3].ToString();
                         }
                         dr.Close();
-
                     }
                     else
                     {

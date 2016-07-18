@@ -22,5 +22,6 @@ namespace WarehouseSystem
         public string updateUserPass = "UPDATE s2016_user1.users SET User_Password=@pass WHERE UserID=@userID";
         public string getUserInfo = "SELECT User_Login, User_FName, User_LName, roleName FROM s2016_user1.users AS US INNER JOIN s2016_user1.userRole AS UR ON US.userRoleID = UR.userRoleID WHERE UserID = @userID";
         public string getUserGroups = "SELECT roleName FROM s2016_user1.userRole";
+        public string deleteUser = "DELETE FROM s2016_user1.users WHERE UserID=@userID";
     }
 }
