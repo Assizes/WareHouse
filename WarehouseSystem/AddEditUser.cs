@@ -27,6 +27,11 @@ namespace WarehouseSystem
             InitializeComponent();
             connection = warehouse.Connection;
             cmd.Parameters.Add("@userID", MySqlDbType.String);
+            cmd.Parameters.Add("@login", MySqlDbType.String);
+            cmd.Parameters.Add("@fName", MySqlDbType.String);
+            cmd.Parameters.Add("@lName", MySqlDbType.String);
+            cmd.Parameters.Add("@pass", MySqlDbType.String);
+            cmd.Parameters.Add("@roleID", MySqlDbType.String);
 
             cmd.CommandText = queries.getUserGroups;
             cmd.Connection = connection;
@@ -90,6 +95,7 @@ namespace WarehouseSystem
             txtFName.Text = "";
             txtLName.Text = "";
             txtPassword.Text = "";
+            cmbGroup.SelectedIndex = 0;
         }
 
         public void setType(string type)
@@ -115,14 +121,74 @@ namespace WarehouseSystem
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            //TODO
-            if (fType == "Edit")
+            
+            if (txtFName.Text != "" && txtLName.Text != "" && txtLogin.Text != "")
             {
-                
+                cmd.Parameters["@login"].Value = txtLogin.Text;
+                cmd.Parameters["@fName"].Value = txtFName.Text;
+                cmd.Parameters["@lName"].Value = txtLogin.Text;
+                cmd.Parameters["@roleID"].Value = cmbGroup.SelectedIndex + 1;
             }
             else
             {
-                
+                MessageBox.Show("Please, fill up required fields!");
+                return;
+            }
+            if (txtPassword.Text != "")
+            {
+                PasswordEncription hash = new PasswordEncription(txtPassword.Text);
+                cmd.Parameters["@pass"].Value = hash.getHash();
+            }
+
+            if (connection != null)
+            {
+                if (fType == "Add")
+                {
+                    if (txtPassword.Text != "")
+                    {
+                        try
+                        {
+                            cmd.CommandText = queries.addUser;
+                            cmd.Connection = connection;
+                            cmd.ExecuteNonQuery();
+                            users.fillData();
+                            Close();
+                        }
+                        catch (MySqlException ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter password");
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        cmd.CommandText = queries.updateUser;
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        if (txtPassword.Text != "")
+                        {
+                            cmd.CommandText = queries.updateUserPass;
+                            cmd.ExecuteNonQuery();
+                        }
+                        users.fillData();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Connection Lost");
+                this.Close();
             }
         }
     }
