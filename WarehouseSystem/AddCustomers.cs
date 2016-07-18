@@ -32,6 +32,9 @@ namespace WarehouseSystem
             cmd.Parameters.Add("@address", MySqlDbType.String);
             cmd.Parameters.Add("@phNumber", MySqlDbType.String);
             cmd.Parameters.Add("@customerID", MySqlDbType.String);
+            cmd.Parameters.Add("@city", MySqlDbType.String);
+            cmd.Parameters.Add("@province", MySqlDbType.String);
+            cmd.Parameters.Add("@postalCode", MySqlDbType.String);
         }
 
         public void setID(int id)
@@ -53,6 +56,9 @@ namespace WarehouseSystem
                             txtAddCustomerLName.Text = dr[1].ToString();
                             txtAddCustomerAddress.Text = dr[2].ToString();
                             txtAddCustomerPhone.Text = dr[3].ToString();
+                            txtAddCustomerCity.Text = dr[4].ToString();
+                            txtAddCustomerProvince.Text = dr[5].ToString();
+                            txtAddCustomerPostalCode.Text = dr[6].ToString();
                         }
                         dr.Close();
 
@@ -121,6 +127,9 @@ namespace WarehouseSystem
                 cmd.Parameters["@lName"].Value = txtAddCustomerLName.Text;
                 cmd.Parameters["@address"].Value = txtAddCustomerAddress.Text;
                 cmd.Parameters["@phNumber"].Value = txtAddCustomerPhone.Text;
+                cmd.Parameters["@city"].Value = txtAddCustomerCity.Text;
+                cmd.Parameters["@province"].Value = txtAddCustomerProvince.Text;
+                cmd.Parameters["@postalCode"].Value = txtAddCustomerPostalCode.Text;
             }
             else
             {
