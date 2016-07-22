@@ -113,16 +113,19 @@ namespace WarehouseSystem
 
                 if (dt.Rows.Count > 0 && 0 == comparer.Compare(input, dt.Rows[0]["User_Password"].ToString()))
                 {
-                // Hide and disable login screen
-                loginScreen.Visible = false;
-                loginScreen.Enabled = false;
-               
-                    openWelcomeScreen();
+                    // Hide and disable login screen
+                    loginScreen.Visible = false;
+                    loginScreen.Enabled = false;
+
                     int tmp;
                     int.TryParse(dt.Rows[0]["userRoleID"].ToString(), out tmp);
-                // Enable menu tabs
+                    // Enable menu tabs
                     if (tmp == 1) //if user is admin enable menu for users
+                    {
                         toolStripUsersMenu.Enabled = true;
+                        warehouseToolStripMenuItem.Enabled = true;
+                    }
+                    openWelcomeScreen(tmp);
                 }
                 else
                 {
@@ -136,11 +139,11 @@ namespace WarehouseSystem
             }
         }
 
-        private void openWelcomeScreen()
+        private void openWelcomeScreen(int tmp)
         {
             if (((Form)Application.OpenForms["Menu"]) == null)
             {
-                welcome = new menuForm();
+                welcome = new menuForm(tmp);
                 welcome.MdiParent = this;
                 welcome.Show();
             }
@@ -175,7 +178,7 @@ namespace WarehouseSystem
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             customers = new Customers();
-            openWindow("Customers",customers);    
+            openWindow("Customers",customers);
         }
 
         private void openWindow(string formName, Form form)

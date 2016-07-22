@@ -21,9 +21,14 @@ namespace WarehouseSystem
 
         Form parent = (Form)Application.OpenForms["WarehouseSystem"];
 
-        public menuForm()
+        public menuForm(int id)
         {
             InitializeComponent();
+            if (id != 1)
+            {
+                btnUsers.Enabled = false;
+                btnWarehouse.Enabled = false;
+            }
         }
 
         private void menuForm_Activated(object sender, EventArgs e)
