@@ -23,6 +23,20 @@ namespace WarehouseSystem
 
         string query;
 
+        private TabControl tabCtrl;
+        private TabPage tabPag;
+
+        public TabPage TabPag
+        {
+            get { return tabPag; }
+            set { tabPag = value; }
+        }
+
+        public TabControl TabCtrl
+        {
+            set { tabCtrl = value; }
+        }
+
         public Users()
         {
             InitializeComponent();
@@ -138,6 +152,29 @@ namespace WarehouseSystem
                 {
                     MessageBox.Show(ex.ToString());
                 }
+            }
+        }
+
+        private void Users_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Destroy the corresponding Tabpage when closing MDI child form
+            this.tabPag.Dispose();
+
+            //If no Tabpage left
+            if (!tabCtrl.HasChildren)
+            {
+                tabCtrl.Visible = false;
+            }
+        }
+
+        private void Users_Activated(object sender, EventArgs e)
+        {
+            //Activate the corresponding Tabpage
+            tabCtrl.SelectedTab = tabPag;
+
+            if (!tabCtrl.Visible)
+            {
+                tabCtrl.Visible = true;
             }
         }
     }

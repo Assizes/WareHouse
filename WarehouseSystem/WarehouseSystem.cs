@@ -15,14 +15,14 @@ namespace WarehouseSystem
     public partial class WarehouseSystem : Form
     {
         private Form welcome = null;
-        private Form users = null;
+        private Users users = null;
         private Form inventory = null;
         private Form customers = null;
         private static MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
         DBqueries queries = new DBqueries();
-        
+
         string query;
         private string login = "";
 
@@ -41,7 +41,7 @@ namespace WarehouseSystem
         private void WarehouseSystem_Load(object sender, EventArgs e)
         {
             //Change the background color of Parent MDI panel
-            MdiClient ctlMDI;
+            MdiClient ctlMDI = null;
 
             // Loop through all of the form's controls looking
             // for the control of type MdiClient.
@@ -64,7 +64,6 @@ namespace WarehouseSystem
 
                
             }
-
             dbinfo = new ConnectDB();
             cmd = new MySqlCommand();
             connect();
@@ -165,8 +164,41 @@ namespace WarehouseSystem
 
         private void toolStripUsersMenu_Click(object sender, EventArgs e)
         {
-            users = new Users();
-            openWindow("Users",users);
+            
+            //        openWindow("Users",users);
+            openUser();
+                     
+        }
+        public void openUser()
+        {
+            
+            if (((Users)Application.OpenForms["Users"]) == null)
+            {
+                users = new Users();
+                users.MdiParent = this;
+                users.Show();
+                users.TabCtrl = tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = tabControl1;
+                tp.Text = users.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                users.TabPag = tp;
+
+                //Activate the MDI child form
+                users.Show();
+
+                //Activate the newly created Tabpage
+                tabControl1.SelectedTab = tp;
+                tabControl1.Visible = true;
+            }
+            else
+            {
+                users = (Users)Application.OpenForms["Users"];
+                users.Focus();
+            }
         }
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,7 +217,6 @@ namespace WarehouseSystem
         {
             if (((Form)Application.OpenForms[formName]) == null)
             {
-
                 form.MdiParent = this;
                 form.Show();
             }

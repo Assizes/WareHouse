@@ -39,6 +39,7 @@
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripUsersMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.loginScreen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -148,11 +149,22 @@
             this.toolStripUsersMenu.Text = "Users";
             this.toolStripUsersMenu.Click += new System.EventHandler(this.toolStripUsersMenu_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Location = new System.Drawing.Point(0, 24);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(834, 20);
+            this.tabControl1.TabIndex = 5;
+            this.tabControl1.Visible = false;
+            // 
             // WarehouseSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 562);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.loginScreen);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -184,6 +196,7 @@
         private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem warehouseToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
 

@@ -99,6 +99,8 @@
             this.MinimumSize = new System.Drawing.Size(580, 420);
             this.Name = "Users";
             this.Text = "Users";
+            this.Activated += new System.EventHandler(this.Users_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Users_FormClosing);
             this.Load += new System.EventHandler(this.Users_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);

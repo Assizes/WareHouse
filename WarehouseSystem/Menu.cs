@@ -51,8 +51,8 @@ namespace WarehouseSystem
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            users = new Users();
-            openWindow("Users",users);
+            //  openWindow("Users",users);
+            warehouse.openUser();
         }
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
