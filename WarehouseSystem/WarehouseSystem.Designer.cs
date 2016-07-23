@@ -39,6 +39,8 @@
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripUsersMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.loginScreen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -111,7 +113,8 @@
             this.clientsToolStripMenuItem,
             this.inventoryToolStripMenuItem,
             this.warehouseToolStripMenuItem,
-            this.toolStripUsersMenu});
+            this.toolStripUsersMenu,
+            this.settingsToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -122,6 +125,7 @@
             // 
             // clientsToolStripMenuItem
             // 
+            this.clientsToolStripMenuItem.Enabled = false;
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
             this.clientsToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.clientsToolStripMenuItem.Text = "Customers";
@@ -129,6 +133,7 @@
             // 
             // inventoryToolStripMenuItem
             // 
+            this.inventoryToolStripMenuItem.Enabled = false;
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
             this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.inventoryToolStripMenuItem.Text = "Inventory";
@@ -149,6 +154,20 @@
             this.toolStripUsersMenu.Text = "Users";
             this.toolStripUsersMenu.Click += new System.EventHandler(this.toolStripUsersMenu_Click);
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.databaseConnectionToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // databaseConnectionToolStripMenuItem
+            // 
+            this.databaseConnectionToolStripMenuItem.Name = "databaseConnectionToolStripMenuItem";
+            this.databaseConnectionToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.databaseConnectionToolStripMenuItem.Text = "Database Connection";
+            // 
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -158,6 +177,7 @@
             this.tabControl1.Size = new System.Drawing.Size(834, 20);
             this.tabControl1.TabIndex = 5;
             this.tabControl1.Visible = false;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // WarehouseSystem
             // 
@@ -197,6 +217,8 @@
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem warehouseToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem databaseConnectionToolStripMenuItem;
     }
 }
 

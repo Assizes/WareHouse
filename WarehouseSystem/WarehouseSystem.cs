@@ -16,8 +16,8 @@ namespace WarehouseSystem
     {
         private Form welcome = null;
         private Users users = null;
-        private Form inventory = null;
-        private Form customers = null;
+        private Inventory inventory = null;
+        private Customers customers = null;
         private static MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
@@ -124,6 +124,8 @@ namespace WarehouseSystem
                         toolStripUsersMenu.Enabled = true;
                         warehouseToolStripMenuItem.Enabled = true;
                     }
+                    clientsToolStripMenuItem.Enabled = true;
+                    inventoryToolStripMenuItem.Enabled = true;
                     openWelcomeScreen(tmp);
                 }
                 else
@@ -164,14 +166,10 @@ namespace WarehouseSystem
 
         private void toolStripUsersMenu_Click(object sender, EventArgs e)
         {
-            
-            //        openWindow("Users",users);
             openUser();
-                     
         }
         public void openUser()
         {
-            
             if (((Users)Application.OpenForms["Users"]) == null)
             {
                 users = new Users();
@@ -203,14 +201,73 @@ namespace WarehouseSystem
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            inventory = new Inventory();
-            openWindow("Inventory", inventory);
+            openInventory();
+        }
+        public void openInventory()
+        {
+            if (((Inventory)Application.OpenForms["Inventory"]) == null)
+            {
+                inventory = new Inventory();
+                inventory.MdiParent = this;
+                inventory.Show();
+                inventory.TabCtrl = tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = tabControl1;
+                tp.Text = inventory.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                inventory.TabPag = tp;
+
+                //Activate the MDI child form
+                inventory.Show();
+
+                //Activate the newly created Tabpage
+                tabControl1.SelectedTab = tp;
+                tabControl1.Visible = true;
+            }
+            else
+            {
+                inventory = (Inventory)Application.OpenForms["Inventory"];
+                inventory.Focus();
+            }
         }
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            customers = new Customers();
-            openWindow("Customers",customers);
+            openCustomers();
+        }
+
+        public void openCustomers()
+        {
+            if (((Customers)Application.OpenForms["Customers"]) == null)
+            {
+                customers = new Customers();
+                customers.MdiParent = this;
+                customers.Show();
+                customers.TabCtrl = tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = tabControl1;
+                tp.Text = customers.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                customers.TabPag = tp;
+
+                //Activate the MDI child form
+                customers.Show();
+
+                //Activate the newly created Tabpage
+                tabControl1.SelectedTab = tp;
+                tabControl1.Visible = true;
+            }
+            else
+            {
+                customers = (Customers)Application.OpenForms["Customers"];
+                customers.Focus();
+            }
         }
 
         private void openWindow(string formName, Form form)
@@ -225,6 +282,28 @@ namespace WarehouseSystem
                 form = (Form)Application.OpenForms[formName];
                 form.Focus();
             }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (inventory.TabPag.Equals(tabControl1.SelectedTab))
+                    inventory.Select();
+            }
+            catch { }
+            try
+            {
+                if (users.TabPag.Equals(tabControl1.SelectedTab))
+                    users.Select();
+            }
+            catch { }
+            try
+            {
+                if (customers.TabPag.Equals(tabControl1.SelectedTab))
+                    customers.Select();
+            }
+            catch { }
         }
     }
 }

@@ -38,20 +38,17 @@ namespace WarehouseSystem
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            inventory = new Inventory();
-            openWindow("Inventory", inventory);
+            warehouse.openInventory();
         }
 
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
-            customers = new Customers();
-            openWindow("Customers", customers);
+            warehouse.openCustomers();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            //  openWindow("Users",users);
             warehouse.openUser();
         }
         private void btnWarehouse_Click(object sender, EventArgs e)
