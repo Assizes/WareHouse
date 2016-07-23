@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WarehouseSystem
+{
+    public partial class Warehouse : Form
+    {
+
+        private TabControl tabCtrl;
+        private TabPage tabPag;
+
+        public TabPage TabPag
+        {
+            get { return tabPag; }
+            set { tabPag = value; }
+        }
+
+        public TabControl TabCtrl
+        {
+            set { tabCtrl = value; }
+        }
+
+        public Warehouse()
+        {
+            InitializeComponent();
+        }
+
+        private void btnAddAisle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Warehouse_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Destroy the corresponding Tabpage when closing MDI child form
+            this.tabPag.Dispose();
+
+            //If no Tabpage left
+            if (!tabCtrl.HasChildren)
+            {
+                tabCtrl.Visible = false;
+            }
+        }
+
+        private void Warehouse_Activated(object sender, EventArgs e)
+        {
+            //Activate the corresponding Tabpage
+            tabCtrl.SelectedTab = tabPag;
+
+            if (!tabCtrl.Visible)
+            {
+                tabCtrl.Visible = true;
+            }
+        }
+    }
+}

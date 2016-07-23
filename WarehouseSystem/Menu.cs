@@ -53,7 +53,7 @@ namespace WarehouseSystem
         }
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
-
+            warehouse.openWarehouse();
         }
 
         private void openUnderConst()

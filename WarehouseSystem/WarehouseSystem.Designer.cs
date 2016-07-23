@@ -145,6 +145,7 @@
             this.warehouseToolStripMenuItem.Name = "warehouseToolStripMenuItem";
             this.warehouseToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.warehouseToolStripMenuItem.Text = "Warehouse";
+            this.warehouseToolStripMenuItem.Click += new System.EventHandler(this.warehouseToolStripMenuItem_Click);
             // 
             // toolStripUsersMenu
             // 

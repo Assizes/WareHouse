@@ -18,6 +18,7 @@ namespace WarehouseSystem
         private Users users = null;
         private Inventory inventory = null;
         private Customers customers = null;
+        private Warehouse warehouse = null;
         private static MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
@@ -270,6 +271,42 @@ namespace WarehouseSystem
             }
         }
 
+        private void warehouseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openWarehouse();   
+        }
+
+        public void openWarehouse()
+        {
+            if (((Warehouse)Application.OpenForms["Warehouse"]) == null)
+            {
+                warehouse = new Warehouse();
+                warehouse.MdiParent = this;
+                warehouse.Show();
+                warehouse.TabCtrl = tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = tabControl1;
+                tp.Text = warehouse.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                warehouse.TabPag = tp;
+
+                //Activate the MDI child form
+                warehouse.Show();
+
+                //Activate the newly created Tabpage
+                tabControl1.SelectedTab = tp;
+                tabControl1.Visible = true;
+            }
+            else
+            {
+                warehouse = (Warehouse)Application.OpenForms["Warehouse"];
+                warehouse.Focus();
+            }
+        }
+
         private void openWindow(string formName, Form form)
         {
             if (((Form)Application.OpenForms[formName]) == null)
@@ -302,6 +339,12 @@ namespace WarehouseSystem
             {
                 if (customers.TabPag.Equals(tabControl1.SelectedTab))
                     customers.Select();
+            }
+            catch { }
+            try
+            {
+                if (warehouse.TabPag.Equals(tabControl1.SelectedTab))
+                    warehouse.Select();
             }
             catch { }
         }
