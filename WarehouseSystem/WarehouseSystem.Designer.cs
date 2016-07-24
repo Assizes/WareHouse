@@ -54,7 +54,7 @@
             this.loginScreen.Controls.Add(this.passwordLabel);
             this.loginScreen.Controls.Add(this.signBtn);
             this.loginScreen.Controls.Add(this.loginLabel);
-            this.loginScreen.Location = new System.Drawing.Point(237, 154);
+            this.loginScreen.Location = new System.Drawing.Point(324, 238);
             this.loginScreen.Name = "loginScreen";
             this.loginScreen.Size = new System.Drawing.Size(361, 255);
             this.loginScreen.TabIndex = 1;
@@ -119,7 +119,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -168,6 +168,7 @@
             this.databaseConnectionToolStripMenuItem.Name = "databaseConnectionToolStripMenuItem";
             this.databaseConnectionToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.databaseConnectionToolStripMenuItem.Text = "Database Connection";
+            this.databaseConnectionToolStripMenuItem.Click += new System.EventHandler(this.databaseConnectionToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -175,7 +176,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(834, 20);
+            this.tabControl1.Size = new System.Drawing.Size(1008, 20);
             this.tabControl1.TabIndex = 5;
             this.tabControl1.Visible = false;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
@@ -184,13 +185,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 562);
+            this.ClientSize = new System.Drawing.Size(1008, 730);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.loginScreen);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(850, 600);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "WarehouseSystem";
             this.Text = "WarehouseSystem";
             this.Load += new System.EventHandler(this.WarehouseSystem_Load);

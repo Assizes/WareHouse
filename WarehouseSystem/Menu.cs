@@ -14,11 +14,6 @@ namespace WarehouseSystem
     public partial class menuForm : Form
     {
         private WarehouseSystem warehouse = (WarehouseSystem)Application.OpenForms["WarehouseSystem"];
-        private Form inventory = null;
-        private Form customers = null;
-        private Form users = null;
-        private Form underConst = null;
-
         Form parent = (Form)Application.OpenForms["WarehouseSystem"];
 
         public menuForm(int id)
@@ -54,11 +49,6 @@ namespace WarehouseSystem
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
             warehouse.openWarehouse();
-        }
-
-        private void openUnderConst()
-        {
-            
         }
 
         private void openWindow(string formName, Form form)

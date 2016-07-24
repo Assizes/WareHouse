@@ -24,6 +24,9 @@ namespace WarehouseSystem
         public string getUserGroups = "SELECT roleName FROM s2016_user1.userRole";
         public string deleteUser = "DELETE FROM s2016_user1.users WHERE UserID=@userID";
 
+        public string getAllAisles = "SELECT aisle_ID AS `Aisle ID` FROM s2016_user1.aisles";
+        public string getShelves = "SELECT shelf_ID AS `Shelf ID` FROM s2016_user1.shelves WHERE FK_aisle=@aisleID";
+
         //adding queries
        // public string getCustomer = "SELECT concat('firstName' , 'lastName' , 'customer_ID') FROM s2016_user1.customers";
         public string getCustomer = "SELECT firstName , lastName , customer_ID as temp FROM s2016_user1.customers";

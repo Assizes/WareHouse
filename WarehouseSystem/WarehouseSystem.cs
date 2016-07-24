@@ -307,6 +307,7 @@ namespace WarehouseSystem
             }
         }
 
+        /*
         private void openWindow(string formName, Form form)
         {
             if (((Form)Application.OpenForms[formName]) == null)
@@ -320,6 +321,7 @@ namespace WarehouseSystem
                 form.Focus();
             }
         }
+        */
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -347,6 +349,11 @@ namespace WarehouseSystem
                     warehouse.Select();
             }
             catch { }
+        }
+
+        private void databaseConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO
         }
     }
 }

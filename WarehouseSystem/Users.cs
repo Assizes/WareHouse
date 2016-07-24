@@ -48,6 +48,8 @@ namespace WarehouseSystem
             cmd.Parameters.Add("@userID", MySqlDbType.String);
             fillData();
         }
+
+        //Fill dataGridView with all Users from database
         public void fillData()
         {
             try
@@ -124,7 +126,6 @@ namespace WarehouseSystem
 
         private void deleteUser_Click(object sender, EventArgs e)
         {
-            //TODO
             int id;
             int.TryParse(dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString(), out id);
             cmd.Parameters["@userID"].Value = id;
