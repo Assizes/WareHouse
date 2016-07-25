@@ -118,6 +118,7 @@ namespace WarehouseSystem
                   && cmbUnitofMeasurement.SelectedIndex != 0 && cmbItemAisle.SelectedIndex != 0 && cmbItemShelf.SelectedIndex != 0
                    && cmbItemBin.SelectedIndex != 0)
             {
+                //takes all text values and assigns them to parameters
                 cmd.Parameters["@itemName"].Value = txtItemName.Text;
                 cmd.Parameters["@weight"].Value = txtItemWeight.Text;
                 cmd.Parameters["@height"].Value = txtItemHeight.Text;
@@ -125,7 +126,7 @@ namespace WarehouseSystem
                 cmd.Parameters["@length"].Value = txtItemLength.Text;
                 cmd.Parameters["@quantity"].Value = txtItemQuantity.Text;
                 cmd.Parameters["@itemDescription"].Value = txtItemDescription.Text;
-
+                //If radio 'expired' is true
                 if (rdoExpirationYes.Checked == true)
                 {
                     cmd.Parameters["@expirationDate"].Value = datetimeItemExpiration.Text;
@@ -141,33 +142,37 @@ namespace WarehouseSystem
                 MessageBox.Show("Please, fill up required fields!");
                 return;
             }
-//finsih this
-         /*  if (fType == "Add")
+//finsih this //Meaning they are going to add
+            if (fType == "Add")
             {
                 try
-                {
+                {   
+                    //in our case we are maintaing connection from the first time we connected
                     if (connection != null)
                     {
-                       /* query = queries.addCustomer;
-                        MySqlDataAdapter sqladapter = new MySqlDataAdapter();
+                        //calling query //we intialized in field already
+                        query = queries.addCustomer;
+                        //its a dataadapter
+                       // MySqlDataAdapter sqladapter = new MySqlDataAdapter();
                         cmd.CommandText = query;
                         cmd.Connection = connection;
+                        //check this call
                         cmd.ExecuteNonQuery();
-                        customers.fillData();
+                       // customers.fillData();
+                       //closes form
+                        Close();
 
-                        Close();*/
-
-                     /*   cmd.CommandText = queries.getUserInfo;
+                        cmd.CommandText = queries.getUserInfo;
                         dr = cmd.ExecuteReader();
                         
-                        while (dr.Read())
+                       /* while (dr.Read())
                         {
                             txtLogin.Text = dr[0].ToString();
                             txtFName.Text = dr[1].ToString();
                             txtLName.Text = dr[2].ToString();
                             cmbGroup.SelectedItem = dr[3].ToString();
                         }
-                        dr.Close();
+                        dr.Close();*/
                         
                     }
                     else
@@ -184,7 +189,7 @@ namespace WarehouseSystem
             else
             {
 
-            } */
+            } 
         } 
     }
 }
