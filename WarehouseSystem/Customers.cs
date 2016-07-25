@@ -165,11 +165,14 @@ namespace WarehouseSystem
         private void Customers_Activated(object sender, EventArgs e)
         {
             //Activate the corresponding Tabpage
-            tabCtrl.SelectedTab = tabPag;
-
-            if (!tabCtrl.Visible)
+            if (tabPag != null)
             {
-                tabCtrl.Visible = true;
+                tabCtrl.SelectedTab = tabPag;
+
+                if (!tabCtrl.Visible)
+                {
+                    tabCtrl.Visible = true;
+                }
             }
         }
     }
