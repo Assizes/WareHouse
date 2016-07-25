@@ -50,39 +50,39 @@
             this.dgvUsers.RowHeadersVisible = false;
             this.dgvUsers.RowTemplate.ReadOnly = true;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(352, 354);
+            this.dgvUsers.Size = new System.Drawing.Size(352, 347);
             this.dgvUsers.TabIndex = 8;
             // 
             // deleteUser
             // 
             this.deleteUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteUser.Location = new System.Drawing.Point(417, 318);
+            this.deleteUser.Location = new System.Drawing.Point(418, 209);
             this.deleteUser.Name = "deleteUser";
-            this.deleteUser.Size = new System.Drawing.Size(96, 29);
+            this.deleteUser.Size = new System.Drawing.Size(104, 23);
             this.deleteUser.TabIndex = 7;
-            this.deleteUser.Text = "Delete";
+            this.deleteUser.Text = "Delete User";
             this.deleteUser.UseVisualStyleBackColor = true;
             this.deleteUser.Click += new System.EventHandler(this.deleteUser_Click);
             // 
             // editUser
             // 
             this.editUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editUser.Location = new System.Drawing.Point(417, 111);
+            this.editUser.Location = new System.Drawing.Point(418, 169);
             this.editUser.Name = "editUser";
-            this.editUser.Size = new System.Drawing.Size(96, 29);
+            this.editUser.Size = new System.Drawing.Size(104, 23);
             this.editUser.TabIndex = 6;
-            this.editUser.Text = "Edit";
+            this.editUser.Text = "Edit User";
             this.editUser.UseVisualStyleBackColor = true;
             this.editUser.Click += new System.EventHandler(this.editUser_Click);
             // 
             // addUser
             // 
             this.addUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addUser.Location = new System.Drawing.Point(417, 40);
+            this.addUser.Location = new System.Drawing.Point(418, 126);
             this.addUser.Name = "addUser";
-            this.addUser.Size = new System.Drawing.Size(96, 29);
+            this.addUser.Size = new System.Drawing.Size(104, 23);
             this.addUser.TabIndex = 5;
-            this.addUser.Text = "Add";
+            this.addUser.Text = "Add User";
             this.addUser.UseVisualStyleBackColor = true;
             this.addUser.Click += new System.EventHandler(this.addUser_Click);
             // 
