@@ -93,6 +93,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Customers";
             this.Text = "Customers";
+            this.Activated += new System.EventHandler(this.Customers_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Customers_FormClosing);
             this.Load += new System.EventHandler(this.Customers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.ResumeLayout(false);

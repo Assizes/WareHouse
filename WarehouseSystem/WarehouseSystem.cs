@@ -15,14 +15,16 @@ namespace WarehouseSystem
     public partial class WarehouseSystem : Form
     {
         private Form welcome = null;
-        private Form users = null;
-        private Form inventory = null;
-        private Form customers = null;
+        private Users users = null;
+        private Inventory inventory = null;
+        private Customers customers = null;
+        private Warehouse warehouse = null;
+        private AddAisle addAisle = null;
         private static MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
         DBqueries queries = new DBqueries();
-        
+
         string query;
         private string login = "";
 
@@ -41,7 +43,7 @@ namespace WarehouseSystem
         private void WarehouseSystem_Load(object sender, EventArgs e)
         {
             //Change the background color of Parent MDI panel
-            MdiClient ctlMDI;
+            MdiClient ctlMDI = null;
 
             // Loop through all of the form's controls looking
             // for the control of type MdiClient.
@@ -64,7 +66,6 @@ namespace WarehouseSystem
 
                
             }
-
             dbinfo = new ConnectDB();
             cmd = new MySqlCommand();
             connect();
@@ -113,16 +114,21 @@ namespace WarehouseSystem
 
                 if (dt.Rows.Count > 0 && 0 == comparer.Compare(input, dt.Rows[0]["User_Password"].ToString()))
                 {
-                // Hide and disable login screen
-                loginScreen.Visible = false;
-                loginScreen.Enabled = false;
-               
-                    openWelcomeScreen();
+                    // Hide and disable login screen
+                    loginScreen.Visible = false;
+                    loginScreen.Enabled = false;
+
                     int tmp;
                     int.TryParse(dt.Rows[0]["userRoleID"].ToString(), out tmp);
-                // Enable menu tabs
+                    // Enable menu tabs
                     if (tmp == 1) //if user is admin enable menu for users
+                    {
                         toolStripUsersMenu.Enabled = true;
+                        warehouseToolStripMenuItem.Enabled = true;
+                    }
+                    clientsToolStripMenuItem.Enabled = true;
+                    inventoryToolStripMenuItem.Enabled = true;
+                    openWelcomeScreen(tmp);
                 }
                 else
                 {
@@ -136,11 +142,11 @@ namespace WarehouseSystem
             }
         }
 
-        private void openWelcomeScreen()
+        private void openWelcomeScreen(int tmp)
         {
             if (((Form)Application.OpenForms["Menu"]) == null)
             {
-                welcome = new menuForm();
+                welcome = new menuForm(tmp);
                 welcome.MdiParent = this;
                 welcome.Show();
             }
@@ -162,27 +168,151 @@ namespace WarehouseSystem
 
         private void toolStripUsersMenu_Click(object sender, EventArgs e)
         {
-            users = new Users();
-            openWindow("Users",users);
+            openUser();
+        }
+        public void openUser()
+        {
+            if (((Users)Application.OpenForms["Users"]) == null)
+            {
+                users = new Users();
+                users.MdiParent = this;
+                users.Show();
+                users.TabCtrl = tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = tabControl1;
+                tp.Text = users.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                users.TabPag = tp;
+
+                //Activate the MDI child form
+                users.Show();
+
+                //Activate the newly created Tabpage
+                tabControl1.SelectedTab = tp;
+                tabControl1.Visible = true;
+            }
+            else
+            {
+                users = (Users)Application.OpenForms["Users"];
+                users.Focus();
+            }
         }
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            inventory = new Inventory();
-            openWindow("Inventory", inventory);
+            openInventory();
+        }
+        public void openInventory()
+        {
+            if (((Inventory)Application.OpenForms["Inventory"]) == null)
+            {
+                inventory = new Inventory();
+                inventory.MdiParent = this;
+                inventory.Show();
+                inventory.TabCtrl = tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = tabControl1;
+                tp.Text = inventory.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                inventory.TabPag = tp;
+
+                //Activate the MDI child form
+                inventory.Show();
+
+                //Activate the newly created Tabpage
+                tabControl1.SelectedTab = tp;
+                tabControl1.Visible = true;
+            }
+            else
+            {
+                inventory = (Inventory)Application.OpenForms["Inventory"];
+                inventory.Focus();
+            }
         }
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            customers = new Customers();
-            openWindow("Customers",customers);    
+            openCustomers();
         }
 
+        public void openCustomers()
+        {
+            if (((Customers)Application.OpenForms["Customers"]) == null)
+            {
+                customers = new Customers();
+                customers.MdiParent = this;
+                customers.Show();
+                customers.TabCtrl = tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = tabControl1;
+                tp.Text = customers.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                customers.TabPag = tp;
+
+                //Activate the MDI child form
+                customers.Show();
+
+                //Activate the newly created Tabpage
+                tabControl1.SelectedTab = tp;
+                tabControl1.Visible = true;
+            }
+            else
+            {
+                customers = (Customers)Application.OpenForms["Customers"];
+                customers.Focus();
+            }
+        }
+
+        private void warehouseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openWarehouse();   
+        }
+
+        public void openWarehouse()
+        {
+            if (((Warehouse)Application.OpenForms["Warehouse"]) == null)
+            {
+                warehouse = new Warehouse();
+                warehouse.MdiParent = this;
+                warehouse.Show();
+                warehouse.TabCtrl = tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = tabControl1;
+                tp.Text = warehouse.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                warehouse.TabPag = tp;
+
+                //Activate the MDI child form
+                warehouse.Show();
+
+                //Activate the newly created Tabpage
+                tabControl1.SelectedTab = tp;
+                tabControl1.Visible = true;
+            }
+            else
+            {
+                warehouse = (Warehouse)Application.OpenForms["Warehouse"];
+                warehouse.Focus();
+            }
+        }
+
+        /*
         private void openWindow(string formName, Form form)
         {
             if (((Form)Application.OpenForms[formName]) == null)
             {
-
                 form.MdiParent = this;
                 form.Show();
             }
@@ -191,6 +321,48 @@ namespace WarehouseSystem
                 form = (Form)Application.OpenForms[formName];
                 form.Focus();
             }
+        }
+        */
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (inventory.TabPag.Equals(tabControl1.SelectedTab))
+                    inventory.Select();
+            }
+            catch { }
+            try
+            {
+                if (users.TabPag.Equals(tabControl1.SelectedTab))
+                    users.Select();
+            }
+            catch { }
+            try
+            {
+                if (customers.TabPag.Equals(tabControl1.SelectedTab))
+                    customers.Select();
+            }
+            catch { }
+            try
+            {
+                if (warehouse.TabPag.Equals(tabControl1.SelectedTab))
+                    warehouse.Select();
+            }
+            catch { }
+            try
+            {
+                if ((AddAisle)Application.OpenForms["AddAisle"] != null)
+                    addAisle = (AddAisle)Application.OpenForms["AddAisle"];
+                    if (addAisle.TabPag.Equals(tabControl1.SelectedTab))
+                        addAisle.Select();
+            }
+            catch { }
+        }
+
+        private void databaseConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO
         }
     }
 }

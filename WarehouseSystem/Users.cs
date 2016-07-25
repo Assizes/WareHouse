@@ -23,6 +23,20 @@ namespace WarehouseSystem
 
         string query;
 
+        private TabControl tabCtrl;
+        private TabPage tabPag;
+
+        public TabPage TabPag
+        {
+            get { return tabPag; }
+            set { tabPag = value; }
+        }
+
+        public TabControl TabCtrl
+        {
+            set { tabCtrl = value; }
+        }
+
         public Users()
         {
             InitializeComponent();
@@ -34,6 +48,8 @@ namespace WarehouseSystem
             cmd.Parameters.Add("@userID", MySqlDbType.String);
             fillData();
         }
+
+        //Fill dataGridView with all Users from database
         public void fillData()
         {
             try
@@ -110,7 +126,6 @@ namespace WarehouseSystem
 
         private void deleteUser_Click(object sender, EventArgs e)
         {
-            //TODO
             int id;
             int.TryParse(dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString(), out id);
             cmd.Parameters["@userID"].Value = id;
@@ -138,6 +153,29 @@ namespace WarehouseSystem
                 {
                     MessageBox.Show(ex.ToString());
                 }
+            }
+        }
+
+        private void Users_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Destroy the corresponding Tabpage when closing MDI child form
+            this.tabPag.Dispose();
+
+            //If no Tabpage left
+            if (!tabCtrl.HasChildren)
+            {
+                tabCtrl.Visible = false;
+            }
+        }
+
+        private void Users_Activated(object sender, EventArgs e)
+        {
+            //Activate the corresponding Tabpage
+            tabCtrl.SelectedTab = tabPag;
+
+            if (!tabCtrl.Visible)
+            {
+                tabCtrl.Visible = true;
             }
         }
     }

@@ -20,11 +20,24 @@ namespace WarehouseSystem
         DBqueries queries = new DBqueries();
         string query;
 
+        private TabControl tabCtrl;
+        private TabPage tabPag;
+
+        public TabPage TabPag
+        {
+            get { return tabPag; }
+            set { tabPag = value; }
+        }
+
+        public TabControl TabCtrl
+        {
+            set { tabCtrl = value; }
+        }
+
         public Inventory()
         {
             InitializeComponent();
         }
-
 
         private void btnAddInventory_Click(object sender, EventArgs e)
         {
@@ -93,6 +106,29 @@ namespace WarehouseSystem
             catch (MySqlException ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void Inventory_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Destroy the corresponding Tabpage when closing MDI child form
+            this.tabPag.Dispose();
+
+            //If no Tabpage left
+            if (!tabCtrl.HasChildren)
+            {
+                tabCtrl.Visible = false;
+            }
+        }
+
+        private void Inventory_Activated(object sender, EventArgs e)
+        {
+            //Activate the corresponding Tabpage
+            tabCtrl.SelectedTab = tabPag;
+
+            if (!tabCtrl.Visible)
+            {
+                tabCtrl.Visible = true;
             }
         }
     }
