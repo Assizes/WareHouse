@@ -27,13 +27,15 @@ namespace WarehouseSystem
         internal string getAllAisles = "SELECT aisle_ID AS `Aisle ID` FROM s2016_user1.aisles";
         internal string getShelves = "SELECT shelf_ID AS `Shelf ID` FROM s2016_user1.shelves WHERE FK_aisle=@aisleID";
 
-        internal string addAisle = "";
+        internal string addAisle = "INSERT INTO s2016_user1.aisles VALUES(DEFAULT)";
+        internal string addShelfe = "INSERT INTO s2016_user1.shelves VALUES(DEFAULT, @aisleID)";
+        internal string addBin = "INSERT INTO s2016_user1.bins VALUES(DEFAULT, @shelf, @maxWeight, @maxHeight, @maxWidth, @maxLength)";
         //adding queries
-       // public string getCustomer = "SELECT concat('firstName' , 'lastName' , 'customer_ID') FROM s2016_user1.customers";
-        public string getCustomer = "SELECT firstName , lastName , customer_ID as temp FROM s2016_user1.customers";
+        // public string getCustomer = "SELECT concat('firstName' , 'lastName' , 'customer_ID') FROM s2016_user1.customers";
+        internal string getCustomer = "SELECT firstName , lastName , customer_ID as temp FROM s2016_user1.customers";
         //public string getCustomer = "SELECT * FROM s2016_user1.customers";
 
-        public string addInvetory = "INSERT INTO s2016_user1.item(FK_Customer_ID,itemDescription,length,width,height,weight,quantity,expirationDate,FK_Customers)" +
+        internal string addInvetory = "INSERT INTO s2016_user1.item(FK_Customer_ID,itemDescription,length,width,height,weight,quantity,expirationDate,FK_Customers)" +
                                     "FROM s2016_user1.customers AS C" + "INNER JOIN bins AS b ON b.bin_ID = C.FK_bin" + "INNER JOIN shelves AS s ON s.shelf_ID = C.FK_shelf" + "INNER JOIN aisles AS a ON a.aisle_ID = FK_aisle";
         
     }
