@@ -146,9 +146,9 @@
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(381, 231);
+            this.btnAddUser.Location = new System.Drawing.Point(380, 230);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(90, 30);
+            this.btnAddUser.Size = new System.Drawing.Size(104, 23);
             this.btnAddUser.TabIndex = 1;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
@@ -156,9 +156,9 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(260, 231);
+            this.btnReset.Location = new System.Drawing.Point(259, 230);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(90, 30);
+            this.btnReset.Size = new System.Drawing.Size(104, 23);
             this.btnReset.TabIndex = 2;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 281);
+            this.ClientSize = new System.Drawing.Size(496, 269);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.groupBox1);
