@@ -72,7 +72,25 @@ namespace WarehouseSystem
 
         private void btnSave(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (connection != null)
+                {
+                    query = queries.addAisle;
+                    cmd.CommandText = query;
+                    cmd.Connection = connection;
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("Connection Lost");
+                    this.Close();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void AddAisle_Load(object sender, EventArgs e)

@@ -37,6 +37,5 @@ namespace WarehouseSystem
 
         internal string addInvetory = "INSERT INTO s2016_user1.item(FK_Customer_ID,itemDescription,length,width,height,weight,quantity,expirationDate,FK_Customers)" +
                                     "FROM s2016_user1.customers AS C" + "INNER JOIN bins AS b ON b.bin_ID = C.FK_bin" + "INNER JOIN shelves AS s ON s.shelf_ID = C.FK_shelf" + "INNER JOIN aisles AS a ON a.aisle_ID = FK_aisle";
-        
     }
 }
