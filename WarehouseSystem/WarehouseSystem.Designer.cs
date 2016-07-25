@@ -218,9 +218,9 @@
         private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem warehouseToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseConnectionToolStripMenuItem;
+        internal System.Windows.Forms.TabControl tabControl1;
     }
 }
 

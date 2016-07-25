@@ -66,7 +66,7 @@
             this.btnAddShelf.TabIndex = 1;
             this.btnAddShelf.Text = "Add Shelf";
             this.btnAddShelf.UseVisualStyleBackColor = true;
-            this.btnAddShelf.Click += new System.EventHandler(this.btnAddAisle_Click);
+            this.btnAddShelf.Click += new System.EventHandler(this.btnAddShelf_Click);
             // 
             // btnEditShelf
             // 
@@ -76,6 +76,7 @@
             this.btnEditShelf.TabIndex = 2;
             this.btnEditShelf.Text = "Edit Shelf";
             this.btnEditShelf.UseVisualStyleBackColor = true;
+            this.btnEditShelf.Click += new System.EventHandler(this.btnEditShelf_Click);
             // 
             // btnDeleteShelf
             // 
@@ -85,6 +86,7 @@
             this.btnDeleteShelf.TabIndex = 3;
             this.btnDeleteShelf.Text = "Delete Shelf";
             this.btnDeleteShelf.UseVisualStyleBackColor = true;
+            this.btnDeleteShelf.Click += new System.EventHandler(this.btnDeleteShelf_Click);
             // 
             // btnAddAisle
             // 
@@ -94,6 +96,7 @@
             this.btnAddAisle.TabIndex = 5;
             this.btnAddAisle.Text = "Add Aisle";
             this.btnAddAisle.UseVisualStyleBackColor = true;
+            this.btnAddAisle.Click += new System.EventHandler(this.btnAddAisle_Click);
             // 
             // btnDeleteAisle
             // 
@@ -103,6 +106,7 @@
             this.btnDeleteAisle.TabIndex = 6;
             this.btnDeleteAisle.Text = "Delete Aisle";
             this.btnDeleteAisle.UseVisualStyleBackColor = true;
+            this.btnDeleteAisle.Click += new System.EventHandler(this.btnDeleteAisle_Click);
             // 
             // dgvAisles
             // 

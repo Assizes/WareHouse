@@ -19,6 +19,7 @@ namespace WarehouseSystem
         private Inventory inventory = null;
         private Customers customers = null;
         private Warehouse warehouse = null;
+        private AddAisle addAisle = null;
         private static MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
@@ -347,6 +348,14 @@ namespace WarehouseSystem
             {
                 if (warehouse.TabPag.Equals(tabControl1.SelectedTab))
                     warehouse.Select();
+            }
+            catch { }
+            try
+            {
+                if ((AddAisle)Application.OpenForms["AddAisle"] != null)
+                    addAisle = (AddAisle)Application.OpenForms["AddAisle"];
+                    if (addAisle.TabPag.Equals(tabControl1.SelectedTab))
+                        addAisle.Select();
             }
             catch { }
         }

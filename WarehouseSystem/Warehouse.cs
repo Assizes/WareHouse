@@ -15,6 +15,7 @@ namespace WarehouseSystem
     {
         private WarehouseSystem warehouse = (WarehouseSystem)Application.OpenForms["WarehouseSystem"];
         MySqlConnection connection;
+        AddAisle addAisle;
         DBqueries queries = new DBqueries();
         MySqlCommand cmd = new MySqlCommand();
 
@@ -40,10 +41,6 @@ namespace WarehouseSystem
             cmd.Parameters.Add("@aisleID", MySqlDbType.String);
         }
 
-        private void btnAddAisle_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Warehouse_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -148,6 +145,54 @@ namespace WarehouseSystem
             {
                 MessageBox.Show("Please, Select Aisle first");
             }
+        }
+
+        private void btnAddAisle_Click(object sender, EventArgs e)
+        {
+            addAisle = new AddAisle();
+            if (((AddAisle)Application.OpenForms["AddAisle"]) == null)
+            {
+                addAisle.MdiParent = warehouse;
+                addAisle.Show();
+                addAisle.TabCtrl = warehouse.tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = warehouse.tabControl1;
+                tp.Text = addAisle.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                addAisle.TabPag = tp;
+
+                //Activate the newly created Tabpage
+                warehouse.tabControl1.SelectedTab = tp;
+                warehouse.tabControl1.Visible = true;
+            }
+            //If this form already opened
+            else
+            {
+                addAisle = (AddAisle)Application.OpenForms["AddAisle"];
+                addAisle.Focus();
+            }
+        }
+
+        private void btnDeleteAisle_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        private void btnAddShelf_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+        private void btnEditShelf_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        private void btnDeleteShelf_Click(object sender, EventArgs e)
+        {
+            //TODO
         }
     }
 }
