@@ -26,6 +26,15 @@ namespace WarehouseSystem
         public AddEditInventory()
         {
             InitializeComponent();
+
+            //hide this
+            /* datetimeItemExpiration.Hide();
+               lblExpirationDate.Hide();*/
+            //Gray out instrad
+            lblExpirationDate.Enabled = false;
+            datetimeItemExpiration.Enabled = false;
+            //====
+
             cmd.Parameters.Add("@itemName", MySqlDbType.String);
             cmd.Parameters.Add("@weight", MySqlDbType.String);
             cmd.Parameters.Add("@height", MySqlDbType.String);
@@ -46,15 +55,12 @@ namespace WarehouseSystem
           
             dr = cmd.ExecuteReader();
 
-           // Array temp= new Array[5];
-
-           // List<String> tempList = new List<String>();
-            DataSet ds = new DataSet();
+            //DataSet ds = new DataSet();
             
             while (dr.Read())
             {
               //  tempList.Add(dr[0].ToString());
-                cmbItemCustomer.Items.Add(dr[0].ToString());
+                cmbItemCustomer.Items.Add("ID:"+dr[0].ToString()+"Name:"+ dr[1].ToString() +" "+dr[2].ToString());
                 
             }
 
@@ -151,19 +157,16 @@ namespace WarehouseSystem
                     if (connection != null)
                     {
                         //calling query //we intialized in field already
-                        query = queries.addCustomer;
-                        //its a dataadapter
-                       // MySqlDataAdapter sqladapter = new MySqlDataAdapter();
+                        query = queries.addInvetory;
                         cmd.CommandText = query;
                         cmd.Connection = connection;
-                        //check this call
+                        //Insert/delete command
                         cmd.ExecuteNonQuery();
-                       // customers.fillData();
                        //closes form
                         Close();
 
-                        cmd.CommandText = queries.getUserInfo;
-                        dr = cmd.ExecuteReader();
+                       // cmd.CommandText = queries.getUserInfo;
+                       // dr = cmd.ExecuteReader();
                         
                        /* while (dr.Read())
                         {
@@ -186,10 +189,30 @@ namespace WarehouseSystem
                     MessageBox.Show(ex.ToString());
                 }
             }
-            else
+            else//its going to be edit
             {
 
             } 
-        } 
+        }
+
+        private void rdoExpirationNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdoExpirationNo.Checked)
+            {
+                //lblExpirationDate.Hide();
+                //datetimeItemExpiration.Hide();
+
+                lblExpirationDate.Enabled = false;
+                datetimeItemExpiration.Enabled = false;
+            }
+            else
+            {
+               // lblExpirationDate.Show();
+                //datetimeItemExpiration.Show();
+
+                lblExpirationDate.Enabled = true;
+                datetimeItemExpiration.Enabled = true;
+            }
+        }
     }
 }

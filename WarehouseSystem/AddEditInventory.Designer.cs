@@ -189,6 +189,7 @@
             this.rdoExpirationNo.TabStop = true;
             this.rdoExpirationNo.Text = "No";
             this.rdoExpirationNo.UseVisualStyleBackColor = true;
+            this.rdoExpirationNo.CheckedChanged += new System.EventHandler(this.rdoExpirationNo_CheckedChanged);
             // 
             // rdoExpirationYes
             // 

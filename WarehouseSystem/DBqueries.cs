@@ -29,7 +29,7 @@ namespace WarehouseSystem
 
         //adding queries
        // public string getCustomer = "SELECT concat('firstName' , 'lastName' , 'customer_ID') FROM s2016_user1.customers";
-        public string getCustomer = "SELECT firstName , lastName , customer_ID as temp FROM s2016_user1.customers";
+        public string getCustomer = "SELECT customer_ID, firstName , lastName FROM s2016_user1.customers";
         //public string getCustomer = "SELECT * FROM s2016_user1.customers";
 
         public string addInvetory = "INSERT INTO s2016_user1.item(FK_Customer_ID,itemDescription,length,width,height,weight,quantity,expirationDate,FK_Customers)" +
