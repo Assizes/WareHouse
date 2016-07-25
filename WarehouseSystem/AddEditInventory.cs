@@ -54,7 +54,7 @@ namespace WarehouseSystem
             while (dr.Read())
             {
               //  tempList.Add(dr[0].ToString());
-                cmbItemCustomer.Items.Add(dr[0].ToString());
+                cmbItemCustomer.Items.Add(dr[0].ToString()+" "+dr[1].ToString()+" "+dr[2].ToString());
                 
             }
 

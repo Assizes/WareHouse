@@ -126,7 +126,7 @@ namespace WarehouseSystem
             {
                 cmd.Parameters["@login"].Value = txtLogin.Text;
                 cmd.Parameters["@fName"].Value = txtFName.Text;
-                cmd.Parameters["@lName"].Value = txtLogin.Text;
+                cmd.Parameters["@lName"].Value = txtLName.Text;
                 cmd.Parameters["@roleID"].Value = cmbGroup.SelectedIndex + 1;
             }
             else

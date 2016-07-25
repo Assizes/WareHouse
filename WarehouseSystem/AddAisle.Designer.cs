@@ -36,11 +36,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtLength = new System.Windows.Forms.TextBox();
+            this.txtWidth = new System.Windows.Forms.TextBox();
+            this.txtHeight = new System.Windows.Forms.TextBox();
+            this.txtMaxWeight = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAisleName = new System.Windows.Forms.TextBox();
+            this.txtShelvesNumber = new System.Windows.Forms.TextBox();
+            this.txtBinsNumber = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +113,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtLength);
+            this.groupBox1.Controls.Add(this.txtWidth);
+            this.groupBox1.Controls.Add(this.txtHeight);
+            this.groupBox1.Controls.Add(this.txtMaxWeight);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
@@ -120,6 +128,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bins Characteristics";
             // 
+            // txtLength
+            // 
+            this.txtLength.Location = new System.Drawing.Point(123, 120);
+            this.txtLength.Name = "txtLength";
+            this.txtLength.Size = new System.Drawing.Size(118, 20);
+            this.txtLength.TabIndex = 10;
+            // 
+            // txtWidth
+            // 
+            this.txtWidth.Location = new System.Drawing.Point(123, 92);
+            this.txtWidth.Name = "txtWidth";
+            this.txtWidth.Size = new System.Drawing.Size(118, 20);
+            this.txtWidth.TabIndex = 9;
+            // 
+            // txtHeight
+            // 
+            this.txtHeight.Location = new System.Drawing.Point(123, 63);
+            this.txtHeight.Name = "txtHeight";
+            this.txtHeight.Size = new System.Drawing.Size(118, 20);
+            this.txtHeight.TabIndex = 8;
+            // 
+            // txtMaxWeight
+            // 
+            this.txtMaxWeight.Location = new System.Drawing.Point(123, 31);
+            this.txtMaxWeight.Name = "txtMaxWeight";
+            this.txtMaxWeight.Size = new System.Drawing.Size(118, 20);
+            this.txtMaxWeight.TabIndex = 7;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(356, 331);
@@ -128,6 +164,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnClose);
             // 
             // button2
             // 
@@ -137,36 +174,37 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnSave);
             // 
-            // textBox1
+            // txtAisleName
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtAisleName.Location = new System.Drawing.Point(115, 46);
+            this.txtAisleName.Name = "txtAisleName";
+            this.txtAisleName.Size = new System.Drawing.Size(106, 20);
+            this.txtAisleName.TabIndex = 10;
             // 
-            // textBox2
+            // txtShelvesNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(406, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 20);
-            this.textBox2.TabIndex = 11;
+            this.txtShelvesNumber.Location = new System.Drawing.Point(406, 46);
+            this.txtShelvesNumber.Name = "txtShelvesNumber";
+            this.txtShelvesNumber.Size = new System.Drawing.Size(106, 20);
+            this.txtShelvesNumber.TabIndex = 11;
             // 
-            // textBox3
+            // txtBinsNumber
             // 
-            this.textBox3.Location = new System.Drawing.Point(197, 107);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(106, 20);
-            this.textBox3.TabIndex = 12;
+            this.txtBinsNumber.Location = new System.Drawing.Point(197, 107);
+            this.txtBinsNumber.Name = "txtBinsNumber";
+            this.txtBinsNumber.Size = new System.Drawing.Size(106, 20);
+            this.txtBinsNumber.TabIndex = 12;
             // 
             // AddAisle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 402);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBinsNumber);
+            this.Controls.Add(this.txtShelvesNumber);
+            this.Controls.Add(this.txtAisleName);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -178,6 +216,7 @@
             this.Text = "AddAisle";
             this.Activated += new System.EventHandler(this.AddAisle_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddAisle_FormClosing);
+            this.Load += new System.EventHandler(this.AddAisle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -197,8 +236,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAisleName;
+        private System.Windows.Forms.TextBox txtShelvesNumber;
+        private System.Windows.Forms.TextBox txtBinsNumber;
+        private System.Windows.Forms.TextBox txtLength;
+        private System.Windows.Forms.TextBox txtWidth;
+        private System.Windows.Forms.TextBox txtHeight;
+        private System.Windows.Forms.TextBox txtMaxWeight;
     }
 }
