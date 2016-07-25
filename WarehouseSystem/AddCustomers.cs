@@ -14,7 +14,6 @@ namespace WarehouseSystem
 {
     public partial class AddCustomers : Form
     {
-        //test
         private WarehouseSystem warehouse = (WarehouseSystem)Application.OpenForms["WarehouseSystem"];
         private Customers customers = (Customers)Application.OpenForms["Customers"];
         MySqlConnection connection;
