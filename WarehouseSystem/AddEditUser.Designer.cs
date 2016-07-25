@@ -149,7 +149,7 @@
             this.btnAddUser.Location = new System.Drawing.Point(380, 230);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(104, 23);
-            this.btnAddUser.TabIndex = 1;
+            this.btnAddUser.TabIndex = 2;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
@@ -159,7 +159,7 @@
             this.btnReset.Location = new System.Drawing.Point(259, 230);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(104, 23);
-            this.btnReset.TabIndex = 2;
+            this.btnReset.TabIndex = 1;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);

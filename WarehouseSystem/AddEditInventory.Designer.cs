@@ -92,7 +92,7 @@
             this.cmbItemCustomer.Location = new System.Drawing.Point(513, 88);
             this.cmbItemCustomer.Name = "cmbItemCustomer";
             this.cmbItemCustomer.Size = new System.Drawing.Size(142, 21);
-            this.cmbItemCustomer.TabIndex = 35;
+            this.cmbItemCustomer.TabIndex = 9;
             // 
             // lblItemCustomer
             // 
@@ -100,7 +100,7 @@
             this.lblItemCustomer.Location = new System.Drawing.Point(458, 91);
             this.lblItemCustomer.Name = "lblItemCustomer";
             this.lblItemCustomer.Size = new System.Drawing.Size(51, 13);
-            this.lblItemCustomer.TabIndex = 34;
+            this.lblItemCustomer.TabIndex = 8;
             this.lblItemCustomer.Text = "Customer";
             // 
             // cmbItemCategory
@@ -109,7 +109,7 @@
             this.cmbItemCategory.Location = new System.Drawing.Point(308, 29);
             this.cmbItemCategory.Name = "cmbItemCategory";
             this.cmbItemCategory.Size = new System.Drawing.Size(104, 21);
-            this.cmbItemCategory.TabIndex = 33;
+            this.cmbItemCategory.TabIndex = 5;
             // 
             // lblItemCategory
             // 
@@ -117,7 +117,7 @@
             this.lblItemCategory.Location = new System.Drawing.Point(257, 32);
             this.lblItemCategory.Name = "lblItemCategory";
             this.lblItemCategory.Size = new System.Drawing.Size(49, 13);
-            this.lblItemCategory.TabIndex = 6;
+            this.lblItemCategory.TabIndex = 4;
             this.lblItemCategory.Text = "Category";
             // 
             // txtItemDescription
@@ -126,14 +126,14 @@
             this.txtItemDescription.Multiline = true;
             this.txtItemDescription.Name = "txtItemDescription";
             this.txtItemDescription.Size = new System.Drawing.Size(300, 99);
-            this.txtItemDescription.TabIndex = 5;
+            this.txtItemDescription.TabIndex = 7;
             // 
             // txtItemName
             // 
             this.txtItemName.Location = new System.Drawing.Point(112, 29);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(112, 20);
-            this.txtItemName.TabIndex = 4;
+            this.txtItemName.TabIndex = 3;
             // 
             // lblAddCustomerLName
             // 
@@ -141,7 +141,7 @@
             this.lblAddCustomerLName.Location = new System.Drawing.Point(26, 64);
             this.lblAddCustomerLName.Name = "lblAddCustomerLName";
             this.lblAddCustomerLName.Size = new System.Drawing.Size(60, 13);
-            this.lblAddCustomerLName.TabIndex = 1;
+            this.lblAddCustomerLName.TabIndex = 6;
             this.lblAddCustomerLName.Text = "Description";
             // 
             // lblItemName
@@ -150,7 +150,7 @@
             this.lblItemName.Location = new System.Drawing.Point(59, 32);
             this.lblItemName.Name = "lblItemName";
             this.lblItemName.Size = new System.Drawing.Size(27, 13);
-            this.lblItemName.TabIndex = 0;
+            this.lblItemName.TabIndex = 1;
             this.lblItemName.Text = "Item";
             // 
             // grpItemProperties
@@ -174,7 +174,7 @@
             this.grpItemProperties.Location = new System.Drawing.Point(12, 193);
             this.grpItemProperties.Name = "grpItemProperties";
             this.grpItemProperties.Size = new System.Drawing.Size(687, 190);
-            this.grpItemProperties.TabIndex = 15;
+            this.grpItemProperties.TabIndex = 10;
             this.grpItemProperties.TabStop = false;
             this.grpItemProperties.Text = "Properties";
             // 
@@ -185,7 +185,7 @@
             this.rdoExpirationNo.Location = new System.Drawing.Point(243, 122);
             this.rdoExpirationNo.Name = "rdoExpirationNo";
             this.rdoExpirationNo.Size = new System.Drawing.Size(39, 17);
-            this.rdoExpirationNo.TabIndex = 34;
+            this.rdoExpirationNo.TabIndex = 24;
             this.rdoExpirationNo.TabStop = true;
             this.rdoExpirationNo.Text = "No";
             this.rdoExpirationNo.UseVisualStyleBackColor = true;
@@ -197,7 +197,7 @@
             this.rdoExpirationYes.Location = new System.Drawing.Point(194, 122);
             this.rdoExpirationYes.Name = "rdoExpirationYes";
             this.rdoExpirationYes.Size = new System.Drawing.Size(43, 17);
-            this.rdoExpirationYes.TabIndex = 33;
+            this.rdoExpirationYes.TabIndex = 23;
             this.rdoExpirationYes.TabStop = true;
             this.rdoExpirationYes.Text = "Yes";
             this.rdoExpirationYes.UseVisualStyleBackColor = true;
@@ -208,14 +208,14 @@
             this.cmbUnitofMeasurement.Location = new System.Drawing.Point(274, 76);
             this.cmbUnitofMeasurement.Name = "cmbUnitofMeasurement";
             this.cmbUnitofMeasurement.Size = new System.Drawing.Size(55, 21);
-            this.cmbUnitofMeasurement.TabIndex = 32;
+            this.cmbUnitofMeasurement.TabIndex = 21;
             // 
             // datetimeItemExpiration
             // 
             this.datetimeItemExpiration.Location = new System.Drawing.Point(137, 156);
             this.datetimeItemExpiration.Name = "datetimeItemExpiration";
             this.datetimeItemExpiration.Size = new System.Drawing.Size(200, 20);
-            this.datetimeItemExpiration.TabIndex = 31;
+            this.datetimeItemExpiration.TabIndex = 26;
             this.datetimeItemExpiration.TabStop = false;
             // 
             // lblExpirationDate
@@ -224,7 +224,7 @@
             this.lblExpirationDate.Location = new System.Drawing.Point(45, 162);
             this.lblExpirationDate.Name = "lblExpirationDate";
             this.lblExpirationDate.Size = new System.Drawing.Size(79, 13);
-            this.lblExpirationDate.TabIndex = 30;
+            this.lblExpirationDate.TabIndex = 25;
             this.lblExpirationDate.Text = "Expiration Date";
             // 
             // lblExpirationDateQuestion
@@ -233,7 +233,7 @@
             this.lblExpirationDateQuestion.Location = new System.Drawing.Point(5, 124);
             this.lblExpirationDateQuestion.Name = "lblExpirationDateQuestion";
             this.lblExpirationDateQuestion.Size = new System.Drawing.Size(174, 13);
-            this.lblExpirationDateQuestion.TabIndex = 27;
+            this.lblExpirationDateQuestion.TabIndex = 22;
             this.lblExpirationDateQuestion.Text = "Does item have an expiration date?";
             // 
             // txtItemQuantity
@@ -241,35 +241,35 @@
             this.txtItemQuantity.Location = new System.Drawing.Point(214, 76);
             this.txtItemQuantity.Name = "txtItemQuantity";
             this.txtItemQuantity.Size = new System.Drawing.Size(54, 20);
-            this.txtItemQuantity.TabIndex = 26;
+            this.txtItemQuantity.TabIndex = 20;
             // 
             // txtItemWeight
             // 
             this.txtItemWeight.Location = new System.Drawing.Point(93, 76);
             this.txtItemWeight.Name = "txtItemWeight";
             this.txtItemWeight.Size = new System.Drawing.Size(54, 20);
-            this.txtItemWeight.TabIndex = 25;
+            this.txtItemWeight.TabIndex = 18;
             // 
             // txtItemHeight
             // 
             this.txtItemHeight.Location = new System.Drawing.Point(349, 34);
             this.txtItemHeight.Name = "txtItemHeight";
             this.txtItemHeight.Size = new System.Drawing.Size(54, 20);
-            this.txtItemHeight.TabIndex = 24;
+            this.txtItemHeight.TabIndex = 16;
             // 
             // txtItemWidth
             // 
             this.txtItemWidth.Location = new System.Drawing.Point(214, 34);
             this.txtItemWidth.Name = "txtItemWidth";
             this.txtItemWidth.Size = new System.Drawing.Size(54, 20);
-            this.txtItemWidth.TabIndex = 23;
+            this.txtItemWidth.TabIndex = 14;
             // 
             // txtItemLength
             // 
             this.txtItemLength.Location = new System.Drawing.Point(95, 34);
             this.txtItemLength.Name = "txtItemLength";
             this.txtItemLength.Size = new System.Drawing.Size(54, 20);
-            this.txtItemLength.TabIndex = 22;
+            this.txtItemLength.TabIndex = 12;
             // 
             // lblItemQuantity
             // 
@@ -277,7 +277,7 @@
             this.lblItemQuantity.Location = new System.Drawing.Point(162, 79);
             this.lblItemQuantity.Name = "lblItemQuantity";
             this.lblItemQuantity.Size = new System.Drawing.Size(46, 13);
-            this.lblItemQuantity.TabIndex = 21;
+            this.lblItemQuantity.TabIndex = 19;
             this.lblItemQuantity.Text = "Quantity";
             // 
             // lblItemWeight
@@ -286,7 +286,7 @@
             this.lblItemWeight.Location = new System.Drawing.Point(45, 79);
             this.lblItemWeight.Name = "lblItemWeight";
             this.lblItemWeight.Size = new System.Drawing.Size(41, 13);
-            this.lblItemWeight.TabIndex = 20;
+            this.lblItemWeight.TabIndex = 17;
             this.lblItemWeight.Text = "Weight";
             // 
             // lblItemHeight
@@ -295,7 +295,7 @@
             this.lblItemHeight.Location = new System.Drawing.Point(305, 37);
             this.lblItemHeight.Name = "lblItemHeight";
             this.lblItemHeight.Size = new System.Drawing.Size(38, 13);
-            this.lblItemHeight.TabIndex = 19;
+            this.lblItemHeight.TabIndex = 15;
             this.lblItemHeight.Text = "Height";
             // 
             // lblItemWidth
@@ -304,7 +304,7 @@
             this.lblItemWidth.Location = new System.Drawing.Point(173, 37);
             this.lblItemWidth.Name = "lblItemWidth";
             this.lblItemWidth.Size = new System.Drawing.Size(35, 13);
-            this.lblItemWidth.TabIndex = 18;
+            this.lblItemWidth.TabIndex = 13;
             this.lblItemWidth.Text = "Width";
             // 
             // lblItemLength
@@ -313,7 +313,7 @@
             this.lblItemLength.Location = new System.Drawing.Point(46, 37);
             this.lblItemLength.Name = "lblItemLength";
             this.lblItemLength.Size = new System.Drawing.Size(40, 13);
-            this.lblItemLength.TabIndex = 17;
+            this.lblItemLength.TabIndex = 11;
             this.lblItemLength.Text = "Length";
             // 
             // grpbxItemLocation
@@ -328,7 +328,7 @@
             this.grpbxItemLocation.Location = new System.Drawing.Point(12, 389);
             this.grpbxItemLocation.Name = "grpbxItemLocation";
             this.grpbxItemLocation.Size = new System.Drawing.Size(687, 73);
-            this.grpbxItemLocation.TabIndex = 16;
+            this.grpbxItemLocation.TabIndex = 27;
             this.grpbxItemLocation.TabStop = false;
             this.grpbxItemLocation.Text = "Location";
             // 
@@ -338,7 +338,7 @@
             this.cmbItemBin.Location = new System.Drawing.Point(474, 34);
             this.cmbItemBin.Name = "cmbItemBin";
             this.cmbItemBin.Size = new System.Drawing.Size(55, 21);
-            this.cmbItemBin.TabIndex = 37;
+            this.cmbItemBin.TabIndex = 34;
             // 
             // cmbItemShelf
             // 
@@ -346,7 +346,7 @@
             this.cmbItemShelf.Location = new System.Drawing.Point(372, 34);
             this.cmbItemShelf.Name = "cmbItemShelf";
             this.cmbItemShelf.Size = new System.Drawing.Size(55, 21);
-            this.cmbItemShelf.TabIndex = 36;
+            this.cmbItemShelf.TabIndex = 32;
             // 
             // cmbItemAisle
             // 
@@ -354,14 +354,14 @@
             this.cmbItemAisle.Location = new System.Drawing.Point(269, 34);
             this.cmbItemAisle.Name = "cmbItemAisle";
             this.cmbItemAisle.Size = new System.Drawing.Size(55, 21);
-            this.cmbItemAisle.TabIndex = 35;
+            this.cmbItemAisle.TabIndex = 30;
             // 
             // btnItemLocation
             // 
             this.btnItemLocation.Location = new System.Drawing.Point(29, 32);
             this.btnItemLocation.Name = "btnItemLocation";
             this.btnItemLocation.Size = new System.Drawing.Size(153, 23);
-            this.btnItemLocation.TabIndex = 26;
+            this.btnItemLocation.TabIndex = 28;
             this.btnItemLocation.Text = "Generate Available Location";
             this.btnItemLocation.UseVisualStyleBackColor = true;
             // 
@@ -371,7 +371,7 @@
             this.lblItemBin.Location = new System.Drawing.Point(446, 37);
             this.lblItemBin.Name = "lblItemBin";
             this.lblItemBin.Size = new System.Drawing.Size(22, 13);
-            this.lblItemBin.TabIndex = 2;
+            this.lblItemBin.TabIndex = 33;
             this.lblItemBin.Text = "Bin";
             // 
             // lblItemShelf
@@ -380,7 +380,7 @@
             this.lblItemShelf.Location = new System.Drawing.Point(335, 37);
             this.lblItemShelf.Name = "lblItemShelf";
             this.lblItemShelf.Size = new System.Drawing.Size(31, 13);
-            this.lblItemShelf.TabIndex = 1;
+            this.lblItemShelf.TabIndex = 31;
             this.lblItemShelf.Text = "Shelf";
             // 
             // lblItemAisle
@@ -389,7 +389,7 @@
             this.lblItemAisle.Location = new System.Drawing.Point(234, 37);
             this.lblItemAisle.Name = "lblItemAisle";
             this.lblItemAisle.Size = new System.Drawing.Size(29, 13);
-            this.lblItemAisle.TabIndex = 0;
+            this.lblItemAisle.TabIndex = 29;
             this.lblItemAisle.Text = "Aisle";
             // 
             // btnItemAddSave
@@ -397,7 +397,7 @@
             this.btnItemAddSave.Location = new System.Drawing.Point(624, 479);
             this.btnItemAddSave.Name = "btnItemAddSave";
             this.btnItemAddSave.Size = new System.Drawing.Size(75, 23);
-            this.btnItemAddSave.TabIndex = 17;
+            this.btnItemAddSave.TabIndex = 36;
             this.btnItemAddSave.Text = "Add Item";
             this.btnItemAddSave.UseVisualStyleBackColor = true;
             this.btnItemAddSave.Click += new System.EventHandler(this.btnItemAddSave_Click);
@@ -407,7 +407,7 @@
             this.btnItemResetCancel.Location = new System.Drawing.Point(527, 479);
             this.btnItemResetCancel.Name = "btnItemResetCancel";
             this.btnItemResetCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnItemResetCancel.TabIndex = 18;
+            this.btnItemResetCancel.TabIndex = 35;
             this.btnItemResetCancel.Text = "Reset";
             this.btnItemResetCancel.UseVisualStyleBackColor = true;
             this.btnItemResetCancel.Click += new System.EventHandler(this.btnItemReset_Click);

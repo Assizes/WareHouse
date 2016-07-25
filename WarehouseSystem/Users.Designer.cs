@@ -56,7 +56,7 @@
             // deleteUser
             // 
             this.deleteUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteUser.Location = new System.Drawing.Point(418, 209);
+            this.deleteUser.Location = new System.Drawing.Point(418, 213);
             this.deleteUser.Name = "deleteUser";
             this.deleteUser.Size = new System.Drawing.Size(104, 23);
             this.deleteUser.TabIndex = 7;
@@ -67,7 +67,7 @@
             // editUser
             // 
             this.editUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editUser.Location = new System.Drawing.Point(418, 169);
+            this.editUser.Location = new System.Drawing.Point(418, 173);
             this.editUser.Name = "editUser";
             this.editUser.Size = new System.Drawing.Size(104, 23);
             this.editUser.TabIndex = 6;
@@ -78,7 +78,7 @@
             // addUser
             // 
             this.addUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addUser.Location = new System.Drawing.Point(418, 126);
+            this.addUser.Location = new System.Drawing.Point(418, 130);
             this.addUser.Name = "addUser";
             this.addUser.Size = new System.Drawing.Size(104, 23);
             this.addUser.TabIndex = 5;
