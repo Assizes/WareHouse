@@ -124,14 +124,14 @@
             this.txtAddCustomerAddress.Location = new System.Drawing.Point(90, 87);
             this.txtAddCustomerAddress.Name = "txtAddCustomerAddress";
             this.txtAddCustomerAddress.Size = new System.Drawing.Size(308, 20);
-            this.txtAddCustomerAddress.TabIndex = 7;
+            this.txtAddCustomerAddress.TabIndex = 6;
             // 
             // txtAddCustomerPhone
             // 
             this.txtAddCustomerPhone.Location = new System.Drawing.Point(504, 87);
             this.txtAddCustomerPhone.Name = "txtAddCustomerPhone";
             this.txtAddCustomerPhone.Size = new System.Drawing.Size(112, 20);
-            this.txtAddCustomerPhone.TabIndex = 6;
+            this.txtAddCustomerPhone.TabIndex = 7;
             // 
             // txtAddCustomerLName
             // 
@@ -188,7 +188,7 @@
             this.btnAddCustomer.Location = new System.Drawing.Point(563, 221);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(136, 23);
-            this.btnAddCustomer.TabIndex = 15;
+            this.btnAddCustomer.TabIndex = 16;
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
@@ -198,7 +198,7 @@
             this.btnAddCustomerReset.Location = new System.Drawing.Point(462, 221);
             this.btnAddCustomerReset.Name = "btnAddCustomerReset";
             this.btnAddCustomerReset.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCustomerReset.TabIndex = 16;
+            this.btnAddCustomerReset.TabIndex = 15;
             this.btnAddCustomerReset.Text = "Reset";
             this.btnAddCustomerReset.UseVisualStyleBackColor = true;
             this.btnAddCustomerReset.Click += new System.EventHandler(this.btnAddCustomerReset_Click);
