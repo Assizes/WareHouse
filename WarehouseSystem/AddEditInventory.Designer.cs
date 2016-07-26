@@ -31,8 +31,6 @@
             this.grpbxAddItem = new System.Windows.Forms.GroupBox();
             this.cmbItemCustomer = new System.Windows.Forms.ComboBox();
             this.lblItemCustomer = new System.Windows.Forms.Label();
-            this.cmbItemCategory = new System.Windows.Forms.ComboBox();
-            this.lblItemCategory = new System.Windows.Forms.Label();
             this.txtItemDescription = new System.Windows.Forms.TextBox();
             this.txtItemName = new System.Windows.Forms.TextBox();
             this.lblAddCustomerLName = new System.Windows.Forms.Label();
@@ -73,8 +71,6 @@
             // 
             this.grpbxAddItem.Controls.Add(this.cmbItemCustomer);
             this.grpbxAddItem.Controls.Add(this.lblItemCustomer);
-            this.grpbxAddItem.Controls.Add(this.cmbItemCategory);
-            this.grpbxAddItem.Controls.Add(this.lblItemCategory);
             this.grpbxAddItem.Controls.Add(this.txtItemDescription);
             this.grpbxAddItem.Controls.Add(this.txtItemName);
             this.grpbxAddItem.Controls.Add(this.lblAddCustomerLName);
@@ -102,23 +98,6 @@
             this.lblItemCustomer.Size = new System.Drawing.Size(51, 13);
             this.lblItemCustomer.TabIndex = 8;
             this.lblItemCustomer.Text = "Customer";
-            // 
-            // cmbItemCategory
-            // 
-            this.cmbItemCategory.FormattingEnabled = true;
-            this.cmbItemCategory.Location = new System.Drawing.Point(308, 29);
-            this.cmbItemCategory.Name = "cmbItemCategory";
-            this.cmbItemCategory.Size = new System.Drawing.Size(104, 21);
-            this.cmbItemCategory.TabIndex = 5;
-            // 
-            // lblItemCategory
-            // 
-            this.lblItemCategory.AutoSize = true;
-            this.lblItemCategory.Location = new System.Drawing.Point(257, 32);
-            this.lblItemCategory.Name = "lblItemCategory";
-            this.lblItemCategory.Size = new System.Drawing.Size(49, 13);
-            this.lblItemCategory.TabIndex = 4;
-            this.lblItemCategory.Text = "Category";
             // 
             // txtItemDescription
             // 
@@ -470,7 +449,5 @@
         private System.Windows.Forms.ComboBox cmbItemAisle;
         private System.Windows.Forms.ComboBox cmbItemCustomer;
         private System.Windows.Forms.Label lblItemCustomer;
-        private System.Windows.Forms.ComboBox cmbItemCategory;
-        private System.Windows.Forms.Label lblItemCategory;
     }
 }

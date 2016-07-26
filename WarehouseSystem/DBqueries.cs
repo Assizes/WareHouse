@@ -32,7 +32,7 @@ namespace WarehouseSystem
         internal string addBin = "INSERT INTO s2016_user1.bins VALUES(DEFAULT, @shelf, @maxWeight, @maxHeight, @maxWidth, @maxLength)";
         //adding queries
        // public string getCustomer = "SELECT concat('firstName' , 'lastName' , 'customer_ID') FROM s2016_user1.customers";
-        public string getCustomer = "SELECT customer_ID, firstName , lastName FROM s2016_user1.customers";
+        internal string getCustomer = "SELECT customer_ID, firstName , lastName FROM s2016_user1.customers";
         //public string getCustomer = "SELECT * FROM s2016_user1.customers";
 
         internal string addInvetory = "INSERT INTO s2016_user1.item(FK_Customer_ID,itemDescription,length,width,height,weight,quantity,expirationDate,FK_Customers)" +

@@ -43,29 +43,43 @@ namespace WarehouseSystem
             cmd.Parameters.Add("@quantity", MySqlDbType.String);
             cmd.Parameters.Add("@itemDescription", MySqlDbType.String);
             cmd.Parameters.Add("@expirationDate", MySqlDbType.String);
+            cmd.Parameters.Add("@unitOfMeasurement", MySqlDbType.String);
+            cmd.Parameters.Add("@custID", MySqlDbType.String);
+            //========two seperate inserts will happen//One for^^ ours other for FK
+            cmd.Parameters.Add("@aisleID", MySqlDbType.String);
+            cmd.Parameters.Add("@binID", MySqlDbType.String);
+            cmd.Parameters.Add("@selfID", MySqlDbType.String);
 
             //added stuff
             connection = warehouse.Connection;
           
-            cmd.Parameters.Add("@custID", MySqlDbType.String);
+            
+            //retrive data to put in dropmenu
 
+            //retrieve customers
             cmd.CommandText = queries.getCustomer;
+
+
             cmd.Connection = connection;
 
-          
+            //retrieve aisle,shelf,bin? - generate button does a where?
             dr = cmd.ExecuteReader();
 
+
             //DataSet ds = new DataSet();
-            
+
             while (dr.Read())
             {
               //  tempList.Add(dr[0].ToString());
                 cmbItemCustomer.Items.Add("ID:"+dr[0].ToString()+"Name:"+ dr[1].ToString() +" "+dr[2].ToString());
                 
             }
+            //FINISHED LATER
+            cmd.CommandText = queries.getAllAisles;
+            cmd.CommandText = queries.getShelves;
 
-           
-            
+
+
             dr.Close();
         }
 
@@ -80,13 +94,15 @@ namespace WarehouseSystem
                 txtItemHeight.Text = "";
                 txtItemWeight.Text = "";
                 txtItemQuantity.Text = "";
+                datetimeItemExpiration.Text = "";
 
-                cmbItemCategory.SelectedIndex = 0;
+                //by the way//if we don't add data to combo box this will crash when run since index 0 doesnt exsist
                 cmbItemCustomer.SelectedIndex = 0;
                 cmbUnitofMeasurement.SelectedIndex = 0;
                 cmbItemAisle.SelectedIndex = 0;
                 cmbItemShelf.SelectedIndex = 0;
                 cmbItemBin.SelectedIndex = 0;
+                
 
                 rdoExpirationYes.Checked = false;
                 rdoExpirationNo.Checked = true;
@@ -120,7 +136,7 @@ namespace WarehouseSystem
             connection = warehouse.Connection;
             if (txtItemName.Text != "" && txtItemDescription.Text != "" && txtItemLength.Text != "" &&
                 txtItemWidth.Text != "" && txtItemHeight.Text != "" && txtItemWeight.Text != ""
-                 && txtItemQuantity.Text != "" && cmbItemCategory.SelectedIndex != 0 && cmbItemCustomer.SelectedIndex != 0
+                 && txtItemQuantity.Text != "" && cmbItemCustomer.SelectedIndex != 0
                   && cmbUnitofMeasurement.SelectedIndex != 0 && cmbItemAisle.SelectedIndex != 0 && cmbItemShelf.SelectedIndex != 0
                    && cmbItemBin.SelectedIndex != 0)
             {
@@ -132,6 +148,14 @@ namespace WarehouseSystem
                 cmd.Parameters["@length"].Value = txtItemLength.Text;
                 cmd.Parameters["@quantity"].Value = txtItemQuantity.Text;
                 cmd.Parameters["@itemDescription"].Value = txtItemDescription.Text;
+
+                cmd.Parameters["@unitOfMeasurement"].Value = cmbUnitofMeasurement.Text;
+                cmd.Parameters["@custID"].Value = cmbItemCustomer.Text;
+                //============FK
+                cmd.Parameters["@aisleID"].Value = cmbItemAisle.Text;
+                cmd.Parameters["@binID"].Value = cmbItemBin.Text;
+                cmd.Parameters["@selfID"].Value = cmbItemShelf.Text;
+
                 //If radio 'expired' is true
                 if (rdoExpirationYes.Checked == true)
                 {
