@@ -73,7 +73,7 @@ namespace WarehouseSystem
             connection = warehouse.Connection;
             fillAisles();
         }
-        public void fillAisles()
+        internal void fillAisles()
         {
             try
             {
@@ -170,6 +170,7 @@ namespace WarehouseSystem
                 //Activate the newly created Tabpage
                 warehouse.tabControl1.SelectedTab = tp;
                 warehouse.tabControl1.Visible = true;
+                addAisle.aisles = this;
             }
             //If this form already opened
             else

@@ -14,9 +14,16 @@ namespace WarehouseSystem
     public partial class AddAisle : Form
     {
         private WarehouseSystem warehouse = (WarehouseSystem)Application.OpenForms["WarehouseSystem"];
+
         MySqlConnection connection;
         DBqueries queries = new DBqueries();
         MySqlCommand cmd = new MySqlCommand();
+
+        internal Warehouse aisles
+        {
+            get { return aisles; }
+            set { aisles = value; }
+        }
 
         string query;
 
@@ -37,6 +44,13 @@ namespace WarehouseSystem
         public AddAisle()
         {
             InitializeComponent();
+            cmd.Parameters.Add("@aisleName", MySqlDbType.String);
+            cmd.Parameters.Add("@aisleID", MySqlDbType.String);
+            cmd.Parameters.Add("@shelf", MySqlDbType.String);
+            cmd.Parameters.Add("@maxWeight", MySqlDbType.String);
+            cmd.Parameters.Add("@maxHeight", MySqlDbType.String);
+            cmd.Parameters.Add("@maxWidth", MySqlDbType.String);
+            cmd.Parameters.Add("@maxLength", MySqlDbType.String);
         }
 
         private void AddAisle_FormClosing(object sender, FormClosingEventArgs e)
@@ -72,6 +86,8 @@ namespace WarehouseSystem
 
         private void btnSave(object sender, EventArgs e)
         {
+            string id;
+            int rows;
             try
             {
                 if (connection != null)
@@ -79,7 +95,25 @@ namespace WarehouseSystem
                     query = queries.addAisle;
                     cmd.CommandText = query;
                     cmd.Connection = connection;
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters["@aisleName"].Value = txtAisleName.Text;
+                    id = cmd.ExecuteScalar().ToString();
+
+                    if(txtShelvesNumber.Text != "")
+                    {
+                        query = queries.addShelf;
+                        cmd.CommandText = query;
+                        cmd.Connection = connection;
+                        cmd.Parameters["@aisleID"].Value = id;
+
+                        if(int.TryParse(txtShelvesNumber.Text, out rows))
+                            for (int i = 0; i < rows; i++)
+                                cmd.ExecuteNonQuery();
+
+                        if(txtShelvesNumber.Text != "")
+                        {
+
+                        }
+                    }
                 }
                 else
                 {
@@ -91,6 +125,8 @@ namespace WarehouseSystem
             {
                 MessageBox.Show(ex.ToString());
             }
+            aisles.fillAisles();
+            this.Close();
         }
 
         private void AddAisle_Load(object sender, EventArgs e)

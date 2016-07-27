@@ -24,12 +24,12 @@ namespace WarehouseSystem
         internal string getUserGroups = "SELECT roleName FROM s2016_user1.userRole";
         internal string deleteUser = "DELETE FROM s2016_user1.users WHERE UserID=@userID";
 
-        internal string getAllAisles = "SELECT aisle_ID AS `Aisle ID` FROM s2016_user1.aisles";
+        internal string getAllAisles = "SELECT aisle_ID AS `Aisle ID`, aisle_Name AS `Aisle Name` FROM s2016_user1.aisles";
         internal string getShelves = "SELECT shelf_ID AS `Shelf ID` FROM s2016_user1.shelves WHERE FK_aisle=@aisleID";
 
-        internal string addAisle = "INSERT INTO s2016_user1.aisles VALUES(DEFAULT)";
-        internal string addShelfe = "INSERT INTO s2016_user1.shelves VALUES(DEFAULT, @aisleID)";
-        internal string addBin = "INSERT INTO s2016_user1.bins VALUES(DEFAULT, @shelf, @maxWeight, @maxHeight, @maxWidth, @maxLength)";
+        internal string addAisle = "INSERT INTO s2016_user1.aisles VALUES(DEFAULT,@aisleName); SELECT LAST_INSERT_ID();";
+        internal string addShelf = "INSERT INTO s2016_user1.shelves VALUES(DEFAULT, @aisleID)";
+        internal string addBin = "INSERT INTO s2016_user1.bins VALUES(DEFAULT, @shelf, @maxWeight, @maxHeight, @maxWidth, @maxLength, @maxWidth, @maxWeight)";
         //adding queries
        // public string getCustomer = "SELECT concat('firstName' , 'lastName' , 'customer_ID') FROM s2016_user1.customers";
         internal string getCustomer = "SELECT customer_ID, firstName , lastName FROM s2016_user1.customers";
