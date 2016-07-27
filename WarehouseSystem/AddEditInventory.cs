@@ -64,7 +64,7 @@ namespace WarehouseSystem
 
             //retrieve aisle,shelf,bin? - generate button does a where?
             dr = cmd.ExecuteReader();
-
+            
 
             //DataSet ds = new DataSet();
 
@@ -74,14 +74,47 @@ namespace WarehouseSystem
                 cmbItemCustomer.Items.Add("ID:"+dr[0].ToString()+"Name:"+ dr[1].ToString() +" "+dr[2].ToString());
                 
             }
-            //FINISHED LATER
+
+            dr.Close();
+
+            //FINISHED LATER//EDIT QUERIES LATER//they should only show ones that are not occupied
             cmd.CommandText = queries.getAllAisles;
-            cmd.CommandText = queries.getShelves;
+            doQueries(cmbItemAisle);
+
+            cmd.CommandText = queries.getMeasurements;
+            doQueries(cmbUnitofMeasurement);
+
+            cmd.CommandText = queries.getAllShelves;
+            doQueries(cmbItemShelf);
+
+            cmd.CommandText = queries.getAllBins;
+            doQueries(cmbItemBin);
 
 
+
+
+
+
+
+
+
+        }
+
+
+        public void doQueries(ComboBox c)
+        {
+            //String q = query  +"."+ querieName;
+            //cmd.CommandText = q;
+            dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                c.Items.Add(dr[0].ToString());
+            }
 
             dr.Close();
         }
+            
 
         private void btnItemReset_Click(object sender, EventArgs e)
         {
@@ -97,6 +130,9 @@ namespace WarehouseSystem
                 datetimeItemExpiration.Text = "";
 
                 //by the way//if we don't add data to combo box this will crash when run since index 0 doesnt exsist
+
+                //if (cmbItemCustomer.Items.Count > 0)
+
                 cmbItemCustomer.SelectedIndex = 0;
                 cmbUnitofMeasurement.SelectedIndex = 0;
                 cmbItemAisle.SelectedIndex = 0;
@@ -134,11 +170,12 @@ namespace WarehouseSystem
         private void btnItemAddSave_Click(object sender, EventArgs e)
         {
             connection = warehouse.Connection;
-            if (txtItemName.Text != "" && txtItemDescription.Text != "" && txtItemLength.Text != "" &&
+            if 
+                (txtItemName.Text != "" && txtItemDescription.Text != "" && txtItemLength.Text != "" &&
                 txtItemWidth.Text != "" && txtItemHeight.Text != "" && txtItemWeight.Text != ""
-                 && txtItemQuantity.Text != "" && cmbItemCustomer.SelectedIndex != 0
-                  && cmbUnitofMeasurement.SelectedIndex != 0 && cmbItemAisle.SelectedIndex != 0 && cmbItemShelf.SelectedIndex != 0
-                   && cmbItemBin.SelectedIndex != 0)
+                 && txtItemQuantity.Text != "" && cmbItemCustomer.SelectedIndex != -1
+                  && cmbUnitofMeasurement.SelectedIndex != -1 && cmbItemAisle.SelectedIndex != -1 && cmbItemShelf.SelectedIndex != -1
+                   && cmbItemBin.SelectedIndex != -1)
             {
                 //takes all text values and assigns them to parameters
                 cmd.Parameters["@itemName"].Value = txtItemName.Text;
@@ -180,6 +217,8 @@ namespace WarehouseSystem
                     //in our case we are maintaing connection from the first time we connected
                     if (connection != null)
                     {
+                        //MessageBox.Show("No");
+                        
                         //calling query //we intialized in field already
                         query = queries.addInvetory;
                         cmd.CommandText = query;
