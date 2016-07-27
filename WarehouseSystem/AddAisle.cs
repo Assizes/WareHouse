@@ -18,11 +18,12 @@ namespace WarehouseSystem
         MySqlConnection connection;
         DBqueries queries = new DBqueries();
         MySqlCommand cmd = new MySqlCommand();
+        private Warehouse _aisles;
 
         internal Warehouse aisles
         {
-            get { return aisles; }
-            set { aisles = value; }
+            get { return _aisles; }
+            set { _aisles = value; }
         }
 
         string query;
@@ -86,8 +87,11 @@ namespace WarehouseSystem
 
         private void btnSave(object sender, EventArgs e)
         {
-            string id;
-            int rows;
+            string aisleID;
+            string shelfID;
+            int shelvesNum;
+            int binsNum = 0;
+            bool bins = false;
             try
             {
                 if (connection != null)
@@ -96,23 +100,42 @@ namespace WarehouseSystem
                     cmd.CommandText = query;
                     cmd.Connection = connection;
                     cmd.Parameters["@aisleName"].Value = txtAisleName.Text;
-                    id = cmd.ExecuteScalar().ToString();
+                    aisleID = cmd.ExecuteScalar().ToString();
 
                     if(txtShelvesNumber.Text != "")
                     {
-                        query = queries.addShelf;
+                        
                         cmd.CommandText = query;
                         cmd.Connection = connection;
-                        cmd.Parameters["@aisleID"].Value = id;
+                        cmd.Parameters["@aisleID"].Value = aisleID;
 
-                        if(int.TryParse(txtShelvesNumber.Text, out rows))
-                            for (int i = 0; i < rows; i++)
-                                cmd.ExecuteNonQuery();
-
-                        if(txtShelvesNumber.Text != "")
+                        if (txtBinsNumber.Text != "" && txtHeight.Text != "" && txtLength.Text != ""
+                            && txtMaxWeight.Text != "" && txtWidth.Text != "")
                         {
-
+                            int.TryParse(txtBinsNumber.Text, out binsNum);
+                            cmd.Parameters["@maxLength"].Value = txtLength.Text;
+                            cmd.Parameters["@maxWeight"].Value = txtMaxWeight.Text;
+                            cmd.Parameters["@maxHeight"].Value = txtHeight.Text;
+                            cmd.Parameters["@maxWidth"].Value = txtWidth.Text;
+                            bins = true;
                         }
+
+                        if (int.TryParse(txtShelvesNumber.Text, out shelvesNum))
+                            for (int s = 0; s < shelvesNum; s++)
+                            {
+                                query = queries.addShelf;
+                                shelfID = cmd.ExecuteScalar().ToString();
+
+                                if (bins)
+                                {
+                                    query = queries.addBin;
+                                    cmd.Parameters["@aisleID"].Value = aisleID;
+                                    for (int b = 0; b < binsNum; b++)
+                                    {
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                }
+                            }
                     }
                 }
                 else

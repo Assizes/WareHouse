@@ -156,6 +156,7 @@ namespace WarehouseSystem
             if (((AddAisle)Application.OpenForms["AddAisle"]) == null)
             {
                 addAisle.MdiParent = warehouse;
+                addAisle.aisles = this;
                 addAisle.Show();
                 addAisle.TabCtrl = warehouse.tabControl1;
                 //Add a Tabpage and enables it
@@ -170,7 +171,7 @@ namespace WarehouseSystem
                 //Activate the newly created Tabpage
                 warehouse.tabControl1.SelectedTab = tp;
                 warehouse.tabControl1.Visible = true;
-                addAisle.aisles = this;
+                
             }
             //If this form already opened
             else

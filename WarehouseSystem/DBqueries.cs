@@ -33,7 +33,7 @@ namespace WarehouseSystem
         internal string getShelves = "SELECT shelf_ID AS `Shelf ID` FROM s2016_user1.shelves WHERE FK_aisle=@aisleID";
 
         internal string addAisle = "INSERT INTO s2016_user1.aisles VALUES(DEFAULT,@aisleName); SELECT LAST_INSERT_ID();";
-        internal string addShelf = "INSERT INTO s2016_user1.shelves VALUES(DEFAULT, @aisleID)";
+        internal string addShelf = "INSERT INTO s2016_user1.shelves VALUES(DEFAULT, @aisleID); SELECT LAST_INSERT_ID();";
         internal string addBin = "INSERT INTO s2016_user1.bins VALUES(DEFAULT, @shelf, @maxWeight, @maxHeight, @maxWidth, @maxLength, @maxWidth, @maxWeight)";
         //adding queries
       

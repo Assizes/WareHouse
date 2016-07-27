@@ -220,7 +220,7 @@ namespace WarehouseSystem
                         //MessageBox.Show("No");
                         
                         //calling query //we intialized in field already
-                        query = queries.addInvetory;
+                        query = queries.addInv;
                         cmd.CommandText = query;
                         cmd.Connection = connection;
                         //Insert/delete command
