@@ -87,8 +87,8 @@ namespace WarehouseSystem
 
         private void btnSave(object sender, EventArgs e)
         {
-            string aisleID;
-            string shelfID;
+            int aisleID;
+            int shelfID;
             int shelvesNum;
             int binsNum = 0;
             bool bins = false;
@@ -100,13 +100,10 @@ namespace WarehouseSystem
                     cmd.CommandText = query;
                     cmd.Connection = connection;
                     cmd.Parameters["@aisleName"].Value = txtAisleName.Text;
-                    aisleID = cmd.ExecuteScalar().ToString();
+                    aisleID = int.Parse(cmd.ExecuteScalar().ToString());
 
                     if(txtShelvesNumber.Text != "")
                     {
-                        
-                        cmd.CommandText = query;
-                        cmd.Connection = connection;
                         cmd.Parameters["@aisleID"].Value = aisleID;
 
                         if (txtBinsNumber.Text != "" && txtHeight.Text != "" && txtLength.Text != ""
@@ -121,21 +118,26 @@ namespace WarehouseSystem
                         }
 
                         if (int.TryParse(txtShelvesNumber.Text, out shelvesNum))
+                        {
                             for (int s = 0; s < shelvesNum; s++)
                             {
                                 query = queries.addShelf;
-                                shelfID = cmd.ExecuteScalar().ToString();
+                                cmd.CommandText = query;
+                                shelfID = int.Parse(cmd.ExecuteScalar().ToString());
+                                MessageBox.Show(""+shelfID);
 
                                 if (bins)
                                 {
                                     query = queries.addBin;
-                                    cmd.Parameters["@aisleID"].Value = aisleID;
+                                    cmd.CommandText = query;
+                                    cmd.Parameters["@shelf"].Value = shelfID;
                                     for (int b = 0; b < binsNum; b++)
                                     {
                                         cmd.ExecuteNonQuery();
                                     }
                                 }
                             }
+                        }
                     }
                 }
                 else

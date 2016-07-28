@@ -29,7 +29,7 @@ namespace WarehouseSystem
         private string login = "";
 
 
-        public MySqlConnection Connection
+        internal MySqlConnection Connection
         {
             get { return connection; }
             set { connection = value; }
