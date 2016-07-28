@@ -22,6 +22,8 @@ namespace WarehouseSystem
         string query;
         //addedstuff
         MySqlDataReader dr;
+        List<String> customerIDList = new List<String>();
+        List<String> unitIDList = new List<String>();
 
         public AddEditInventory()
         {
@@ -72,6 +74,7 @@ namespace WarehouseSystem
             {
               //  tempList.Add(dr[0].ToString());
                 cmbItemCustomer.Items.Add("ID:"+dr[0].ToString()+"Name:"+ dr[1].ToString() +" "+dr[2].ToString());
+                customerIDList.Add(dr[0].ToString());
                 
             }
 
@@ -83,12 +86,28 @@ namespace WarehouseSystem
 
             cmd.CommandText = queries.getMeasurements;
             doQueries(cmbUnitofMeasurement);
+            
 
             cmd.CommandText = queries.getAllShelves;
             doQueries(cmbItemShelf);
 
             cmd.CommandText = queries.getAllBins;
             doQueries(cmbItemBin);
+
+
+            //FOR TESTING
+            txtItemName.Text = "a";
+            txtItemDescription.Text = "a";
+            txtItemLength.Text = "1";
+            txtItemWidth.Text = "1";
+            txtItemHeight.Text = "1";
+            txtItemWeight.Text = "1";
+            txtItemQuantity.Text = "1";
+            cmbItemCustomer.SelectedIndex = 0;
+            cmbUnitofMeasurement.SelectedIndex = 0;
+            cmbItemAisle.SelectedIndex = 0;
+            cmbItemShelf.SelectedIndex = 0;
+            cmbItemBin.SelectedIndex = 0;
 
 
 
@@ -110,6 +129,11 @@ namespace WarehouseSystem
             while (dr.Read())
             {
                 c.Items.Add(dr[0].ToString());
+            }
+
+            if (c == cmbUnitofMeasurement)
+            {
+                unitIDList.Add(dr[1].ToString());
             }
 
             dr.Close();
@@ -186,21 +210,32 @@ namespace WarehouseSystem
                 cmd.Parameters["@quantity"].Value = txtItemQuantity.Text;
                 cmd.Parameters["@itemDescription"].Value = txtItemDescription.Text;
 
-                cmd.Parameters["@unitOfMeasurement"].Value = cmbUnitofMeasurement.Text;
-                cmd.Parameters["@custID"].Value = cmbItemCustomer.Text;
+                int idPlace = cmbUnitofMeasurement.SelectedIndex;
+                cmd.Parameters["@unitOfMeasurement"].Value = customerIDList[idPlace];
+               // MessageBox.Show(idPlace.ToString());
+                int place = cmbItemCustomer.SelectedIndex;
+                cmd.Parameters["@custID"].Value = customerIDList[place];
+               // MessageBox.Show(place.ToString());
                 //============FK
-                cmd.Parameters["@aisleID"].Value = cmbItemAisle.Text;
+                cmd.Parameters["@aisleID"].Value= cmbItemAisle.Text;
                 cmd.Parameters["@binID"].Value = cmbItemBin.Text;
                 cmd.Parameters["@selfID"].Value = cmbItemShelf.Text;
 
                 //If radio 'expired' is true
                 if (rdoExpirationYes.Checked == true)
                 {
-                    cmd.Parameters["@expirationDate"].Value = datetimeItemExpiration.Text;
+                    // datetimeItemExpiration.Format = DateTimePickerFormat.Custom;
+                    //datetimeItemExpiration.CustomFormat = "yyyy MM dd";
+                    String thisDate = Convert.ToDateTime(datetimeItemExpiration.Text).ToString("yyyy-MM-dd");
+                    cmd.Parameters["@expirationDate"].Value = thisDate;
+
+                    
+
+                    MessageBox.Show(thisDate);
                 }
                 else
                 {
-                    cmd.Parameters["@expirationDate"].Value = null;
+                    cmd.Parameters["@expirationDate"].Value = 0000-00-00;
                 }
 
             }
@@ -217,7 +252,8 @@ namespace WarehouseSystem
                     //in our case we are maintaing connection from the first time we connected
                     if (connection != null)
                     {
-                        //MessageBox.Show("No");
+                        
+                        //MessageBox.Show("@binID");
                         
                         //calling query //we intialized in field already
                         query = queries.addInv;

@@ -38,7 +38,7 @@ namespace WarehouseSystem
         //adding queries
       
         internal string getCustomer = "SELECT customer_ID, firstName , lastName FROM s2016_user1.customers";
-        internal string getMeasurements = "SELECT type FROM s2016_user1.unitOfMeasurement";
+        internal string getMeasurements = "SELECT type, unit_ID FROM s2016_user1.unitOfMeasurement";
 
 
         /*internal string addInvetory = "INSERT INTO s2016_user1.item(FK_Customer_ID,itemDescription,length,width,height,weight,quantity,expirationDate,FK_Customers )" +
@@ -46,8 +46,18 @@ namespace WarehouseSystem
 
         //Honestly could have just done INSERT INTO s2016 meaning select all instead of writing them all out//oh well
         internal string addInv = "INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)"+
-            " VALUES(@itemName, @length, @width, @height, @weight, @quantity, @quantity, @itemDescription, @expirationDate, @binID, @custID, @unitOfMeasurement)";
-      
+            " VALUES(@itemName, @length, @width, @height, @weight, @quantity, @itemDescription, @expirationDate, @binID, @custID, @unitOfMeasurement)";
+
+
+        internal string addInvWithSub = "INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)" +
+            " SELECT @itemName, @length, @width, @height, @weight, @quantity, @itemDescription, @expirationDate, @binID, @custID, @unitOfMeasurement FROM s2016_user1.item WHERE expirationDate != null)";
+
+
+        /* INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)
+Select 'A',1, 2, 3, 4, 5,'B', '2016-01-01',1 , 1, 1
+from dual
+where exists (Select 1 from s2016_user1.bins where bin_id =1)*/
+
         /*FROM s2016_user1.item AS i FK_measurerment,
 
         INNER JOIN bins AS b ON b.bin_ID = i.FK_bin
