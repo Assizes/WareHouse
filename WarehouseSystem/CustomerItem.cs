@@ -97,5 +97,10 @@ namespace WarehouseSystem
 
             this.Close();
         }
+
+        private void btnCustomerItemClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

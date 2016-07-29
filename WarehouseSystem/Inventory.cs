@@ -42,16 +42,21 @@ namespace WarehouseSystem
         private void btnAddInventory_Click(object sender, EventArgs e)
         {
             addEditInventory = new AddEditInventory();
-            openWindow("AddEditInventory", addEditInventory, "Add");
+            openWindow("AddEditInventory", ref addEditInventory, "Add");
         }
 
         private void btnEditInventory_Click(object sender, EventArgs e)
         {
             addEditInventory = new AddEditInventory();
-            openWindow("AddEditInventory", addEditInventory, "Edit");
+
+            /*int id;
+            int.TryParse(dgvInventory.Rows[dgvInventory.SelectedRows[0].Index].Cells[0].Value.ToString(), out id);
+            addEditInventory = new AddEditInventory();*/
+            openWindow("AddEditInventory", ref addEditInventory, "Edit");
+            //addEditInventory.setID(id);
         }
 
-        private void openWindow(string formName, AddEditInventory form, string type)
+        private void openWindow(string formName, ref AddEditInventory form, string type)
         {
             if (((Form)Application.OpenForms[formName]) == null)
             {
@@ -67,9 +72,9 @@ namespace WarehouseSystem
                 else form.setType("Edit");
                 form.Focus();
             }
-        }
+        }     
 
-        private void Customers_Load(object sender, EventArgs e)
+        private void Inventory_Load(object sender, EventArgs e)
         {
             connection = warehouse.Connection;
             fillData();
@@ -81,7 +86,7 @@ namespace WarehouseSystem
             {
                 if (connection != null)
                 {
-                    query = queries.getAllCustomers;
+                    query = queries.getAllInv;
                     MySqlDataAdapter sqladapter = new MySqlDataAdapter();
                     cmd.CommandText = query;
                     cmd.Connection = connection;
@@ -134,5 +139,7 @@ namespace WarehouseSystem
                 }
             }
         }
+
+        
     }
 }
