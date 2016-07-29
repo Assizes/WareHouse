@@ -53,6 +53,8 @@ namespace WarehouseSystem
             cmd.Parameters.Add("@binID", MySqlDbType.String);
             cmd.Parameters.Add("@selfID", MySqlDbType.String);
 
+            cmd.Parameters.Add("@itemID", MySqlDbType.String);
+
             //added stuff
             connection = warehouse.Connection;
           
@@ -218,12 +220,16 @@ namespace WarehouseSystem
                 btnItemAddSave.Text = "Save";
                 btnItemResetCancel.Text = "Cancel";
                 fType = type;
+                lblFind.Show();
+                buttonFind.Show();
             }
             else
             {
                 btnItemAddSave.Text = "Add Item";
                 btnItemResetCancel.Text = "Reset";
                 fType = type;
+                lblFind.Hide();
+                buttonFind.Hide();
             }
         }
 
@@ -297,20 +303,11 @@ namespace WarehouseSystem
                         cmd.Connection = connection;
                         //Insert/delete command
                         cmd.ExecuteNonQuery();
-                       //closes form
+
+                        //closes form
                         Close();
 
-                       // cmd.CommandText = queries.getUserInfo;
-                       // dr = cmd.ExecuteReader();
-                        
-                       /* while (dr.Read())
-                        {
-                            txtLogin.Text = dr[0].ToString();
-                            txtFName.Text = dr[1].ToString();
-                            txtLName.Text = dr[2].ToString();
-                            cmbGroup.SelectedItem = dr[3].ToString();
-                        }
-                        dr.Close();*/
+           
                         
                     }
                     else
@@ -326,7 +323,14 @@ namespace WarehouseSystem
             }
             else//its going to be edit
             {
+                query = queries.editInv;
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                //Insert/delete command
+                cmd.ExecuteNonQuery();
 
+                //closes form
+                Close();
             } 
         }
 
@@ -348,6 +352,13 @@ namespace WarehouseSystem
                 lblExpirationDate.Enabled = true;
                 datetimeItemExpiration.Enabled = true;
             }
+        }
+
+        private void buttonFind_Click(object sender, EventArgs e)
+        {
+            CustomerItem c = new CustomerItem();
+            c.Show();
+
         }
     }
 }

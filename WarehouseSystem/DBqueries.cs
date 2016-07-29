@@ -45,12 +45,15 @@ namespace WarehouseSystem
                                     "FROM s2016_user1.customers AS C " + "INNER JOIN bins AS b ON b.bin_ID = C.FK_bin " + "INNER JOIN shelves AS s ON s.shelf_ID = C.FK_shelf " + "INNER JOIN aisles AS a ON a.aisle_ID = FK_aisle";*/
 
         //Honestly could have just done INSERT INTO s2016 meaning select all instead of writing them all out//oh well
-        internal string addInv = "INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)"+
-            " VALUES(@itemName, @length, @width, @height, @weight, @quantity, @itemDescription, @expirationDate, @binID, @custID, @unitOfMeasurement)";
-        internal string getAllInv = "SELECT item_ID, itemName, weight, height, width, quantity, itemDescription FROM s2016_user1.item";
+        internal string addInv = "INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,FK_bin,FK_Customers,FK_measurerment, expirationDate)" +
+            " VALUES(@itemName, @length, @width, @height, @weight, @quantity, @itemDescription, @binID, @custID, @unitOfMeasurement, @expirationDate)";
 
-        internal string addInvWithSub = "INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)" +
-            " SELECT @itemName, @length, @width, @height, @weight, @quantity, @itemDescription, @expirationDate, @binID, @custID, @unitOfMeasurement FROM s2016_user1.item WHERE expirationDate != null)";
+        internal string editInv = "UPDATE s2016_user1.item SET itemName=@itemName, length=@length, width=@width, height=@height, weight=@weight, quantity=@quantity, itemDescription=@itemDescription," +
+            " FK_bin=@binID, FK_Customers=@custID, FK_measurerment=@unitOfMeasurement, expirationDate=@expirationDate WHERE item_id=@itemID ";
+          
+
+        /*internal string addInvWithSub = "INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)" +
+            " SELECT @itemName, @length, @width, @height, @weight, @quantity, @itemDescription, @expirationDate, @binID, @custID, @unitOfMeasurement FROM s2016_user1.item WHERE (Select 1 FROM s2016_user1.item WHERE @expirationDate != null)";*/
 
 
         /* INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)

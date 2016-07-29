@@ -62,6 +62,8 @@
             this.lblItemAisle = new System.Windows.Forms.Label();
             this.btnItemAddSave = new System.Windows.Forms.Button();
             this.btnItemResetCancel = new System.Windows.Forms.Button();
+            this.buttonFind = new System.Windows.Forms.Button();
+            this.lblFind = new System.Windows.Forms.Label();
             this.grpbxAddItem.SuspendLayout();
             this.grpItemProperties.SuspendLayout();
             this.grpbxItemLocation.SuspendLayout();
@@ -69,6 +71,8 @@
             // 
             // grpbxAddItem
             // 
+            this.grpbxAddItem.Controls.Add(this.lblFind);
+            this.grpbxAddItem.Controls.Add(this.buttonFind);
             this.grpbxAddItem.Controls.Add(this.cmbItemCustomer);
             this.grpbxAddItem.Controls.Add(this.lblItemCustomer);
             this.grpbxAddItem.Controls.Add(this.txtItemDescription);
@@ -391,6 +395,25 @@
             this.btnItemResetCancel.UseVisualStyleBackColor = true;
             this.btnItemResetCancel.Click += new System.EventHandler(this.btnItemReset_Click);
             // 
+            // buttonFind
+            // 
+            this.buttonFind.Location = new System.Drawing.Point(585, 146);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(75, 23);
+            this.buttonFind.TabIndex = 27;
+            this.buttonFind.Text = "Find Items";
+            this.buttonFind.UseVisualStyleBackColor = true;
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
+            // 
+            // lblFind
+            // 
+            this.lblFind.AutoSize = true;
+            this.lblFind.Location = new System.Drawing.Point(471, 121);
+            this.lblFind.Name = "lblFind";
+            this.lblFind.Size = new System.Drawing.Size(194, 13);
+            this.lblFind.TabIndex = 27;
+            this.lblFind.Text = "Select a Customer Above Then Hit Find";
+            // 
             // AddEditInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,5 +472,7 @@
         private System.Windows.Forms.ComboBox cmbItemAisle;
         private System.Windows.Forms.ComboBox cmbItemCustomer;
         private System.Windows.Forms.Label lblItemCustomer;
+        private System.Windows.Forms.Label lblFind;
+        private System.Windows.Forms.Button buttonFind;
     }
 }
