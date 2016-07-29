@@ -54,6 +54,10 @@ namespace WarehouseSystem
         internal string getAllInv = "SELECT item_ID AS ID, itemName AS Item, itemDescription AS Description, CONCAT(firstName, ' ', lastName) AS Customer, " +
             "quantity AS Quantity FROM s2016_user1.item INNER JOIN s2016_user1.customers ON s2016_user1.item.FK_customers = s2016_user1.customers.customer_ID";
 
+        //neeed a where statement to get all items associated with particular customer
+        internal string getCustInv = "SELECT CONCAT(firstName, ' ', lastName) AS Customer, itemName AS Item, itemDescription AS Description, " +
+            "FROM s2016_user1.item INNER JOIN s2016_user1.customers ON s2016_user1.item.FK_customers = s2016_user1.customers.customer_ID";
+
 
         internal string getItemID = "SELECT * FROM s2016_user1.item WHERE FK_customers= @custID";
 
