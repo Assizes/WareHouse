@@ -86,6 +86,7 @@
             this.Text = "Inventory";
             this.Activated += new System.EventHandler(this.Inventory_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inventory_FormClosing);
+            this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             this.ResumeLayout(false);
 

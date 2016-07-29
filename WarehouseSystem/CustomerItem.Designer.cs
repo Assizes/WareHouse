@@ -59,6 +59,7 @@
             this.btnCustomerItemClose.TabIndex = 2;
             this.btnCustomerItemClose.Text = "Close";
             this.btnCustomerItemClose.UseVisualStyleBackColor = true;
+            this.btnCustomerItemClose.Click += new System.EventHandler(this.btnCustomerItemClose_Click);
             // 
             // CustomerItem
             // 

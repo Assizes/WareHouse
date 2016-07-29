@@ -47,7 +47,7 @@ namespace WarehouseSystem
         //Honestly could have just done INSERT INTO s2016 meaning select all instead of writing them all out//oh well
         internal string addInv = "INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)"+
             " VALUES(@itemName, @length, @width, @height, @weight, @quantity, @itemDescription, @expirationDate, @binID, @custID, @unitOfMeasurement)";
-
+        internal string getAllInv = "SELECT item_ID, itemName, weight, height, width, quantity, itemDescription FROM s2016_user1.item";
 
         internal string addInvWithSub = "INSERT INTO s2016_user1.item(itemName,length,width,height,weight,quantity,itemDescription,expirationDate,FK_bin,FK_Customers,FK_measurerment)" +
             " SELECT @itemName, @length, @width, @height, @weight, @quantity, @itemDescription, @expirationDate, @binID, @custID, @unitOfMeasurement FROM s2016_user1.item WHERE expirationDate != null)";

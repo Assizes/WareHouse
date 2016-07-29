@@ -16,5 +16,10 @@ namespace WarehouseSystem
         {
             InitializeComponent();
         }
+
+        private void btnCustomerItemClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

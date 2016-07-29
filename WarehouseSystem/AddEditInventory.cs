@@ -24,6 +24,7 @@ namespace WarehouseSystem
         MySqlDataReader dr;
         List<String> customerIDList = new List<String>();
         List<String> unitIDList = new List<String>();
+        private int _id;
 
         public AddEditInventory()
         {
@@ -55,7 +56,7 @@ namespace WarehouseSystem
             //added stuff
             connection = warehouse.Connection;
           
-            
+
             //retrive data to put in dropmenu
 
             //retrieve customers
@@ -96,7 +97,7 @@ namespace WarehouseSystem
 
 
             //FOR TESTING
-            txtItemName.Text = "a";
+            /*txtItemName.Text = "a";
             txtItemDescription.Text = "a";
             txtItemLength.Text = "1";
             txtItemWidth.Text = "1";
@@ -107,17 +108,52 @@ namespace WarehouseSystem
             cmbUnitofMeasurement.SelectedIndex = 0;
             cmbItemAisle.SelectedIndex = 0;
             cmbItemShelf.SelectedIndex = 0;
-            cmbItemBin.SelectedIndex = 0;
-
-
-
-
-
-
-
-
+            cmbItemBin.SelectedIndex = 0;*/
 
         }
+
+        public void setID(int id)
+        {
+            _id = id;
+            if (_id != -1)
+            {
+                cmd.Parameters["@customerID"].Value = _id;
+                try
+                {
+                    if (connection != null)
+                    {
+                        cmd.CommandText = queries.getCustomerInfo;
+                        cmd.Connection = connection;
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            //txtItemName.Text = dr[0].ToString();
+                            txtItemName.Text = dr[1].ToString();
+                            txtItemWeight.Text = dr[2].ToString();
+                            txtItemHeight.Text = dr[3].ToString();
+                            txtItemWidth.Text = dr[4].ToString();
+                            txtItemLength.Text = dr[5].ToString();
+                            txtItemQuantity.Text = dr[6].ToString();
+                            txtItemDescription.Text = dr[7].ToString();
+
+                        }
+                        dr.Close();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection Lost");
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+
+        
 
 
         public void doQueries(ComboBox c)
