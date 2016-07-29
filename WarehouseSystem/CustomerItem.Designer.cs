@@ -41,6 +41,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(552, 290);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // txtCustomerName
             // 
@@ -59,6 +60,7 @@
             this.btnCustomerItemClose.TabIndex = 2;
             this.btnCustomerItemClose.Text = "Close";
             this.btnCustomerItemClose.UseVisualStyleBackColor = true;
+            this.btnCustomerItemClose.Click += new System.EventHandler(this.btnCustomerItemClose_Click);
             // 
             // CustomerItem
             // 
@@ -70,6 +72,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "CustomerItem";
             this.Text = "Customer\'s Items";
+            this.Load += new System.EventHandler(this.CustomerItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

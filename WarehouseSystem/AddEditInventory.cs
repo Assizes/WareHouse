@@ -25,6 +25,8 @@ namespace WarehouseSystem
         List<String> customerIDList = new List<String>();
         List<String> unitIDList = new List<String>();
 
+        public string itemIdData;
+
         public AddEditInventory()
         {
             InitializeComponent();
@@ -35,6 +37,9 @@ namespace WarehouseSystem
             //Gray out instrad
             lblExpirationDate.Enabled = false;
             datetimeItemExpiration.Enabled = false;
+            // labelItemID.Hide();
+            
+
             //====
 
             cmd.Parameters.Add("@itemName", MySqlDbType.String);
@@ -226,6 +231,7 @@ namespace WarehouseSystem
                 cmd.Parameters["@aisleID"].Value= cmbItemAisle.Text;
                 cmd.Parameters["@binID"].Value = cmbItemBin.Text;
                 cmd.Parameters["@selfID"].Value = cmbItemShelf.Text;
+                cmd.Parameters["@itemID"].Value = itemIdData;
 
                 //If radio 'expired' is true
                 if (rdoExpirationYes.Checked == true)
@@ -287,6 +293,8 @@ namespace WarehouseSystem
             }
             else//its going to be edit
             {
+                MessageBox.Show("EDIT");
+                MessageBox.Show(itemIdData);
                 query = queries.editInv;
                 cmd.CommandText = query;
                 cmd.Connection = connection;
@@ -321,8 +329,51 @@ namespace WarehouseSystem
         private void buttonFind_Click(object sender, EventArgs e)
         {
             CustomerItem c = new CustomerItem();
+
+           
+
+            int place = cmbItemCustomer.SelectedIndex;
+            cmd.Parameters["@custID"].Value = customerIDList[place];
+
+            String data = customerIDList[place];
+
+
+           /* MessageBox.Show(place.ToString());
+            MessageBox.Show(customerIDList[place]);
+            MessageBox.Show(cmd.Parameters["@custID"].Value.ToString());*/
+            c.ourData = customerIDList[place];
+
+            //query = queries.getItemID;
+            //cmd.CommandText = query;
+           // MessageBox.Show(query);
+
+           // passMqSqlArgue(query, data, dataGridView1, "s2016_user1.item");
+
+            
+
             c.Show();
 
+        }
+
+        public void passMqSqlArgue(string query,String a, DataGridView dgv, String tableName)
+        {
+            DataSet dataset = new DataSet();
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT itemName FROM s2016_user1.item WHERE FK_customers = "+a, connection);//Query statement + connection
+            adapter.Fill(dataset, tableName); //meaning what TABLE name im getting it from FROM EMPLOYESS
+            dgv.DataSource = dataset.Tables[tableName]; //I actually forgot to add this part....
+            //Put in method so I don't have to spam this in every line
+            //adapter.Dispose();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void updateLabel()
+        {
+            //labelItemID.Text = itemIdData;
+   
         }
     }
 }
