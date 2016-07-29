@@ -48,6 +48,9 @@
             this.dgvShelves.AllowUserToAddRows = false;
             this.dgvShelves.AllowUserToDeleteRows = false;
             this.dgvShelves.AllowUserToResizeRows = false;
+            this.dgvShelves.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvShelves.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShelves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShelves.Location = new System.Drawing.Point(21, 22);
@@ -60,6 +63,7 @@
             // 
             // btnAddShelf
             // 
+            this.btnAddShelf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddShelf.Location = new System.Drawing.Point(21, 386);
             this.btnAddShelf.Name = "btnAddShelf";
             this.btnAddShelf.Size = new System.Drawing.Size(88, 30);
@@ -70,6 +74,7 @@
             // 
             // btnEditShelf
             // 
+            this.btnEditShelf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditShelf.Location = new System.Drawing.Point(124, 386);
             this.btnEditShelf.Name = "btnEditShelf";
             this.btnEditShelf.Size = new System.Drawing.Size(88, 30);
@@ -80,6 +85,7 @@
             // 
             // btnDeleteShelf
             // 
+            this.btnDeleteShelf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteShelf.Location = new System.Drawing.Point(320, 386);
             this.btnDeleteShelf.Name = "btnDeleteShelf";
             this.btnDeleteShelf.Size = new System.Drawing.Size(88, 30);
@@ -90,6 +96,7 @@
             // 
             // btnAddAisle
             // 
+            this.btnAddAisle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddAisle.Location = new System.Drawing.Point(18, 386);
             this.btnAddAisle.Name = "btnAddAisle";
             this.btnAddAisle.Size = new System.Drawing.Size(88, 30);
@@ -100,6 +107,7 @@
             // 
             // btnDeleteAisle
             // 
+            this.btnDeleteAisle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteAisle.Location = new System.Drawing.Point(170, 386);
             this.btnDeleteAisle.Name = "btnDeleteAisle";
             this.btnDeleteAisle.Size = new System.Drawing.Size(88, 30);
@@ -113,6 +121,9 @@
             this.dgvAisles.AllowUserToAddRows = false;
             this.dgvAisles.AllowUserToDeleteRows = false;
             this.dgvAisles.AllowUserToResizeRows = false;
+            this.dgvAisles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAisles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAisles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAisles.Location = new System.Drawing.Point(18, 22);
@@ -126,6 +137,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.dgvAisles);
             this.groupBox1.Controls.Add(this.btnDeleteAisle);
             this.groupBox1.Controls.Add(this.btnAddAisle);
@@ -138,6 +152,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox2.Controls.Add(this.btnDeleteShelf);
             this.groupBox2.Controls.Add(this.btnEditShelf);
@@ -158,6 +174,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MinimumSize = new System.Drawing.Size(744, 509);
             this.Name = "Warehouse";
             this.Text = "Warehouse";
             this.Activated += new System.EventHandler(this.Warehouse_Activated);

@@ -172,7 +172,7 @@
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddEditUser";
             this.Text = "AddEditUser";
             this.groupBox1.ResumeLayout(false);

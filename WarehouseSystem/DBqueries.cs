@@ -33,10 +33,14 @@ namespace WarehouseSystem
         internal string getShelves = "SELECT shelf_ID AS `Shelf ID` FROM s2016_user1.shelves WHERE FK_aisle=@aisleID";
 
         internal string addAisle = "INSERT INTO s2016_user1.aisles VALUES(DEFAULT,@aisleName); SELECT LAST_INSERT_ID();";
+        internal string deleteaisle = "DELETE FROM s2016_user1.aisles WHERE aisle_ID=@aisleID";
         internal string addShelf = "INSERT INTO s2016_user1.shelves VALUES(DEFAULT, @aisleID); SELECT LAST_INSERT_ID();";
+        internal string deleteSlef = "DELETE FROM s2016_user1.shelves WHERE shelf_ID=@shelf";
         internal string addBin = "INSERT INTO s2016_user1.bins VALUES(DEFAULT, @shelf, @maxWeight, @maxHeight, @maxWidth, @maxLength, @maxWidth, @maxWeight)";
+        internal string deleteBin = "DELETE FROM s2016_user1.bins WHERE bin_ID=@binID";
+
         //adding queries
-      
+
         internal string getCustomer = "SELECT customer_ID, firstName , lastName FROM s2016_user1.customers";
         internal string getMeasurements = "SELECT type, unit_ID FROM s2016_user1.unitOfMeasurement";
 

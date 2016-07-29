@@ -183,7 +183,36 @@ namespace WarehouseSystem
 
         private void btnDeleteAisle_Click(object sender, EventArgs e)
         {
-            //TODO
+            int aisle;
+            if (int.TryParse(dgvAisles.SelectedRows[0].Cells[0].Value.ToString(), out aisle))
+            {
+                try
+                {
+                    if (connection != null)
+                    {
+                        query = queries.deleteaisle;
+                        cmd.Parameters["@aisleID"].Value = aisle;
+                        cmd.CommandText = query;
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        dgvShelves.Update();
+                        dgvShelves.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection Lost");
+                        this.Close();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please, Select Aisle first");
+            }
         }
 
         private void btnAddShelf_Click(object sender, EventArgs e)
@@ -197,7 +226,36 @@ namespace WarehouseSystem
 
         private void btnDeleteShelf_Click(object sender, EventArgs e)
         {
-            //TODO
+            int shelf;
+            if (int.TryParse(dgvShelves.SelectedRows[0].Cells[0].Value.ToString(), out shelf))
+            {
+                try
+                {
+                    if (connection != null)
+                    {
+                        query = queries.deleteaisle;
+                        cmd.Parameters["@shelf"].Value = shelf;
+                        cmd.CommandText = query;
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        dgvShelves.Update();
+                        dgvShelves.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection Lost");
+                        this.Close();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please, Select Aisle first");
+            }
         }
     }
 }
