@@ -271,8 +271,6 @@ namespace WarehouseSystem
                     String thisDate = Convert.ToDateTime(datetimeItemExpiration.Text).ToString("yyyy-MM-dd");
                     cmd.Parameters["@expirationDate"].Value = thisDate;
 
-                    
-
                     MessageBox.Show(thisDate);
                 }
                 else
@@ -306,8 +304,6 @@ namespace WarehouseSystem
 
                         //closes form
                         Close();
-
-           
                         
                     }
                     else

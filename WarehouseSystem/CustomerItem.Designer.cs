@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCustomerItem = new System.Windows.Forms.DataGridView();
             this.txtCustomerName = new System.Windows.Forms.Label();
             this.btnCustomerItemClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerItem)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvCustomerItem
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 35);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(552, 290);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvCustomerItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomerItem.Location = new System.Drawing.Point(15, 35);
+            this.dgvCustomerItem.Name = "dgvCustomerItem";
+            this.dgvCustomerItem.Size = new System.Drawing.Size(552, 290);
+            this.dgvCustomerItem.TabIndex = 0;
             // 
             // txtCustomerName
             // 
@@ -53,7 +53,7 @@
             // 
             // btnCustomerItemClose
             // 
-            this.btnCustomerItemClose.Location = new System.Drawing.Point(635, 167);
+            this.btnCustomerItemClose.Location = new System.Drawing.Point(638, 156);
             this.btnCustomerItemClose.Name = "btnCustomerItemClose";
             this.btnCustomerItemClose.Size = new System.Drawing.Size(75, 23);
             this.btnCustomerItemClose.TabIndex = 2;
@@ -68,10 +68,11 @@
             this.ClientSize = new System.Drawing.Size(764, 336);
             this.Controls.Add(this.btnCustomerItemClose);
             this.Controls.Add(this.txtCustomerName);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCustomerItem);
             this.Name = "CustomerItem";
             this.Text = "Customer\'s Items";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.CustomerItem_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -79,7 +80,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCustomerItem;
         private System.Windows.Forms.Label txtCustomerName;
         private System.Windows.Forms.Button btnCustomerItemClose;
     }
