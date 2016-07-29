@@ -37,6 +37,7 @@
             // 
             // btnDeleteCustomers
             // 
+            this.btnDeleteCustomers.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnDeleteCustomers.Location = new System.Drawing.Point(574, 205);
             this.btnDeleteCustomers.Name = "btnDeleteCustomers";
             this.btnDeleteCustomers.Size = new System.Drawing.Size(104, 23);
@@ -47,6 +48,7 @@
             // 
             // btnEditCustomers
             // 
+            this.btnEditCustomers.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnEditCustomers.Location = new System.Drawing.Point(574, 157);
             this.btnEditCustomers.Name = "btnEditCustomers";
             this.btnEditCustomers.Size = new System.Drawing.Size(104, 23);
@@ -57,6 +59,7 @@
             // 
             // btnAddCustomers
             // 
+            this.btnAddCustomers.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAddCustomers.Location = new System.Drawing.Point(574, 113);
             this.btnAddCustomers.Name = "btnAddCustomers";
             this.btnAddCustomers.Size = new System.Drawing.Size(104, 23);
@@ -70,6 +73,9 @@
             this.dgvCustomers.AllowUserToAddRows = false;
             this.dgvCustomers.AllowUserToDeleteRows = false;
             this.dgvCustomers.AllowUserToResizeRows = false;
+            this.dgvCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomers.Location = new System.Drawing.Point(12, 14);

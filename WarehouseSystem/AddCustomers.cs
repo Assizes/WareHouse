@@ -22,6 +22,19 @@ namespace WarehouseSystem
         string fType = "Add";
         private int _id;
 
+        private TabControl tabCtrl;
+        private TabPage tabPag;
+
+        public TabPage TabPag
+        {
+            get { return tabPag; }
+            set { tabPag = value; }
+        }
+
+        public TabControl TabCtrl
+        {
+            set { tabCtrl = value; }
+        }
 
         public AddCustomers()
         {
@@ -174,6 +187,32 @@ namespace WarehouseSystem
             {
                 MessageBox.Show("Connection Lost");
                 this.Close();
+            }
+        }
+
+        private void AddCustomers_Activated(object sender, EventArgs e)
+        {
+            //Activate the corresponding Tabpage
+            if (tabPag != null)
+            {
+                tabCtrl.SelectedTab = tabPag;
+
+                if (!tabCtrl.Visible)
+                {
+                    tabCtrl.Visible = true;
+                }
+            }
+        }
+
+        private void AddCustomers_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Destroy the corresponding Tabpage when closing MDI child form
+            this.tabPag.Dispose();
+
+            //If no Tabpage left
+            if (!tabCtrl.HasChildren)
+            {
+                tabCtrl.Visible = false;
             }
         }
     }

@@ -424,6 +424,7 @@
             this.Controls.Add(this.grpbxItemLocation);
             this.Controls.Add(this.grpItemProperties);
             this.Controls.Add(this.grpbxAddItem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddEditInventory";
             this.Text = "Item";
             this.grpbxAddItem.ResumeLayout(false);

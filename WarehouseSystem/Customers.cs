@@ -20,6 +20,7 @@ namespace WarehouseSystem
         MySqlConnection connection;
         MySqlCommand cmd = new MySqlCommand();
         DBqueries queries = new DBqueries();
+        TabPage tp;
 
         string query;
 
@@ -71,6 +72,19 @@ namespace WarehouseSystem
                 form.MdiParent = (Form)Application.OpenForms["WarehouseSystem"];
                 if (type == "Add") form.setType("Add");
                 else form.setType("Edit");
+                form.TabCtrl = warehouse.tabControl1;
+                tp = new TabPage();
+                //Add a Tabpage and enables it
+                tp.Parent = warehouse.tabControl1;
+                tp.Text = form.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                form.TabPag = tp;
+
+                //Activate the newly created Tabpage
+                warehouse.tabControl1.SelectedTab = tp;
+                warehouse.tabControl1.Visible = true;
                 form.Show();
             }
             //If this form already opened
@@ -80,6 +94,7 @@ namespace WarehouseSystem
                 if (type == "Add") form.setType("Add");
                 else form.setType("Edit");
                 form.Focus();
+                tp.Text = form.Text;
             }
         }
 

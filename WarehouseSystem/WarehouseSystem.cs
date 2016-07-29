@@ -28,6 +28,11 @@ namespace WarehouseSystem
         string query;
         private string login = "";
 
+        internal AddAisle AddAisle
+        {
+            get { return addAisle; }
+            set { addAisle = value; }
+        }
 
         internal MySqlConnection Connection
         {
@@ -352,8 +357,7 @@ namespace WarehouseSystem
             catch { }
             try
             {
-                if ((AddAisle)Application.OpenForms["AddAisle"] != null)
-                    addAisle = (AddAisle)Application.OpenForms["AddAisle"];
+                if (addAisle != null)
                     if (addAisle.TabPag.Equals(tabControl1.SelectedTab))
                         addAisle.Select();
             }

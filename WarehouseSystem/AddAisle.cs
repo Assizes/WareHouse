@@ -64,6 +64,7 @@ namespace WarehouseSystem
             {
                 tabCtrl.Visible = false;
             }
+            warehouse.AddAisle = null;
         }
 
         private void AddAisle_Activated(object sender, EventArgs e)
@@ -157,6 +158,7 @@ namespace WarehouseSystem
         private void AddAisle_Load(object sender, EventArgs e)
         {
             connection = warehouse.Connection;
+            warehouse.AddAisle = this;
         }
     }
 }

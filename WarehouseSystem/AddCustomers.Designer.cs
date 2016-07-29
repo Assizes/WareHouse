@@ -211,9 +211,11 @@
             this.Controls.Add(this.btnAddCustomerReset);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.grpbxNewCustomer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddCustomers";
             this.Text = "Customer";
+            this.Activated += new System.EventHandler(this.AddCustomers_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddCustomers_FormClosing);
             this.grpbxNewCustomer.ResumeLayout(false);
             this.grpbxNewCustomer.PerformLayout();
             this.ResumeLayout(false);

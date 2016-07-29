@@ -37,14 +37,24 @@
             // 
             // dgvInventory
             // 
+            this.dgvInventory.AllowUserToResizeRows = false;
+            this.dgvInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvInventory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInventory.Location = new System.Drawing.Point(12, 14);
+            this.dgvInventory.MultiSelect = false;
             this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.ReadOnly = true;
+            this.dgvInventory.RowHeadersVisible = false;
+            this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInventory.Size = new System.Drawing.Size(533, 305);
             this.dgvInventory.TabIndex = 0;
             // 
             // btnAddInventory
             // 
+            this.btnAddInventory.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAddInventory.Location = new System.Drawing.Point(574, 113);
             this.btnAddInventory.Name = "btnAddInventory";
             this.btnAddInventory.Size = new System.Drawing.Size(104, 23);
@@ -55,6 +65,7 @@
             // 
             // btnEditInventory
             // 
+            this.btnEditInventory.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnEditInventory.Location = new System.Drawing.Point(574, 157);
             this.btnEditInventory.Name = "btnEditInventory";
             this.btnEditInventory.Size = new System.Drawing.Size(104, 23);
@@ -65,6 +76,7 @@
             // 
             // btnDeleteInventory
             // 
+            this.btnDeleteInventory.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnDeleteInventory.Location = new System.Drawing.Point(574, 205);
             this.btnDeleteInventory.Name = "btnDeleteInventory";
             this.btnDeleteInventory.Size = new System.Drawing.Size(104, 23);
@@ -82,6 +94,7 @@
             this.Controls.Add(this.btnAddInventory);
             this.Controls.Add(this.dgvInventory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MinimumSize = new System.Drawing.Size(723, 363);
             this.Name = "Inventory";
             this.Text = "Inventory";
             this.Activated += new System.EventHandler(this.Inventory_Activated);
