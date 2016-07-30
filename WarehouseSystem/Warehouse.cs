@@ -233,7 +233,7 @@ namespace WarehouseSystem
                 addAisle.WarehouseInstance = warehouse;
                 addAisle.MdiParent = warehouse;
                 addAisle.aisles = this;
-                addAisle.setType("AddShelf");
+                
                 addAisle.Show();
                 addAisle.TabCtrl = warehouse.tabControl1;
                 //Add a Tabpage and enables it
@@ -248,6 +248,7 @@ namespace WarehouseSystem
                 //Activate the newly created Tabpage
                 warehouse.tabControl1.SelectedTab = tp;
                 warehouse.tabControl1.Visible = true;
+                addAisle.setType("AddShelf");
 
             }
             //If this form already opened
