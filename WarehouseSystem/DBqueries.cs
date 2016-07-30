@@ -55,6 +55,11 @@ namespace WarehouseSystem
         internal string editInv = "UPDATE s2016_user1.item SET itemName=@itemName, length=@length, width=@width, height=@height, weight=@weight, quantity=@quantity, itemDescription=@itemDescription," +
             " FK_bin=@binID, FK_Customers=@custID, FK_measurerment=@unitOfMeasurement, expirationDate=@expirationDate WHERE item_id=@itemID ";
 
+      //  internal string editInvTest = "SELECT * FROM s2016_user1.item WHERE item_id=@itemID ";
+
+
+
+
         internal string getAllInv = "SELECT item_ID AS ID, itemName AS Item, itemDescription AS Description, CONCAT(firstName, ' ', lastName) AS Customer, " +
             "quantity AS Quantity FROM s2016_user1.item INNER JOIN s2016_user1.customers ON s2016_user1.item.FK_customers = s2016_user1.customers.customer_ID";
 

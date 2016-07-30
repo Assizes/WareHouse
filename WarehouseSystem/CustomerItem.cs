@@ -28,12 +28,16 @@ namespace WarehouseSystem
         public string ourData;
         String whatID;
 
+        AddEditInventory firstformRef;
 
 
-        public CustomerItem()
+
+
+
+        public CustomerItem(ref AddEditInventory form1handel)
         {
             InitializeComponent();
-            
+            firstformRef = form1handel;
         }
 
         private void CustomerItem_Load(object sender, EventArgs e)
@@ -87,8 +91,10 @@ namespace WarehouseSystem
             //If double clicked
             whatID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             //MessageBox.Show(whatID.ToString());
-            AddEditInventory adds = new AddEditInventory();
-            adds.itemIdData = whatID;
+            // AddEditInventory adds = new AddEditInventory();
+            // adds.itemIdData = whatID;
+
+            firstformRef.itemIdData = whatID;
 
             MessageBox.Show("Item Selected ID: "+whatID);
             
@@ -97,5 +103,7 @@ namespace WarehouseSystem
 
             this.Close();
         }
+
+
     }
 }

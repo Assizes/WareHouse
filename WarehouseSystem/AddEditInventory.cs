@@ -269,6 +269,7 @@ namespace WarehouseSystem
                 cmd.Parameters["@selfID"].Value = cmbItemShelf.Text;
                 cmd.Parameters["@itemID"].Value = itemIdData;
 
+
                 //If radio 'expired' is true
                 if (rdoExpirationYes.Checked == true)
                 {
@@ -360,13 +361,15 @@ namespace WarehouseSystem
 
         private void buttonFind_Click(object sender, EventArgs e)
         {
-            CustomerItem c = new CustomerItem();
+            AddEditInventory addEditInv = new AddEditInventory();
+            addEditInv = this;
+
+            CustomerItem c = new CustomerItem(ref addEditInv);
 
            
 
             int place = cmbItemCustomer.SelectedIndex;
             cmd.Parameters["@custID"].Value = customerIDList[place];
-
             String data = customerIDList[place];
 
 
