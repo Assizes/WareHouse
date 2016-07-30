@@ -88,7 +88,7 @@ namespace WarehouseSystem
                 {
                     if (connection != null)
                     {
-                        query = queries.getAllBins;
+                        query = queries.getShelfBins;
                         cmd.Parameters["@shelf"].Value = shelf;
                         MySqlDataAdapter sqladapter = new MySqlDataAdapter();
                         cmd.CommandText = query;
