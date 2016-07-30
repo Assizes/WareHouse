@@ -13,13 +13,19 @@ namespace WarehouseSystem
 {
     public partial class Warehouse : Form
     {
-        private WarehouseSystem warehouse = (WarehouseSystem)Application.OpenForms["WarehouseSystem"];
+        private WarehouseSystem warehouse;
         MySqlConnection connection;
         AddAisle addAisle;
         DBqueries queries = new DBqueries();
         MySqlCommand cmd = new MySqlCommand();
 
         string query;
+
+        internal WarehouseSystem WarehouseInstance
+        {
+            get { return warehouse; }
+            set { warehouse = value; }
+        }
 
         private TabControl tabCtrl;
         private TabPage tabPag;
@@ -152,11 +158,13 @@ namespace WarehouseSystem
 
         private void btnAddAisle_Click(object sender, EventArgs e)
         {
-            addAisle = new AddAisle();
-            if (((AddAisle)Application.OpenForms["AddAisle"]) == null)
+            if (warehouse.AddAisle == null)
             {
+                addAisle = new AddAisle();
+                addAisle.WarehouseInstance = warehouse;
                 addAisle.MdiParent = warehouse;
                 addAisle.aisles = this;
+                
                 addAisle.Show();
                 addAisle.TabCtrl = warehouse.tabControl1;
                 //Add a Tabpage and enables it
@@ -171,12 +179,14 @@ namespace WarehouseSystem
                 //Activate the newly created Tabpage
                 warehouse.tabControl1.SelectedTab = tp;
                 warehouse.tabControl1.Visible = true;
-                
+                addAisle.setType("AddAisle");
+
             }
             //If this form already opened
             else
             {
-                addAisle = (AddAisle)Application.OpenForms["AddAisle"];
+                addAisle = warehouse.AddAisle;
+                addAisle.setType("AddAisle");
                 addAisle.Focus();
             }
         }
@@ -217,7 +227,36 @@ namespace WarehouseSystem
 
         private void btnAddShelf_Click(object sender, EventArgs e)
         {
-            //TODO
+            if (warehouse.AddAisle == null)
+            {
+                addAisle = new AddAisle();
+                addAisle.WarehouseInstance = warehouse;
+                addAisle.MdiParent = warehouse;
+                addAisle.aisles = this;
+                addAisle.setType("AddShelf");
+                addAisle.Show();
+                addAisle.TabCtrl = warehouse.tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = warehouse.tabControl1;
+                tp.Text = addAisle.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                addAisle.TabPag = tp;
+
+                //Activate the newly created Tabpage
+                warehouse.tabControl1.SelectedTab = tp;
+                warehouse.tabControl1.Visible = true;
+
+            }
+            //If this form already opened
+            else
+            {
+                addAisle = warehouse.AddAisle;
+                addAisle.setType("AddShelf");
+                addAisle.Focus();
+            }
         }
         private void btnEditShelf_Click(object sender, EventArgs e)
         {

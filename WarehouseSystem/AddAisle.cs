@@ -13,12 +13,19 @@ namespace WarehouseSystem
 {
     public partial class AddAisle : Form
     {
-        private WarehouseSystem warehouse = (WarehouseSystem)Application.OpenForms["WarehouseSystem"];
+        private WarehouseSystem warehouse;
 
         MySqlConnection connection;
         DBqueries queries = new DBqueries();
         MySqlCommand cmd = new MySqlCommand();
         private Warehouse _aisles;
+        private string _type;
+
+        internal WarehouseSystem WarehouseInstance
+        {
+            get { return warehouse; }
+            set { warehouse = value; }
+        }
 
         internal Warehouse aisles
         {
@@ -97,48 +104,55 @@ namespace WarehouseSystem
             {
                 if (connection != null)
                 {
-                    query = queries.addAisle;
-                    cmd.CommandText = query;
-                    cmd.Connection = connection;
-                    cmd.Parameters["@aisleName"].Value = txtAisleName.Text;
-                    aisleID = int.Parse(cmd.ExecuteScalar().ToString());
-
-                    if(txtShelvesNumber.Text != "")
+                    if (_type == "AddAisle")
                     {
-                        cmd.Parameters["@aisleID"].Value = aisleID;
+                        query = queries.addAisle;
+                        cmd.CommandText = query;
+                        cmd.Connection = connection;
+                        cmd.Parameters["@aisleName"].Value = txtAisleName.Text;
+                        aisleID = int.Parse(cmd.ExecuteScalar().ToString());
 
-                        if (txtBinsNumber.Text != "" && txtHeight.Text != "" && txtLength.Text != ""
-                            && txtMaxWeight.Text != "" && txtWidth.Text != "")
+                        if (txtShelvesNumber.Text != "")
                         {
-                            int.TryParse(txtBinsNumber.Text, out binsNum);
-                            cmd.Parameters["@maxLength"].Value = txtLength.Text;
-                            cmd.Parameters["@maxWeight"].Value = txtMaxWeight.Text;
-                            cmd.Parameters["@maxHeight"].Value = txtHeight.Text;
-                            cmd.Parameters["@maxWidth"].Value = txtWidth.Text;
-                            bins = true;
-                        }
+                            cmd.Parameters["@aisleID"].Value = aisleID;
 
-                        if (int.TryParse(txtShelvesNumber.Text, out shelvesNum))
-                        {
-                            for (int s = 0; s < shelvesNum; s++)
+                            if (txtBinsNumber.Text != "" && txtHeight.Text != "" && txtLength.Text != ""
+                                && txtMaxWeight.Text != "" && txtWidth.Text != "")
                             {
-                                query = queries.addShelf;
-                                cmd.CommandText = query;
-                                shelfID = int.Parse(cmd.ExecuteScalar().ToString());
-                                MessageBox.Show(""+shelfID);
+                                int.TryParse(txtBinsNumber.Text, out binsNum);
+                                cmd.Parameters["@maxLength"].Value = txtLength.Text;
+                                cmd.Parameters["@maxWeight"].Value = txtMaxWeight.Text;
+                                cmd.Parameters["@maxHeight"].Value = txtHeight.Text;
+                                cmd.Parameters["@maxWidth"].Value = txtWidth.Text;
+                                bins = true;
+                            }
 
-                                if (bins)
+                            if (int.TryParse(txtShelvesNumber.Text, out shelvesNum))
+                            {
+                                for (int s = 0; s < shelvesNum; s++)
                                 {
-                                    query = queries.addBin;
+                                    query = queries.addShelf;
                                     cmd.CommandText = query;
-                                    cmd.Parameters["@shelf"].Value = shelfID;
-                                    for (int b = 0; b < binsNum; b++)
+                                    shelfID = int.Parse(cmd.ExecuteScalar().ToString());
+                                    MessageBox.Show("" + shelfID);
+
+                                    if (bins)
                                     {
-                                        cmd.ExecuteNonQuery();
+                                        query = queries.addBin;
+                                        cmd.CommandText = query;
+                                        cmd.Parameters["@shelf"].Value = shelfID;
+                                        for (int b = 0; b < binsNum; b++)
+                                        {
+                                            cmd.ExecuteNonQuery();
+                                        }
                                     }
                                 }
                             }
                         }
+                    }
+                    else if(_type == "AddShelf")
+                    {
+
                     }
                 }
                 else
@@ -159,6 +173,29 @@ namespace WarehouseSystem
         {
             connection = warehouse.Connection;
             warehouse.AddAisle = this;
+        }
+
+        internal void setType(string type)
+        {
+            _type = type;
+            if(_type == "AddAisle")
+            {
+                this.Text = "Add Aisle";
+                txtAisleName.Enabled = true;
+                txtShelvesNumber.Enabled = true;
+                txtShelvesNumber.Text = "";
+                label3.Text = "Number of Bins on Each Shelf";
+                tabPag.Text = this.Text;
+            }
+            else if(_type == "AddShelf")
+            {
+                this.Text = "Add Shelf";
+                txtAisleName.Enabled = false;
+                txtShelvesNumber.Enabled = false;
+                txtShelvesNumber.Text = "1";
+                label3.Text = "Number of Bins on the Shelf";
+                tabPag.Text = this.Text;
+            }
         }
     }
 }

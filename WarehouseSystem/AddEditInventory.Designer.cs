@@ -214,6 +214,7 @@
             // 
             // datetimeItemExpiration
             // 
+            this.datetimeItemExpiration.Enabled = false;
             this.datetimeItemExpiration.Location = new System.Drawing.Point(137, 156);
             this.datetimeItemExpiration.Name = "datetimeItemExpiration";
             this.datetimeItemExpiration.Size = new System.Drawing.Size(200, 20);

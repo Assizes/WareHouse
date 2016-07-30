@@ -78,9 +78,16 @@ namespace WarehouseSystem
 
         private void connect()
         {
-            connection = new MySqlConnection(dbinfo.ToString());
-            connection.Open();
-
+            try
+            {
+                connection = new MySqlConnection(dbinfo.ToString());
+                connection.Open();
+            }
+            catch(MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                connection = null;
+            }
             cmd.Parameters.Add("@Login", MySqlDbType.String);
             cmd.Parameters.Add("@Pass", MySqlDbType.String);
             if (connection != null)
@@ -284,9 +291,10 @@ namespace WarehouseSystem
 
         public void openWarehouse()
         {
-            if (((Warehouse)Application.OpenForms["Warehouse"]) == null)
+            if(warehouse == null)
             {
                 warehouse = new Warehouse();
+                warehouse.WarehouseInstance = this;
                 warehouse.MdiParent = this;
                 warehouse.Show();
                 warehouse.TabCtrl = tabControl1;
@@ -308,7 +316,6 @@ namespace WarehouseSystem
             }
             else
             {
-                warehouse = (Warehouse)Application.OpenForms["Warehouse"];
                 warehouse.Focus();
             }
         }
@@ -351,8 +358,9 @@ namespace WarehouseSystem
             catch { }
             try
             {
-                if (warehouse.TabPag.Equals(tabControl1.SelectedTab))
-                    warehouse.Select();
+                if (warehouse != null)
+                    if (warehouse.TabPag.Equals(tabControl1.SelectedTab))
+                        warehouse.Select();
             }
             catch { }
             try
