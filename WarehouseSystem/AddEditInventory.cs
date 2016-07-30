@@ -99,8 +99,13 @@ namespace WarehouseSystem
             cmd.CommandText = queries.getAllShelves;
             doQueries(cmbItemShelf);
 
-            cmd.CommandText = queries.getAllBins;
+            // cmd.CommandText = queries.getAllBins;
+            //Show data not tkaen
+            cmd.CommandText = queries.getBinsNotTaken;
             doQueries(cmbItemBin);
+            //For specefic customer
+            //cmd.CommandText = queries.getBinsForThisCustomer;
+            //doQueries(cmbItemBin);
 
 
             //FOR TESTING
@@ -173,6 +178,7 @@ namespace WarehouseSystem
             {
                 c.Items.Add(dr[0].ToString());
             }
+           // c.Items.Add("------");
 
             if (c == cmbUnitofMeasurement)
             {
@@ -409,6 +415,15 @@ namespace WarehouseSystem
         {
             //labelItemID.Text = itemIdData;
    
+        }
+
+        private void btnItemLocation_Click(object sender, EventArgs e)
+        {
+            int place = cmbItemCustomer.SelectedIndex;
+            cmd.Parameters["@custID"].Value = customerIDList[place];
+            //For specefic customer
+            cmd.CommandText = queries.getBinsForThisCustomer;
+            doQueries(cmbItemBin);
         }
     }
 }

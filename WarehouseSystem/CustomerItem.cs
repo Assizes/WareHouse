@@ -52,7 +52,7 @@ namespace WarehouseSystem
 
             query = queries.getItemID;
             cmd.CommandText = query;
-            MessageBox.Show(ourData);
+           // MessageBox.Show(ourData);
 
            // dr = cmd.ExecuteReader();
 

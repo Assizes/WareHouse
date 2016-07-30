@@ -367,6 +367,7 @@
             this.btnItemLocation.TabIndex = 28;
             this.btnItemLocation.Text = "Generate Available Location";
             this.btnItemLocation.UseVisualStyleBackColor = true;
+            this.btnItemLocation.Click += new System.EventHandler(this.btnItemLocation_Click);
             // 
             // lblItemBin
             // 

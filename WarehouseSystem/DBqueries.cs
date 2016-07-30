@@ -54,8 +54,21 @@ namespace WarehouseSystem
 
         internal string editInv = "UPDATE s2016_user1.item SET itemName=@itemName, length=@length, width=@width, height=@height, weight=@weight, quantity=@quantity, itemDescription=@itemDescription," +
             " FK_bin=@binID, FK_Customers=@custID, FK_measurerment=@unitOfMeasurement, expirationDate=@expirationDate WHERE item_id=@itemID ";
+        //one gets all bins not taken//Other gets all bins for that customer and bin is not full
+        internal string getBinsNotTaken = "SELECT b.bin_ID FROM s2016_user1.bins as b LEFT OUTER JOIN s2016_user1.item as i ON i.FK_bin = b.bin_ID WHERE i.FK_bin IS NULL";
+        internal string getBinsForThisCustomer = "SELECT i.FK_bin, b.availableWidth, SUM(i.width) as count FROM s2016_user1.item AS i INNER JOIN bins AS b ON i.FK_bin= b.bin_ID WHERE FK_customers = @custID GROUP BY i.FK_bin HAVING b.availableWidth > SUM(i.width)";
 
-      //  internal string editInvTest = "SELECT * FROM s2016_user1.item WHERE item_id=@itemID ";
+        //testfor first one
+        /*SELECT b.bin_ID FROM s2016_user1.bins as b LEFT OUTER JOIN s2016_user1.item as i ON i.FK_bin = b.bin_ID
+WHERE i.FK_bin IS NULL*/
+
+        //test data for getbinsfromcutomer - works
+        /*SELECT i.FK_bin, b.availableWidth, SUM(i.width) as count
+        FROM s2016_user1.item AS i
+        INNER JOIN bins AS b ON i.FK_bin=b.bin_ID
+        WHERE FK_customers= 1
+        GROUP BY i.FK_bin
+        HAVING b.availableWidth > SUM(i.width)*/
 
 
 
