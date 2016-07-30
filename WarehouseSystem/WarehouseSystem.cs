@@ -28,6 +28,12 @@ namespace WarehouseSystem
         string query;
         private string login = "";
 
+        internal Warehouse Warehouse
+        {
+            get { return warehouse; }
+            set { warehouse = value; }
+        }
+
         internal AddAisle AddAisle
         {
             get { return addAisle; }

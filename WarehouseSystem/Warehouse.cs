@@ -43,8 +43,6 @@ namespace WarehouseSystem
             }
         }
 
-
-
         internal WarehouseSystem WarehouseInstance
         {
             get { return warehouse; }
@@ -71,7 +69,6 @@ namespace WarehouseSystem
             cmd.Parameters.Add("@aisleID", MySqlDbType.String);
         }
 
-
         private void Warehouse_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Destroy the corresponding Tabpage when closing MDI child form
@@ -82,6 +79,7 @@ namespace WarehouseSystem
             {
                 tabCtrl.Visible = false;
             }
+            warehouse.Warehouse = null;
         }
 
         private void Warehouse_Activated(object sender, EventArgs e)
