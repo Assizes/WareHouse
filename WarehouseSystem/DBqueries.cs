@@ -28,7 +28,8 @@ namespace WarehouseSystem
 
         internal string getAllAisles = "SELECT aisle_ID AS `Aisle ID`, aisle_Name AS `Aisle Name` FROM s2016_user1.aisles";
         internal string getAllShelves = "SELECT shelf_ID as selfID FROM s2016_user1.shelves";
-        internal string getAllBins = "SELECT bin_ID as binID FROM s2016_user1.bins";
+        internal string getAllBins = "SELECT bin_ID AS `ID`, availableWidth AS `Available Width`, availableWeight AS `Available Weight`, COUNT(item_ID) AS `Number of items stored` FROM s2016_user1.bins AS BI LEFT JOIN s2016_user1.item AS IT ON BI.bin_ID = IT.FK_bin GROUP BY bin_ID "+
+                                        "UNION SELECT bin_ID AS `ID`, availableWidth AS `Available Width`, availableWeight AS `Available Weight`, COUNT(item_ID)AS `Number of items stored` FROM s2016_user1.bins AS BI RIGHT JOIN s2016_user1.item AS IT ON BI.bin_ID = IT.FK_bin GROUP BY bin_ID";
 
         internal string getShelves = "SELECT shelf_ID AS `Shelf ID` FROM s2016_user1.shelves WHERE FK_aisle=@aisleID";
 

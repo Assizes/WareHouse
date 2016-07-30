@@ -147,6 +147,7 @@ namespace WarehouseSystem
                                 }
                             }
                         }
+                        aisles.fillAisles();
                     }
                     else if(_type == "AddShelf")
                     {
@@ -179,6 +180,7 @@ namespace WarehouseSystem
                                 MessageBox.Show("Enter numeric value for bins number");
                             }
                         }
+                        aisles.fillShelves();
                     }
                 }
                 else
@@ -191,7 +193,7 @@ namespace WarehouseSystem
             {
                 MessageBox.Show(ex.ToString());
             }
-            aisles.fillAisles();
+            
             this.Close();
         }
 

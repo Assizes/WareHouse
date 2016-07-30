@@ -20,6 +20,7 @@ namespace WarehouseSystem
         private Customers customers = null;
         private Warehouse warehouse = null;
         private AddAisle addAisle = null;
+        private AddEditBins bins = null;
         private static MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
@@ -38,6 +39,12 @@ namespace WarehouseSystem
         {
             get { return addAisle; }
             set { addAisle = value; }
+        }
+
+        internal AddEditBins Bins
+        {
+            get { return bins; }
+            set { bins = value; }
         }
 
         internal MySqlConnection Connection

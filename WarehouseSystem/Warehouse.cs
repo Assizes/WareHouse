@@ -16,6 +16,7 @@ namespace WarehouseSystem
         private WarehouseSystem warehouse;
         MySqlConnection connection;
         AddAisle addAisle;
+        AddEditBins bins;
         DBqueries queries = new DBqueries();
         MySqlCommand cmd = new MySqlCommand();
 
@@ -29,6 +30,17 @@ namespace WarehouseSystem
                     return dgvAisles.SelectedRows[0].Cells[0].Value.ToString();
                 else
                     return "Cannot get index of Aisle";
+            }
+        }
+
+        internal string getShelfID
+        {
+            get
+            {
+                if (dgvShelves.SelectedRows != null)
+                    return dgvShelves.SelectedRows[0].Cells[0].Value.ToString();
+                else
+                    return "Cannot get index of Shelf";
             }
         }
 
@@ -136,6 +148,11 @@ namespace WarehouseSystem
         }
 
         private void dgvAisles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fillShelves();
+        }
+
+        internal void fillShelves()
         {
             int aisle;
             if (int.TryParse(dgvAisles.SelectedRows[0].Cells[0].Value.ToString(), out aisle))
@@ -283,7 +300,37 @@ namespace WarehouseSystem
         }
         private void btnEditShelf_Click(object sender, EventArgs e)
         {
-            //TODO
+            if (warehouse.Bins == null)
+            {
+                bins = new AddEditBins();
+                bins.WarehouseInstance = warehouse;
+                bins.MdiParent = warehouse;
+                bins.aisles = this;
+
+                bins.Show();
+                bins.TabCtrl = warehouse.tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = warehouse.tabControl1;
+                tp.Text = bins.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                bins.TabPag = tp;
+
+                //Activate the newly created Tabpage
+                warehouse.tabControl1.SelectedTab = tp;
+                warehouse.tabControl1.Visible = true;
+         //       bins.setType("AddShelf");
+
+            }
+            //If this form already opened
+            else
+            {
+                bins = warehouse.Bins;
+          //      bins.setType("AddShelf");
+                bins.Focus();
+            }
         }
 
         private void btnDeleteShelf_Click(object sender, EventArgs e)
