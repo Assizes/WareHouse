@@ -21,6 +21,30 @@ namespace WarehouseSystem
 
         string query;
 
+        internal string getAisleID
+        {
+            get
+            {
+                if (dgvAisles.SelectedRows != null)
+                    return dgvAisles.SelectedRows[0].Cells[0].Value.ToString();
+                else
+                    return "Cannot get index of Aisle";
+            }
+        }
+
+        internal string getAisleName
+        {
+            get
+            {
+                if (dgvAisles.SelectedRows != null)
+                    return dgvAisles.SelectedRows[0].Cells[1].Value.ToString();
+                else
+                    return "Cannot get name of Aisle"; 
+            }
+        }
+
+
+
         internal WarehouseSystem WarehouseInstance
         {
             get { return warehouse; }

@@ -20,6 +20,8 @@ namespace WarehouseSystem
         MySqlCommand cmd = new MySqlCommand();
         private Warehouse _aisles;
         private string _type;
+        string query;
+        int aisleID;
 
         internal WarehouseSystem WarehouseInstance
         {
@@ -32,8 +34,6 @@ namespace WarehouseSystem
             get { return _aisles; }
             set { _aisles = value; }
         }
-
-        string query;
 
         private TabControl tabCtrl;
         private TabPage tabPag;
@@ -95,7 +95,6 @@ namespace WarehouseSystem
 
         private void btnSave(object sender, EventArgs e)
         {
-            int aisleID;
             int shelfID;
             int shelvesNum;
             int binsNum = 0;
@@ -134,7 +133,6 @@ namespace WarehouseSystem
                                     query = queries.addShelf;
                                     cmd.CommandText = query;
                                     shelfID = int.Parse(cmd.ExecuteScalar().ToString());
-                                    MessageBox.Show("" + shelfID);
 
                                     if (bins)
                                     {
@@ -152,7 +150,35 @@ namespace WarehouseSystem
                     }
                     else if(_type == "AddShelf")
                     {
+                        query = queries.addShelf;
+                        cmd.CommandText = query;
+                        cmd.Connection = connection;
+                        cmd.Parameters["@aisleID"].Value = aisleID;
+                        shelfID = int.Parse(cmd.ExecuteScalar().ToString());
 
+                        if (txtBinsNumber.Text != "" && txtHeight.Text != "" && txtLength.Text != ""
+                                && txtMaxWeight.Text != "" && txtWidth.Text != "")
+                        {
+                            if (int.TryParse(txtBinsNumber.Text, out binsNum))
+                            {
+                                cmd.Parameters["@maxLength"].Value = txtLength.Text;
+                                cmd.Parameters["@maxWeight"].Value = txtMaxWeight.Text;
+                                cmd.Parameters["@maxHeight"].Value = txtHeight.Text;
+                                cmd.Parameters["@maxWidth"].Value = txtWidth.Text;
+
+                                query = queries.addBin;
+                                cmd.CommandText = query;
+                                cmd.Parameters["@shelf"].Value = shelfID;
+                                for (int b = 0; b < binsNum; b++)
+                                {
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Enter numeric value for bins number");
+                            }
+                        }
                     }
                 }
                 else
@@ -182,6 +208,7 @@ namespace WarehouseSystem
             {
                 this.Text = "Add Aisle";
                 txtAisleName.Enabled = true;
+                txtAisleName.Text = "";
                 txtShelvesNumber.Enabled = true;
                 txtShelvesNumber.Text = "";
                 label3.Text = "Number of Bins on Each Shelf";
@@ -191,10 +218,15 @@ namespace WarehouseSystem
             {
                 this.Text = "Add Shelf";
                 txtAisleName.Enabled = false;
+                txtAisleName.Text = _aisles.getAisleName;
                 txtShelvesNumber.Enabled = false;
                 txtShelvesNumber.Text = "1";
                 label3.Text = "Number of Bins on the Shelf";
                 tabPag.Text = this.Text;
+
+                string tmp = _aisles.getAisleID;
+                if (int.TryParse(tmp, out aisleID)) {  }
+                else { MessageBox.Show(tmp); }
             }
         }
     }
