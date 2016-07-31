@@ -20,6 +20,7 @@ namespace WarehouseSystem
         DBqueries queries = new DBqueries();
         MySqlCommand cmd = new MySqlCommand();
         string query;
+        int binID;
         int shelf;
 
         internal Warehouse aisles
@@ -52,6 +53,7 @@ namespace WarehouseSystem
         {
             InitializeComponent();
             cmd.Parameters.Add("@shelf", MySqlDbType.String);
+            cmd.Parameters.Add("@binID", MySqlDbType.String);
         }
 
         private void AddEditBins_Activated(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace WarehouseSystem
 
         internal void fillBins()
         {
-            if (int.TryParse(_aisles.getShelfID, out shelf) && _aisles.getShelfID != "0")
+            if (int.TryParse(_aisles.getShelfID, out shelf))
             {
                 try
                 {
@@ -132,23 +134,36 @@ namespace WarehouseSystem
 
         private void btnAddBin_Click(object sender, EventArgs e)
         {
+            openAddBin("AddBin");
+        }
+
+        private void btnEditBin_Click(object sender, EventArgs e)
+        {
+            openAddBin("EditBin");
+        }
+
+        private void openAddBin(string type)
+        {
             if (warehouse.AddBin == null)
             {
-                addBin = new AddBin();
+                addBin = new AddBin(shelf);
                 addBin.WarehouseInstance = warehouse;
                 addBin.MdiParent = warehouse;
                 addBin.Bins = this;
-
+                
                 addBin.Show();
                 addBin.TabCtrl = warehouse.tabControl1;
                 //Add a Tabpage and enables it
                 TabPage tp = new TabPage();
                 tp.Parent = warehouse.tabControl1;
                 tp.Text = addBin.Text;
+                
                 tp.Show();
 
                 //child Form will now hold a reference value to a tabpage
                 addBin.TabPag = tp;
+                addBin.Bin = int.Parse(dgvBins.SelectedRows[0].Cells[0].Value.ToString());
+                addBin.setType(type);
 
                 //Activate the newly created Tabpage
                 warehouse.tabControl1.SelectedTab = tp;
@@ -158,19 +173,45 @@ namespace WarehouseSystem
             else
             {
                 addBin = warehouse.AddBin;
+                addBin.Bin = int.Parse(dgvBins.SelectedRows[0].Cells[0].Value.ToString());
+                addBin.setType(type);
+                addBin.shelf = shelf;
                 addBin.Focus();
             }
             warehouse.previousWindow = tabPag;
         }
 
-        private void btnEditBin_Click(object sender, EventArgs e)
-        {
-            //TODO
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //TODO
+            if (int.TryParse(_aisles.getShelfID, out binID))
+            {
+                try
+                {
+                    if (connection != null)
+                    {
+                        query = queries.deleteBin;
+                        cmd.Parameters["@binID"].Value = binID;
+                        cmd.CommandText = query;
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        dgvBins.Update();
+                        dgvBins.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection Lost");
+                        this.Close();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please, Select Aisle first");
+            }
         }
     }
 }

@@ -340,7 +340,7 @@ namespace WarehouseSystem
                 {
                     if (connection != null)
                     {
-                        query = queries.deleteaisle;
+                        query = queries.deleteShelf;
                         cmd.Parameters["@shelf"].Value = shelf;
                         cmd.CommandText = query;
                         cmd.Connection = connection;

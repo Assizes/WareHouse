@@ -8,8 +8,6 @@ namespace WarehouseSystem
 {
     class DBqueries
     {
-        
-
         internal string checkUserCredentials = "SELECT DISTINCT User_Login, User_Password, userRoleID FROM s2016_user1.users WHERE User_Login = @Login";
 
         internal string getAllCustomers = "SELECT customer_ID AS ID, firstName AS `First Name`, lastName AS `Last Name`, address AS `Address`, phoneNumber AS `Phone Number`, city AS City, province AS Province, postalCode AS `Postal Code` FROM s2016_user1.customers";
@@ -37,9 +35,11 @@ namespace WarehouseSystem
         internal string addAisle = "INSERT INTO s2016_user1.aisles VALUES(DEFAULT,@aisleName); SELECT LAST_INSERT_ID();";
         internal string deleteaisle = "DELETE FROM s2016_user1.aisles WHERE aisle_ID=@aisleID";
         internal string addShelf = "INSERT INTO s2016_user1.shelves VALUES(DEFAULT, @aisleID); SELECT LAST_INSERT_ID();";
-        internal string deleteSlef = "DELETE FROM s2016_user1.shelves WHERE shelf_ID=@shelf";
+        internal string deleteShelf = "DELETE FROM s2016_user1.shelves WHERE shelf_ID=@shelf";
         internal string addBin = "INSERT INTO s2016_user1.bins VALUES(DEFAULT, @shelf, @maxWeight, @maxHeight, @maxWidth, @maxLength, @maxWidth, @maxWeight)";
         internal string deleteBin = "DELETE FROM s2016_user1.bins WHERE bin_ID=@binID";
+        internal string getBin = "SELECT maxWeight, maxHeight, maxWidth, maxLength FROM s2016_user1.bins WHERE bin_ID = @binID";
+        internal string updateBin = "UPDATE s2016_user1.bins SET maxWeight = @maxWeight, maxHeight = @maxHeight, maxWidth = @maxWidth, maxLength = @maxLength WHERE bin_ID = @binID AND availableWidth-(maxWidth-@maxWidth) >= 0 AND availableWeight-(maxWeight-@maxWeight) >= 0";
 
         //adding queries
 
