@@ -172,7 +172,6 @@ namespace WarehouseSystem
                     {
                         query = queries.addBin;
                         cmd.Parameters["@shelf"].Value = shelfID;
-                        
                     }
                     else if(_type == "EditBin")
                     {

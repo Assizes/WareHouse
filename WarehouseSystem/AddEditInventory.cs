@@ -164,10 +164,6 @@ namespace WarehouseSystem
             }
         }
 
-
-        
-
-
         public void doQueries(ComboBox c)
         {
             //String q = query  +"."+ querieName;
@@ -187,7 +183,6 @@ namespace WarehouseSystem
 
             dr.Close();
         }
-            
 
         private void btnItemReset_Click(object sender, EventArgs e)
         {
