@@ -321,14 +321,12 @@ namespace WarehouseSystem
                 //Activate the newly created Tabpage
                 warehouse.tabControl1.SelectedTab = tp;
                 warehouse.tabControl1.Visible = true;
-         //       bins.setType("AddShelf");
-
             }
             //If this form already opened
             else
             {
                 bins = warehouse.Bins;
-          //      bins.setType("AddShelf");
+                bins.fillBins();
                 bins.Focus();
             }
         }

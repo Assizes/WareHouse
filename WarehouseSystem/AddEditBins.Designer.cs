@@ -62,6 +62,7 @@
             this.btnAddBin.TabIndex = 1;
             this.btnAddBin.Text = "Add Bin";
             this.btnAddBin.UseVisualStyleBackColor = true;
+            this.btnAddBin.Click += new System.EventHandler(this.btnAddBin_Click);
             // 
             // btnEditBin
             // 
@@ -71,6 +72,7 @@
             this.btnEditBin.TabIndex = 2;
             this.btnEditBin.Text = "Edit Bin";
             this.btnEditBin.UseVisualStyleBackColor = true;
+            this.btnEditBin.Click += new System.EventHandler(this.btnEditBin_Click);
             // 
             // btnDelete
             // 
@@ -80,6 +82,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete Bin";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // AddEditBins
             // 

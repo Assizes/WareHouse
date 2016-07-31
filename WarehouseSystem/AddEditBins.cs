@@ -16,9 +16,11 @@ namespace WarehouseSystem
         private WarehouseSystem warehouse;
         MySqlConnection connection;
         private Warehouse _aisles;
+        private AddBin addBin;
         DBqueries queries = new DBqueries();
         MySqlCommand cmd = new MySqlCommand();
         string query;
+        int shelf;
 
         internal Warehouse aisles
         {
@@ -79,9 +81,8 @@ namespace WarehouseSystem
             warehouse.Bins = null;
         }
 
-        private void fillBins()
+        internal void fillBins()
         {
-            int shelf;
             if (int.TryParse(_aisles.getShelfID, out shelf) && _aisles.getShelfID != "0")
             {
                 try
@@ -125,7 +126,51 @@ namespace WarehouseSystem
         private void AddEditBins_Load(object sender, EventArgs e)
         {
             connection = warehouse.Connection;
+            warehouse.Bins = this;
             fillBins();
+        }
+
+        private void btnAddBin_Click(object sender, EventArgs e)
+        {
+            if (warehouse.AddBin == null)
+            {
+                addBin = new AddBin();
+                addBin.WarehouseInstance = warehouse;
+                addBin.MdiParent = warehouse;
+                addBin.Bins = this;
+
+                addBin.Show();
+                addBin.TabCtrl = warehouse.tabControl1;
+                //Add a Tabpage and enables it
+                TabPage tp = new TabPage();
+                tp.Parent = warehouse.tabControl1;
+                tp.Text = addBin.Text;
+                tp.Show();
+
+                //child Form will now hold a reference value to a tabpage
+                addBin.TabPag = tp;
+
+                //Activate the newly created Tabpage
+                warehouse.tabControl1.SelectedTab = tp;
+                warehouse.tabControl1.Visible = true;
+            }
+            //If this form already opened
+            else
+            {
+                addBin = warehouse.AddBin;
+                addBin.Focus();
+            }
+            warehouse.previousWindow = tabPag;
+        }
+
+        private void btnEditBin_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //TODO
         }
     }
 }

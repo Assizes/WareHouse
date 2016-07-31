@@ -19,8 +19,10 @@ namespace WarehouseSystem
         private Inventory inventory = null;
         private Customers customers = null;
         private Warehouse warehouse = null;
+        private AddBin addBin = null;
         private AddAisle addAisle = null;
         private AddEditBins bins = null;
+        internal TabPage previousWindow;
         private static MySqlConnection connection = null;
         ConnectDB dbinfo;
         MySqlCommand cmd;
@@ -33,6 +35,12 @@ namespace WarehouseSystem
         {
             get { return warehouse; }
             set { warehouse = value; }
+        }
+
+        internal AddBin AddBin
+        {
+            get { return addBin; }
+            set { addBin = value; }
         }
 
         internal AddAisle AddAisle
@@ -381,6 +389,20 @@ namespace WarehouseSystem
                 if (addAisle != null)
                     if (addAisle.TabPag.Equals(tabControl1.SelectedTab))
                         addAisle.Select();
+            }
+            catch { }
+            try
+            {
+                if (addBin != null)
+                    if (addBin.TabPag.Equals(tabControl1.SelectedTab))
+                        addBin.Select();
+            }
+            catch { }
+            try
+            {
+                if (bins != null)
+                    if (bins.TabPag.Equals(tabControl1.SelectedTab))
+                        bins.Select();
             }
             catch { }
         }

@@ -72,6 +72,12 @@
     <Compile Include="AddAisle.Designer.cs">
       <DependentUpon>AddAisle.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddBin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBin.Designer.cs">
+      <DependentUpon>AddBin.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddAisle.resx">
       <DependentUpon>AddAisle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBin.resx">
+      <DependentUpon>AddBin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddCustomers.resx">
       <DependentUpon>AddCustomers.cs</DependentUpon>
