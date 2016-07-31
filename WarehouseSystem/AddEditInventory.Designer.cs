@@ -429,6 +429,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddEditInventory";
             this.Text = "Item";
+            this.Shown += new System.EventHandler(this.AddEditInventory_Shown);
             this.grpbxAddItem.ResumeLayout(false);
             this.grpbxAddItem.PerformLayout();
             this.grpItemProperties.ResumeLayout(false);

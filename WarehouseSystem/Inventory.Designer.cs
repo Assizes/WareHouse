@@ -51,6 +51,7 @@
             this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInventory.Size = new System.Drawing.Size(533, 305);
             this.dgvInventory.TabIndex = 0;
+            this.dgvInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellContentClick);
             // 
             // btnAddInventory
             // 
@@ -83,6 +84,7 @@
             this.btnDeleteInventory.TabIndex = 4;
             this.btnDeleteInventory.Text = "Delete Inventory";
             this.btnDeleteInventory.UseVisualStyleBackColor = true;
+            this.btnDeleteInventory.Click += new System.EventHandler(this.btnDeleteInventory_Click);
             // 
             // Inventory
             // 

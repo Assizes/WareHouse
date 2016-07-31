@@ -62,14 +62,28 @@ namespace WarehouseSystem
             {
                 form.MdiParent = (Form)Application.OpenForms["WarehouseSystem"];
                 if (type == "Add") form.setType("Add");
-                else form.setType("Edit");
+                else if (type == "Edit") form.setType("Edit");
+                else if (type == "Delete") form.setType("Delete");
                 form.Show();
             }
             else
             {
                 form = (AddEditInventory)Application.OpenForms[formName];
+                AddEditInventory a = new AddEditInventory();
                 if (type == "Add") form.setType("Add");
-                else form.setType("Edit");
+                else if (type == "Edit")
+                {
+                    form.setType("Edit");
+                    a.getDeleteData("Edit");
+                }
+                else if (type == "Delete")
+                {
+                    form.setType("Delete");
+                    
+                    a.getDeleteData("Delete");
+                    a.checkType();
+
+                }
                 form.Focus();
             }
         }     
@@ -140,6 +154,15 @@ namespace WarehouseSystem
             }
         }
 
-        
+        private void btnDeleteInventory_Click(object sender, EventArgs e)
+        {
+            addEditInventory = new AddEditInventory();
+            openWindow("AddEditInventory", ref addEditInventory, "Delete");
+        }
+
+        private void dgvInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
