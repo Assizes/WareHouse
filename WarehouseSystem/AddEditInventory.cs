@@ -32,6 +32,8 @@ namespace WarehouseSystem
         {
             InitializeComponent();
 
+            
+
             //hide this
             /* datetimeItemExpiration.Hide();
                lblExpirationDate.Hide();*/
@@ -39,7 +41,8 @@ namespace WarehouseSystem
             lblExpirationDate.Enabled = false;
             datetimeItemExpiration.Enabled = false;
             // labelItemID.Hide();
-            
+
+
 
             //====
 
@@ -88,21 +91,9 @@ namespace WarehouseSystem
 
             dr.Close();
 
-            //FINISHED LATER//EDIT QUERIES LATER//they should only show ones that are not occupied
-            cmd.CommandText = queries.getAllAisles;
-            doQueries(cmbItemAisle);
-
             cmd.CommandText = queries.getMeasurements;
             doQueries(cmbUnitofMeasurement);
-            
 
-            cmd.CommandText = queries.getAllShelves;
-            doQueries(cmbItemShelf);
-
-            // cmd.CommandText = queries.getAllBins;
-            //Show data not tkaen
-            cmd.CommandText = queries.getBinsNotTaken;
-            doQueries(cmbItemBin);
             //For specefic customer
             //cmd.CommandText = queries.getBinsForThisCustomer;
             //doQueries(cmbItemBin);
@@ -234,7 +225,7 @@ namespace WarehouseSystem
                 lblFind.Show();
                 buttonFind.Show();
             }
-            else
+            else if (type=="Add")
             {
                 btnItemAddSave.Text = "Add Item";
                 btnItemResetCancel.Text = "Reset";
@@ -242,12 +233,45 @@ namespace WarehouseSystem
                 lblFind.Hide();
                 buttonFind.Hide();
             }
+            else
+            {
+                btnItemAddSave.Text = "Delete";
+                btnItemResetCancel.Text = "Cancel";
+                fType = type;
+                lblFind.Show();
+                buttonFind.Show();
+            }
         }
 
         private void btnItemAddSave_Click(object sender, EventArgs e)
         {
+
             connection = warehouse.Connection;
-            if 
+
+            if (fType == "Delete")
+            {
+
+
+                if (cmbItemCustomer.SelectedIndex != -1)
+                {
+                    cmd.Parameters["@itemID"].Value = itemIdData;
+
+                    query = queries.deleteInv;
+                    cmd.CommandText = query;
+                    cmd.Connection = connection;
+                    //Insert/delete command
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Delete Succesful");
+                    //closes form
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please choose a customer");
+                }
+            }   
+            else if 
                 (txtItemName.Text != "" && txtItemDescription.Text != "" && txtItemLength.Text != "" &&
                 txtItemWidth.Text != "" && txtItemHeight.Text != "" && txtItemWeight.Text != ""
                  && txtItemQuantity.Text != "" && cmbItemCustomer.SelectedIndex != -1
@@ -284,7 +308,7 @@ namespace WarehouseSystem
                     String thisDate = Convert.ToDateTime(datetimeItemExpiration.Text).ToString("yyyy-MM-dd");
                     cmd.Parameters["@expirationDate"].Value = thisDate;
 
-                    MessageBox.Show(thisDate);
+                    //MessageBox.Show(thisDate);
                 }
                 else
                 {
@@ -330,16 +354,17 @@ namespace WarehouseSystem
                     MessageBox.Show(ex.ToString());
                 }
             }
-            else//its going to be edit
+            else if(fType == "Edit")//its going to be edit
             {
-                MessageBox.Show("EDIT");
-                MessageBox.Show(itemIdData);
+                
+                //MessageBox.Show(itemIdData);
                 query = queries.editInv;
                 cmd.CommandText = query;
                 cmd.Connection = connection;
                 //Insert/delete command
                 cmd.ExecuteNonQuery();
 
+                MessageBox.Show("Success");
                 //closes form
                 Close();
             } 
@@ -419,11 +444,69 @@ namespace WarehouseSystem
 
         private void btnItemLocation_Click(object sender, EventArgs e)
         {
-            int place = cmbItemCustomer.SelectedIndex;
-            cmd.Parameters["@custID"].Value = customerIDList[place];
-            //For specefic customer
-            cmd.CommandText = queries.getBinsForThisCustomer;
-            doQueries(cmbItemBin);
+            if (cmbItemCustomer.SelectedIndex != -1)
+            {
+                int place = cmbItemCustomer.SelectedIndex;
+
+                //For specefic customer
+                cmd.CommandText = queries.getBinsForThisCustomer;
+                doQueries(cmbItemBin);
+
+                //FINISHED LATER//EDIT QUERIES LATER//they should only show ones that are not occupied
+                cmd.CommandText = queries.getAllAisles;
+                doQueries(cmbItemAisle);
+
+                cmd.CommandText = queries.getAllShelves;
+                doQueries(cmbItemShelf);
+
+                // cmd.CommandText = queries.getAllBins;
+                //Show data not tkaen
+                cmd.CommandText = queries.getBinsNotTaken;
+                doQueries(cmbItemBin);
+
+                cmd.Parameters["@custID"].Value = customerIDList[place];
+
+                MessageBox.Show("Data Has Been Loaded");
+
+            }
+            else
+            {
+                MessageBox.Show("Please Select a customer");
+            }
+        }
+
+        public void getDeleteData(String data)
+        {
+            fType = data;
+
+        }
+
+        public void checkType()
+        {
+            if (fType == "Delete")
+            {
+                txtItemName.Enabled = false;
+                txtItemDescription.Enabled = false;
+                txtItemLength.Enabled = false;
+                txtItemWidth.Enabled = false;
+                txtItemHeight.Enabled = false;
+                txtItemWeight.Enabled = false;
+                txtItemQuantity.Enabled = false;
+                cmbUnitofMeasurement.Enabled = false;
+                cmbItemAisle.Enabled = false;
+                cmbItemShelf.Enabled = false;
+                cmbItemBin.Enabled = false;
+                btnItemLocation.Enabled = false;
+                rdoExpirationNo.Enabled = false;
+                rdoExpirationYes.Enabled = false;
+
+            }
+            
+        }
+
+        private void AddEditInventory_Shown(object sender, EventArgs e)
+        {
+            checkType();
         }
     }
 }
