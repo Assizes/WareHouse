@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <document>
-<server>ec2-52-201-212-193.compute-1.amazonaws.com</server>
-<database>sampdb</database>
-<uid>s2016_user1</uid>
-<password>s2016_user1</password>
+<server>sql3.freemysqlhosting.net</server>
+<database>sql3134099</database>
+<uid>sql3134099</uid>
+<password>Znv4fZsprN</password>
 </document>
